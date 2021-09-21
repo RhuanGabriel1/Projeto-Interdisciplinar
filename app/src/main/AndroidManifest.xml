@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.imed">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.IMed">
+        <activity android:name=".Telas.TelasFarm.tela_farmaceutico_apresentacao_receita"></activity>
+        <activity android:name=".Telas.TelasPaciente.tela_paciente_examinar_receita" />
+        <activity android:name=".Telas.TelasMed.tela_medico_gerar_receita" />
+        <activity android:name=".Telas.TelasAdm.tela_adm_excluir_conta" />
+        <activity android:name=".Telas.TelasMed.tela_medico_estoque" />
+        <activity android:name=".Telas.TelasFarm.tela_farmaceutico_estoque" />
+        <activity android:name=".Telas.TelasFarm.tela_farmaceutico_cadastrar_medicamento" />
+        <activity android:name=".Telas.TelasFarm.tela_farmaceutico_checar_receita" />
+        <activity android:name=".Telas.TelasAdm.tela_adm_criar_conta_farm_e_med" />
+        <activity android:name=".Telas.TelasPaciente.tela_paciente_inicio" />
+        <activity android:name=".Telas.TelasAdm.tela_adm_inicio" />
+        <activity android:name=".Telas.TelasFarm.tela_farmaceutico_inicio" />
+        <activity android:name=".Telas.TelasMed.tela_medico_inicio" />
+        <activity android:name=".Telas.TelasAdm.tela_adm_login" />
+        <activity android:name=".Telas.TelasPaciente.tela_paciente_criar_conta" />
+        <activity android:name=".Telas.TelasFarm.tela_farmaceutico_login" />
+        <activity android:name=".Telas.TelasMed.tela_medico_login" />
+        <activity android:name=".Telas.TelasPaciente.tela_paciente_login" />
+        <activity android:name=".Telas.Main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
