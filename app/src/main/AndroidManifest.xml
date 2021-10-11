@@ -8,6 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.IMed">
         <activity android:name=".Views.TelasFarm.tela_farmaceutico_apresentacao_receita"></activity>
         <activity android:name=".Views.TelasPaciente.tela_paciente_examinar_receita" />
