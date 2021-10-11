@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.imed.Database.ClasseDAO;
+import com.example.imed.Database.MySQLConnection;
 import com.example.imed.R;
 import com.example.imed.Views.TelasAdm.tela_adm_login;
 import com.example.imed.Views.TelasFarm.tela_farmaceutico_login;
@@ -35,9 +36,19 @@ public class MainActivity extends AppCompatActivity {
         button_paciente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dao.abrir();
-                Intent intent = new Intent(MainActivity.this, tela_paciente_login.class);
-                startActivity(intent);
+                MySQLConnection connection = new MySQLConnection();
+                connection.queryMysql("select * from test",getApplicationContext(),result -> {
+                    Object[] teste = new Object[result.length];
+                    for(int i = 0; i < result.length;i++){
+
+                        teste[i] = result[i];
+                        System.out.println(teste[i]);
+
+                    }
+                });
+//                dao.abrir();
+//                Intent intent = new Intent(MainActivity.this, tela_paciente_login.class);
+//                startActivity(intent);
             }
         });
 
