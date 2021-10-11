@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.imed.Banco.ClasseDAO;
+import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 
 public class tela_farmaceutico_checar_receita extends AppCompatActivity {

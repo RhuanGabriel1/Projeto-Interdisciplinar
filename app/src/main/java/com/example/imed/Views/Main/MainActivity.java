@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.example.imed.Banco.ClasseDAO;
+import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 import com.example.imed.Views.TelasAdm.tela_adm_login;
 import com.example.imed.Views.TelasFarm.tela_farmaceutico_login;

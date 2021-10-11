@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.imed.Banco.ClasseDAO;
+import com.example.imed.Database.ClasseDAO;
 import com.example.imed.Views.Main.MainActivity;
 import com.example.imed.R;
 

@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.imed.Banco.ClasseDAO;
+import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 
 public class tela_farmaceutico_apresentacao_receita extends AppCompatActivity {

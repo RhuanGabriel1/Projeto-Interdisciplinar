@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import com.example.imed.Banco.ClasseDAO;
+import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 import com.example.imed.Controllers.Receita;
 

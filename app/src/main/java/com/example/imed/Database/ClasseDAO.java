@@ -1,5 +1,5 @@
 
-package com.example.imed.Banco;
+package com.example.imed.Database;
 
 import android.content.ContentValues;
 import android.content.Context;

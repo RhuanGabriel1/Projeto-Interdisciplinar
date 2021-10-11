@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
 
-import com.example.imed.Banco.ClasseDAO;
+import com.example.imed.Database.ClasseDAO;
 import com.example.imed.Controllers.Medicamentos;
 import com.example.imed.R;
 

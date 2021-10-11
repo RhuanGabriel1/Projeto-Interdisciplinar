@@ -13,7 +13,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.imed.Banco.ClasseDAO;
+import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 import com.example.imed.Controllers.Farmaceutico;
 import com.example.imed.Controllers.Medico;

@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.SearchView;
 
-import com.example.imed.Banco.ClasseDAO;
+import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 import com.example.imed.Controllers.Farmaceutico;
 import com.example.imed.Controllers.Medico;
