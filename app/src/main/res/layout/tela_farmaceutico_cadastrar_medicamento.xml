@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_backgroud"
-    tools:context=".Telas.TelasFarm.tela_farmaceutico_cadastrar_medicamento">
+    tools:context=".Views.TelasFarm.tela_farmaceutico_cadastrar_medicamento">
 
     <ImageButton
         android:id="@+id/imageButton_tela_cadastrar_medicamento_back"

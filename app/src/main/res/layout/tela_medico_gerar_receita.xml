@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_backgroud"
-    tools:context=".Telas.TelasMed.tela_medico_gerar_receita">
+    tools:context=".Views.TelasMed.tela_medico_gerar_receita">
 
     <TextView
         android:id="@+id/textView25"

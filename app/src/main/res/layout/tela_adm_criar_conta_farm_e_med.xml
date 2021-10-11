@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_backgroud"
-    tools:context=".Telas.TelasAdm.tela_adm_criar_conta_farm_e_med">
+    tools:context=".Views.TelasAdm.tela_adm_criar_conta_farm_e_med">
 
     <Button
         android:id="@+id/button_criar_conta"
