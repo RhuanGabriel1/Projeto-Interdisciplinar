@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.imed.Controllers.Adm.AdmLoginController;
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.Views.Main.MainActivity;
 import com.example.imed.R;
@@ -23,9 +24,6 @@ public class tela_adm_login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        ClasseDAO dao = new ClasseDAO(this);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_adm_login);
 
@@ -56,21 +54,17 @@ public class tela_adm_login extends AppCompatActivity {
         button_tela_login_adm_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                try{
-                    if(dao.obterLoginAdm(textNumber_tela_login_screen_adm_login.getText().toString())[0].toString().equals(textPassword_tela_login_screen_adm.getText().toString())){
-                        Toast.makeText(tela_adm_login.this, "Login efetuado com sucesso", Toast.LENGTH_SHORT).show();
-
-                        Intent intent = new Intent(tela_adm_login.this, tela_adm_inicio.class);
-                        intent.putExtra("ContaAdm", textNumber_tela_login_screen_adm_login.getText().toString());//Envia o dado de qual adm está logado
-                        startActivity(intent);
-                    }else{
-                        Toast.makeText(tela_adm_login.this, "Dados incorretos!", Toast.LENGTH_SHORT).show();
-                    }
-                }catch (NullPointerException e){
-                    Toast.makeText(tela_adm_login.this, "Dados incorretos!", Toast.LENGTH_SHORT).show();
+                //import controller for get methods
+                AdmLoginController adm = new AdmLoginController(
+                        textNumber_tela_login_screen_adm_login.getText().toString(),
+                        textPassword_tela_login_screen_adm.getText().toString(),
+                        getApplicationContext()
+                );
+                if(adm.makeLogin()){
+                    Intent intent = new Intent(getApplicationContext(), tela_adm_inicio.class);
+                    intent.putExtra("ContaAdm", textNumber_tela_login_screen_adm_login.getText().toString());//Envia o dado de qual adm está logado
+                    startActivity(intent);
                 }
-                
 
             }
         });

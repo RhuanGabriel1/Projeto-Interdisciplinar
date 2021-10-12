@@ -36,19 +36,9 @@ public class MainActivity extends AppCompatActivity {
         button_paciente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MySQLConnection connection = new MySQLConnection();
-                connection.queryMysql("select * from test",getApplicationContext(),result -> {
-                    Object[] teste = new Object[result.length];
-                    for(int i = 0; i < result.length;i++){
-
-                        teste[i] = result[i];
-                        System.out.println(teste[i]);
-
-                    }
-                });
-//                dao.abrir();
-//                Intent intent = new Intent(MainActivity.this, tela_paciente_login.class);
-//                startActivity(intent);
+                dao.abrir();
+                Intent intent = new Intent(MainActivity.this, tela_paciente_login.class);
+                startActivity(intent);
             }
         });
 
@@ -84,7 +74,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 }

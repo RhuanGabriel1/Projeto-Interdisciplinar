@@ -28,8 +28,8 @@ public class MySQLConnection {
         // Instantiate the RequestQueue.
 
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url = "http://192.168.0.2:4000/select?";
-        //String url = "http://172.20.0.1:4000/select?";
+//      String url = "http://192.168.0.2:4000/select?";
+        String url = "http://172.20.0.1:4000/select?";
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,

@@ -191,9 +191,6 @@ public class tela_adm_excluir_conta extends AppCompatActivity {
         });
         //Fim do método para atualizar a lista
 
-
-
-
         //Método criado para voltar a tela anterior
         imageButton_tela_adm_delete_account_go_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,15 +201,5 @@ public class tela_adm_excluir_conta extends AppCompatActivity {
             }
         });
         //Fim do método criado para voltar a tela anterior
-
-
-
-
-
-
-
-
-
-
     }
 }

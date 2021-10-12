@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.imed.Controllers.Adm.AdmCriarContaFarmMedController;
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 import com.example.imed.Controllers.Farmaceutico;
@@ -20,19 +21,15 @@ import com.example.imed.Controllers.Medico;
 
 public class tela_adm_criar_conta_farm_e_med extends AppCompatActivity {
 
-    Medico medico = new Medico();
-    Farmaceutico farmaceutico = new Farmaceutico();
 
-    ImageButton imageButton_tela_create_account_adm_back;
-    RadioButton radioButton_medico, radioButton_farmaceutico;
-    Button button_criar_conta;
-    TextView textView_nome_farm_med, textView_crm_crf, textView_senha_farm_med, textView_repetir_senha_farm_med;
+    private ImageButton imageButton_tela_create_account_adm_back;
+    private RadioButton radioButton_medico, radioButton_farmaceutico;
+    private Button button_criar_conta;
+    private TextView textView_nome_farm_med, textView_crm_crf, textView_senha_farm_med, textView_repetir_senha_farm_med;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        ClasseDAO dao = new ClasseDAO(this);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_adm_criar_conta_farm_e_med);
@@ -45,7 +42,6 @@ public class tela_adm_criar_conta_farm_e_med extends AppCompatActivity {
         //=========================================================================//
         imageButton_tela_create_account_adm_back = findViewById(R.id.imageButton_tela_create_account_adm_back);
         //=========================================================================//
-
 
         //Botão criado para retornar para a tela anterior
         imageButton_tela_create_account_adm_back.setOnClickListener(new View.OnClickListener() {
@@ -105,63 +101,17 @@ public class tela_adm_criar_conta_farm_e_med extends AppCompatActivity {
         button_criar_conta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    if(radioButton_farmaceutico.isChecked()){
 
-                        farmaceutico.setNome(textView_nome_farm_med.getText().toString());//Recebendo os valores dos textFields
-                        farmaceutico.setCrf(textView_crm_crf.getText().toString());
-                        farmaceutico.setSenha(textView_senha_farm_med.getText().toString());
-                        farmaceutico.setFk_adm_farm(valor);
+                AdmCriarContaFarmMedController adm = new AdmCriarContaFarmMedController(
+                        radioButton_farmaceutico.isChecked(),textView_nome_farm_med.getText().toString(),
+                        textView_crm_crf.getText().toString(),textView_senha_farm_med.getText().toString(),
+                        textView_repetir_senha_farm_med.getText().toString(),valor,getApplicationContext()
+                );
 
-                        if(textView_nome_farm_med.getText().toString().equals("") || textView_crm_crf.getText().toString().equals("")
-                                || textView_senha_farm_med.getText().toString().equals("") || textView_repetir_senha_farm_med.getText().toString().equals("")){
-
-                            Toast.makeText(tela_adm_criar_conta_farm_e_med.this, "Há campos vazios!", Toast.LENGTH_SHORT).show();
-
-                        }
-                        else if (farmaceutico.getSenha().equals(textView_repetir_senha_farm_med.getText().toString())){
-
-                            dao.inserirFarmaceutico(farmaceutico);
-
-                            Toast.makeText(tela_adm_criar_conta_farm_e_med.this, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(tela_adm_criar_conta_farm_e_med.this, tela_adm_inicio.class);
-                            intent.putExtra("ContaAdm", valor);//Envia o dado de qual adm está logado
-                            startActivity(intent);
-
-                        }
-                        else{
-                            Toast.makeText(tela_adm_criar_conta_farm_e_med.this, "Os campos das senhas não são iguais", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    else{
-
-                        medico.setNome(textView_nome_farm_med.getText().toString());//Recebendo os valores dos textFields
-                        medico.setCrm(textView_crm_crf.getText().toString());
-                        medico.setSenha(textView_senha_farm_med.getText().toString());
-                        medico.setFk_adm_med(valor);
-
-                        if(textView_nome_farm_med.getText().toString().equals("") || textView_crm_crf.getText().toString().equals("")
-                                || textView_senha_farm_med.getText().toString().equals("")
-                                || textView_repetir_senha_farm_med.getText().toString().equals("")){
-                            Toast.makeText(tela_adm_criar_conta_farm_e_med.this, "Há campos vazios!", Toast.LENGTH_SHORT).show();
-                        }
-                        else if(medico.getSenha().equals(textView_repetir_senha_farm_med.getText().toString())){
-
-                            dao.inserirMedico(medico);
-
-                            Toast.makeText(tela_adm_criar_conta_farm_e_med.this, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(tela_adm_criar_conta_farm_e_med.this, tela_adm_inicio.class);
-                            intent.putExtra("ContaAdm", valor);//Envia o dado de qual adm está logado
-                            startActivity(intent);
-
-                        }
-                        else{
-                            Toast.makeText(tela_adm_criar_conta_farm_e_med.this, "Os campos das senhas não são iguais", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }catch (SQLiteConstraintException e){
-                    Toast.makeText(tela_adm_criar_conta_farm_e_med.this, "Esse CRM/CRF já foi cadastrado!", Toast.LENGTH_SHORT).show();
+                if(adm.makeAccount()){
+                    Intent intent = new Intent(tela_adm_criar_conta_farm_e_med.this, tela_adm_inicio.class);
+                    intent.putExtra("ContaAdm", valor);//Envia o dado de qual adm está logado
+                    startActivity(intent);
                 }
             }
         });
