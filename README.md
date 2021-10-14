@@ -1,7 +1,9 @@
 1. Objetivo
+
 O objetivo do app iMed é o de agilizar e facilitar a comunicação entre médico, farmacêutico e paciente, além de reduzir custos e evitar fraudes.
 
 2. Requisitos
+
 2.1. Requisitos de negócios
   • Melhorar a comunicação entre médico, farmacêutico e paciente;
   • Evitar fraudes dentro do hospital em que o sistema está sendo usado;
