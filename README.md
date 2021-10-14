@@ -6,35 +6,35 @@ O objetivo do app iMed é o de agilizar e facilitar a comunicação entre médic
 
 2.1. Requisitos de negócios
   
-  • Melhorar a comunicação entre médico, farmacêutico e paciente;
-  
-  • Evitar fraudes dentro do hospital em que o sistema está sendo usado;
-  
-  • Evitar erros de prescrição de receitas médicas;
-  
-  • Ajudar o usuário-paciente com seus medicamentos a ele receitados.
+    • Melhorar a comunicação entre médico, farmacêutico e paciente;
+
+    • Evitar fraudes dentro do hospital em que o sistema está sendo usado;
+
+    • Evitar erros de prescrição de receitas médicas;
+
+    • Ajudar o usuário-paciente com seus medicamentos a ele receitados.
 
 2.2. Requisitos Funcionais
   
-  • O app possuí sistema de login;
-  
-  • O app pode gerar uma receita, e validar a sua autenticidade;
- 
-  • O usuário-paciente pode criar conta e ver suas receitas;
-  
-  • Administrador pode excluir contas;
+    • O app possuí sistema de login;
+
+    • O app pode gerar uma receita, e validar a sua autenticidade;
+
+    • O usuário-paciente pode criar conta e ver suas receitas;
+
+    • Administrador pode excluir contas;
 
 2.3. Requisitos Não Funcionais
   
-  • O app irá rodar somente em sistemas com o SO Android 7.1 para cima;
-  
-  • O app foi implementado usando a linguagem de programação Java;
-  
-  • O SGBD utilizado é o MySQL;
-  
-  • A modelagem gráfica foi feita na linguagem de marcação XML;
-  
-  • A ferramenta de desenvolvimento utilizada é o Android Studio. 
+    • O app irá rodar somente em sistemas com o SO Android 7.1 para cima;
+
+    • O app foi implementado usando a linguagem de programação Java;
+
+    • O SGBD utilizado é o MySQL;
+
+    • A modelagem gráfica foi feita na linguagem de marcação XML;
+
+    • A ferramenta de desenvolvimento utilizada é o Android Studio. 
 
 3. Diagrama de Casos de Uso
 
