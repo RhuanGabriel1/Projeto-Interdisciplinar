@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
-import com.example.imed.Controllers.Paciente;
+import com.example.imed.Controllers.Paciente.Paciente;
 
 public class tela_paciente_criar_conta extends AppCompatActivity {
 

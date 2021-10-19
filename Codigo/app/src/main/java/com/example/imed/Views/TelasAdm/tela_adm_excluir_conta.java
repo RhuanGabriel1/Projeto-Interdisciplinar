@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.SearchView;
 
+import com.example.imed.Controllers.Adm.AdmExcluirContaController;
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 import com.example.imed.Controllers.Farmaceutico;
@@ -24,14 +25,10 @@ import java.util.List;
 
 public class tela_adm_excluir_conta extends AppCompatActivity {
 
-
-
-    ImageButton imageButton_tela_adm_delete_account_go_back,imageButton_excluir,imageButton_update;
-    RadioButton radioButton_farmaceutico_lista,radioButton_medico_lista;
-    ListView ListaContas;
-    SearchView SearchView_contas;
-
-
+    private ImageButton imageButton_tela_adm_delete_account_go_back,imageButton_excluir,imageButton_update;
+    private RadioButton radioButton_farmaceutico_lista,radioButton_medico_lista;
+    private ListView ListaContas;
+    private SearchView SearchView_contas;
     private List<Farmaceutico> farmaceuticos;
     private List<Medico> medicos;
     private View previousColor;
@@ -41,7 +38,6 @@ public class tela_adm_excluir_conta extends AppCompatActivity {
 
     private Farmaceutico itemFarm;
     private Medico itemMed;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,15 +78,14 @@ public class tela_adm_excluir_conta extends AppCompatActivity {
         //=============================================================//
 
 
+
         //Método criado para quando clicar no RadioButton farmaceutico exibir a lista das contas faramacêutico
         radioButton_farmaceutico_lista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(radioButton_farmaceutico_lista.isChecked()){
-
                     radioButton_medico_lista.setChecked(false);
                     ListaContas.setAdapter(adapterFarmaceutico);
-
                 }
             }
         });
@@ -101,10 +96,8 @@ public class tela_adm_excluir_conta extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(radioButton_medico_lista.isChecked()){
-
                     radioButton_farmaceutico_lista.setChecked(false);
                     ListaContas.setAdapter(adapterMedico);
-
                 }
             }
         });
@@ -164,14 +157,9 @@ public class tela_adm_excluir_conta extends AppCompatActivity {
         imageButton_excluir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(radioButton_farmaceutico_lista.isChecked()) {
-                    farmaceuticos.remove(itemFarm);
-                    dao.deletarContaFarmaceutico(itemFarm.getCrf());
-                }
-                else{
-                    medicos.remove(itemMed);
-                    dao.deletarContaMedico(itemMed.getCrm());
-                }
+                AdmExcluirContaController admExcluirContaController = new AdmExcluirContaController(radioButton_farmaceutico_lista.isChecked(), farmaceuticos, medicos, itemFarm, itemMed,
+                        getApplicationContext());
+                admExcluirContaController.deleteAccount();
             }
         });
         //Fim do método de excluir conta médico/farmacêutico
