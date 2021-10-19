@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.example.imed.Controllers.Farmaceutico;
 import com.example.imed.Controllers.Medicamentos;
 import com.example.imed.Controllers.Medico;
-import com.example.imed.Controllers.Paciente;
+import com.example.imed.Controllers.Paciente.Paciente;
 import com.example.imed.Controllers.Receita;
 
 import java.util.ArrayList;

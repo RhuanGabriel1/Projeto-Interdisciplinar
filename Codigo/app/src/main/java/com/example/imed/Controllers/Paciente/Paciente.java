@@ -1,5 +1,5 @@
-package com.example.imed.Controllers;
-
+package com.example.imed.Controllers.Paciente;
+import com.example.imed.Controllers.Usuario;
 
 public class Paciente extends Usuario {
 

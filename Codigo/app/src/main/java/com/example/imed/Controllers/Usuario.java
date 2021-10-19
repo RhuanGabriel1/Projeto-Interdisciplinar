@@ -23,9 +23,7 @@ public abstract class Usuario {
 
 
 
-    Usuario(){
 
-    }
 
 
 }

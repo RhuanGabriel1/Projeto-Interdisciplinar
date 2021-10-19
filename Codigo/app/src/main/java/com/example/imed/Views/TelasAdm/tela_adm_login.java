@@ -18,9 +18,9 @@ import com.example.imed.R;
 
 public class tela_adm_login extends AppCompatActivity {
 
-    ImageButton imgButton_back_tela_login_screen_adm;
-    Button button_tela_login_adm_entrar;
-    TextView textNumber_tela_login_screen_adm_login,textPassword_tela_login_screen_adm;
+    private ImageButton imgButton_back_tela_login_screen_adm;
+    private Button button_tela_login_adm_entrar;
+    private TextView textNumber_tela_login_screen_adm_login,textPassword_tela_login_screen_adm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

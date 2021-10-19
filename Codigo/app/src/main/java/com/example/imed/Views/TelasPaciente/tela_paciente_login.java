@@ -11,15 +11,16 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.imed.Controllers.Paciente.PacienteLoginController;
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 import com.example.imed.Views.Main.MainActivity;
 
 public class tela_paciente_login extends AppCompatActivity {
 
-    ImageButton imageButton_tela_login_paciente_back;
-    Button button_tela_paciente_entrar, button_tela_paciente_criar_conta;
-    TextView textView_tela_login_paciente_cpf,textView_tela_login_paciente_senha;
+    private ImageButton imageButton_tela_login_paciente_back;
+    private Button button_tela_paciente_entrar, button_tela_paciente_criar_conta;
+    private TextView textView_tela_login_paciente_cpf,textView_tela_login_paciente_senha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,23 +48,12 @@ public class tela_paciente_login extends AppCompatActivity {
         button_tela_paciente_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-
-                    if(dao.obterLoginPaciente(textView_tela_login_paciente_cpf.getText().toString())[0].toString().equals(textView_tela_login_paciente_senha.getText().toString())){
-
-                        Toast.makeText(tela_paciente_login.this, "Login efetuado com sucesso", Toast.LENGTH_SHORT).show();
-
-                        Intent intent = new Intent(tela_paciente_login.this, tela_paciente_inicio.class);
-                        intent.putExtra("PacienteCpf", textView_tela_login_paciente_cpf.getText().toString());//Envia o dado de qual paciente está logado
-                        startActivity(intent);
-
-                    }
-                    else{
-                        Toast.makeText(tela_paciente_login.this, "Dados incorretos", Toast.LENGTH_SHORT).show();
-                    }
-
-                }catch (NullPointerException e){
-                    Toast.makeText(tela_paciente_login.this, "Dados incorretos!", Toast.LENGTH_SHORT).show();
+                PacienteLoginController pacienteLoginController = new PacienteLoginController(textView_tela_login_paciente_cpf.getText().toString(),
+                        textView_tela_login_paciente_senha.getText().toString(),getApplicationContext());
+                if(pacienteLoginController.makeLogin()){
+                    Intent intent = new Intent(tela_paciente_login.this, tela_paciente_inicio.class);
+                    intent.putExtra("PacienteCpf", textView_tela_login_paciente_cpf.getText().toString());//Envia o dado de qual paciente está logado
+                    startActivity(intent);
                 }
             }
         });
