@@ -2,7 +2,7 @@ package com.example.imed.Controllers.Adm;
 import android.content.Context;
 import android.database.sqlite.SQLiteConstraintException;
 import android.widget.Toast;
-import com.example.imed.Controllers.Farmaceutico;
+import com.example.imed.Controllers.Farmaceutico.Farmaceutico;
 import com.example.imed.Controllers.Medico.Medico;
 import com.example.imed.Database.ClasseDAO;
 
@@ -44,6 +44,7 @@ public class AdmCriarContaFarmMedController {
                     }
                     else if (farmaceutico.getSenha().equals(repetir_senha_farm_med)){
                         dao.inserirFarmaceutico(farmaceutico);
+                        Toast.makeText(context, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show();
                         return true;
                     }
                     else{
