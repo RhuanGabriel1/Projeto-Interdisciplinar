@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.imed.Controllers.Farmaceutico.FarmaceuticoLoginController;
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 import com.example.imed.Views.Main.MainActivity;
@@ -56,22 +57,13 @@ public class tela_farmaceutico_login extends AppCompatActivity {
         tela_login_farmaceutico_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FarmaceuticoLoginController farmaceuticoLoginController = new FarmaceuticoLoginController(textView_tela_login_farmaceutico_crf.getText().toString(),
+                        textView_tela_login_farmaceutico_senha.getText().toString(), getApplicationContext());
 
-                try{
-                    if(dao.obterLoginFarmaceutico(textView_tela_login_farmaceutico_crf.getText().toString())[0].
-                            toString().equals(textView_tela_login_farmaceutico_senha.getText().toString())){
-                        Toast.makeText(tela_farmaceutico_login.this, "Login efetuado com sucesso", Toast.LENGTH_SHORT).show();
-
-                        Intent intent = new Intent(tela_farmaceutico_login.this, tela_farmaceutico_inicio.class);
-                        intent.putExtra("FarmCrf", textView_tela_login_farmaceutico_crf.getText().toString());//Envia o dado de qual farmacêutico está logado
-                        startActivity(intent);
-
-                    }
-                    else{
-                        Toast.makeText(tela_farmaceutico_login.this, "Dados incorretos!", Toast.LENGTH_SHORT).show();
-                    }
-                }catch (NullPointerException e){
-                    Toast.makeText(tela_farmaceutico_login.this, "Dados incorretos!", Toast.LENGTH_SHORT).show();
+                if(farmaceuticoLoginController.makeLogin()){
+                    Intent intent = new Intent(tela_farmaceutico_login.this, tela_farmaceutico_inicio.class);
+                    intent.putExtra("FarmCrf", textView_tela_login_farmaceutico_crf.getText().toString());//Envia o dado de qual farmacêutico está logado
+                    startActivity(intent);
                 }
             }
         });
