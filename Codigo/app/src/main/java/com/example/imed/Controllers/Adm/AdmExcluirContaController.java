@@ -1,10 +1,9 @@
 package com.example.imed.Controllers.Adm;
 
 import android.content.Context;
-import android.widget.RadioButton;
 
 import com.example.imed.Controllers.Farmaceutico;
-import com.example.imed.Controllers.Medico;
+import com.example.imed.Controllers.Medico.Medico;
 import com.example.imed.Database.ClasseDAO;
 
 import java.util.List;
