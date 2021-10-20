@@ -23,16 +23,13 @@ public class PacienteLoginController {
     public boolean makeLogin(){
         try{
             if(dao.obterLoginPaciente(login)[0].toString().equals(password)){
-
                 Toast.makeText(context, "Login efetuado com sucesso", Toast.LENGTH_SHORT).show();
-
                 return true;
             }
             else{
                 Toast.makeText(context, "Dados incorretos", Toast.LENGTH_SHORT).show();
                 return false;
             }
-
         }catch (NullPointerException e){
             Toast.makeText(context, "Dados incorretos!", Toast.LENGTH_SHORT).show();
             return false;

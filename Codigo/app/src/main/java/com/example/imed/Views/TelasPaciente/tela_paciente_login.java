@@ -24,9 +24,6 @@ public class tela_paciente_login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        ClasseDAO dao = new ClasseDAO(this);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_paciente_login);
 

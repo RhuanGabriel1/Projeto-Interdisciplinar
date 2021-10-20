@@ -38,7 +38,6 @@ public class AdmCriarContaFarmMedController {
 
                     if(nome_farm_med.equals("") || crm_crf.equals("")
                             || senha_farm_med.equals("") || repetir_senha_farm_med.equals("")){
-
                         Toast.makeText(context, "Há campos vazios!", Toast.LENGTH_SHORT).show();
                         return false;
 
@@ -46,16 +45,13 @@ public class AdmCriarContaFarmMedController {
                     else if (farmaceutico.getSenha().equals(repetir_senha_farm_med)){
                         dao.inserirFarmaceutico(farmaceutico);
                         return true;
-
                     }
                     else{
                         Toast.makeText(context, "Os campos das senhas não são iguais", Toast.LENGTH_SHORT).show();
                         return false;
-
                     }
                 }
                 else{
-
                     medico.setNome(nome_farm_med);//Recebendo os valores dos textFields
                     medico.setCrm(crm_crf);
                     medico.setSenha(senha_farm_med);
