@@ -42,7 +42,7 @@ O objetivo do app iMed é o de agilizar e facilitar a comunicação entre médic
 
 4. Diagrama de Classes
 
-![Diagrama de classes](https://user-images.githubusercontent.com/74109343/137397539-534446b7-5edd-4d07-a186-38a433ee0b0b.jpeg)
+![Diagrama de classes](https://user-images.githubusercontent.com/74109343/138169978-020e6090-396d-4f1f-9611-c1a5655c2b35.jpeg)
 
 
 5. Diagramas C4 Model 
