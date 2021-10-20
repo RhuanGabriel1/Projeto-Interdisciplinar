@@ -3,7 +3,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteConstraintException;
 import android.widget.Toast;
 import com.example.imed.Controllers.Farmaceutico;
-import com.example.imed.Controllers.Medico;
+import com.example.imed.Controllers.Medico.Medico;
 import com.example.imed.Database.ClasseDAO;
 
 public class AdmCriarContaFarmMedController {

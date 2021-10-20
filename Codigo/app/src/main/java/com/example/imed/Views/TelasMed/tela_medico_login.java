@@ -11,21 +11,19 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.imed.Controllers.Medico.MedicoLoginController;
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 import com.example.imed.Views.Main.MainActivity;
 
 public class tela_medico_login extends AppCompatActivity {
 
-    ImageButton imgButton_back_tela_login_screen_medico;
-    Button button_tela_login_screen_medico_entrar;
-    TextView textField_tela_login_screen_medico_crm,textPassword_tela_login_screen_medico;
+    private ImageButton imgButton_back_tela_login_screen_medico;
+    private Button button_tela_login_screen_medico_entrar;
+    private TextView textField_tela_login_screen_medico_crm,textPassword_tela_login_screen_medico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        ClasseDAO dao = new ClasseDAO(this);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_medico_login);
 
@@ -56,18 +54,13 @@ public class tela_medico_login extends AppCompatActivity {
         button_tela_login_screen_medico_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    if(dao.obterLoginMedico(textField_tela_login_screen_medico_crm.getText().toString())[0].toString().equals(textPassword_tela_login_screen_medico.getText().toString())){
-                        Toast.makeText(tela_medico_login.this, "Login efetuado com sucesso", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(tela_medico_login.this, tela_medico_inicio.class);
-                        intent.putExtra("MedicoCrm", textField_tela_login_screen_medico_crm.getText().toString());//Envia o dado de qual médico está logado
-                        startActivity(intent);
-                    }
-                    else{
-                        Toast.makeText(tela_medico_login.this, "Dados incorretos", Toast.LENGTH_SHORT).show();
-                    }
-                }catch (NullPointerException e){
-                    Toast.makeText(tela_medico_login.this, "Dados incorretos", Toast.LENGTH_SHORT).show();
+                MedicoLoginController medicoLoginController = new MedicoLoginController(textField_tela_login_screen_medico_crm.getText().toString(),
+                        textPassword_tela_login_screen_medico.getText().toString(), getApplicationContext());
+
+                if(medicoLoginController.makeLogin()){
+                    Intent intent = new Intent(tela_medico_login.this, tela_medico_inicio.class);
+                    intent.putExtra("MedicoCrm", textField_tela_login_screen_medico_crm.getText().toString());//Envia o dado de qual médico está logado
+                    startActivity(intent);
                 }
             }
         });

@@ -3,7 +3,6 @@ package com.example.imed.Views.TelasAdm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.View;
@@ -11,13 +10,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.imed.Controllers.Adm.AdmCriarContaFarmMedController;
-import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
-import com.example.imed.Controllers.Farmaceutico;
-import com.example.imed.Controllers.Medico;
 
 public class tela_adm_criar_conta_farm_e_med extends AppCompatActivity {
 

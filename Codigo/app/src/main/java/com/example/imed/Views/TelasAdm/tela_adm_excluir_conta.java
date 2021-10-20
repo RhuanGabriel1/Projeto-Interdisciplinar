@@ -19,7 +19,7 @@ import com.example.imed.Controllers.Adm.AdmExcluirContaController;
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 import com.example.imed.Controllers.Farmaceutico;
-import com.example.imed.Controllers.Medico;
+import com.example.imed.Controllers.Medico.Medico;
 
 import java.util.List;
 
