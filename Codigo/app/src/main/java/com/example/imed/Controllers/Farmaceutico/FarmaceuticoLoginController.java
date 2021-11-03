@@ -1,12 +1,10 @@
 package com.example.imed.Controllers.Farmaceutico;
 
 import android.content.Context;
-import android.content.Intent;
 import android.widget.Toast;
 
 import com.example.imed.Database.ClasseDAO;
-import com.example.imed.Views.TelasFarm.tela_farmaceutico_inicio;
-import com.example.imed.Views.TelasFarm.tela_farmaceutico_login;
+
 
 public class FarmaceuticoLoginController {
 
