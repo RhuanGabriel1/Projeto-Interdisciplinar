@@ -16,9 +16,9 @@ import com.example.imed.Views.Main.MainActivity;
 
 public class tela_medico_login extends AppCompatActivity {
 
-    private ImageButton imgButton_back_tela_login_screen_medico;
-    private Button button_tela_login_screen_medico_entrar;
-    private TextView textField_tela_login_screen_medico_crm,textPassword_tela_login_screen_medico;
+    private ImageButton imgButtonGoBackTelaLoginScreenMedico;
+    private Button buttonTelaLoginScreenMedicoEntrar;
+    private TextView textFieldTelaLoginScreenMedicoCrm, textPasswordTelaLoginScreenMedico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,19 +26,19 @@ public class tela_medico_login extends AppCompatActivity {
         setContentView(R.layout.tela_medico_login);
 
         //==========================================================================//
-        textField_tela_login_screen_medico_crm = findViewById(R.id.textField_tela_login_screen_medico_crm);
-        textField_tela_login_screen_medico_crm.setFilters(new InputFilter[]{new InputFilter.LengthFilter(7)});
+        textFieldTelaLoginScreenMedicoCrm = findViewById(R.id.textField_tela_login_screen_medico_crm);
+        textFieldTelaLoginScreenMedicoCrm.setFilters(new InputFilter[]{new InputFilter.LengthFilter(7)});
 
-        textPassword_tela_login_screen_medico = findViewById(R.id.textPassword_tela_login_screen_medico);
-        textPassword_tela_login_screen_medico.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
+        textPasswordTelaLoginScreenMedico = findViewById(R.id.textPassword_tela_login_screen_medico);
+        textPasswordTelaLoginScreenMedico.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
-        button_tela_login_screen_medico_entrar = findViewById(R.id.button_tela_login_screen_medico_entrar);
-        imgButton_back_tela_login_screen_medico = findViewById(R.id.imgButton_back_tela_login_screen_medico);
+        buttonTelaLoginScreenMedicoEntrar = findViewById(R.id.button_tela_login_screen_medico_entrar);
+        imgButtonGoBackTelaLoginScreenMedico = findViewById(R.id.imgButton_back_tela_login_screen_medico);
         //==========================================================================//
 
 
         //Botão para retornar para a tela anterior
-        imgButton_back_tela_login_screen_medico.setOnClickListener(new View.OnClickListener() {
+        imgButtonGoBackTelaLoginScreenMedico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_medico_login.this, MainActivity.class);
@@ -49,15 +49,15 @@ public class tela_medico_login extends AppCompatActivity {
 
         //Botão criado para entrar na tela início médico
         //Método criado para verificar se o login do médico é valido
-        button_tela_login_screen_medico_entrar.setOnClickListener(new View.OnClickListener() {
+        buttonTelaLoginScreenMedicoEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MedicoLoginController medicoLoginController = new MedicoLoginController(textField_tela_login_screen_medico_crm.getText().toString(),
-                        textPassword_tela_login_screen_medico.getText().toString(), getApplicationContext());
+                MedicoLoginController medicoLoginController = new MedicoLoginController(textFieldTelaLoginScreenMedicoCrm.getText().toString(),
+                        textPasswordTelaLoginScreenMedico.getText().toString(), getApplicationContext());
 
                 if(medicoLoginController.makeLogin()){
                     Intent intent = new Intent(tela_medico_login.this, tela_medico_inicio.class);
-                    intent.putExtra("MedicoCrm", textField_tela_login_screen_medico_crm.getText().toString());//Envia o dado de qual médico está logado
+                    intent.putExtra("MedicoCrm", textFieldTelaLoginScreenMedicoCrm.getText().toString());//Envia o dado de qual médico está logado
                     startActivity(intent);
                 }
             }
