@@ -50,7 +50,7 @@ public class ClasseDAO {
         values.put("crm", medico.getCrm());
         values.put("med_nome", medico.getNome());
         values.put("med_senha", medico.getSenha());
-        values.put("fk_adm_med", medico.getFk_adm_med());
+        values.put("fk_adm_med", medico.getFkAdmMed());
         banco.insertOrThrow("medico",null,values);
     }
     //====================================//
@@ -70,12 +70,12 @@ public class ClasseDAO {
     public void inserirMedicamentos(Medicamentos medicamentos){
         ContentValues values = new ContentValues();
         values.put("catmat", medicamentos.getCatmat());
-        values.put("nome_medicamento", medicamentos.getNome_medicamento());
-        values.put("pr_ativo", medicamentos.getPr_ativo());
+        values.put("nome_medicamento", medicamentos.getNomeMedicamento());
+        values.put("pr_ativo", medicamentos.getPrincipioAtivo());
         values.put("concentracao", medicamentos.getConcentracao());
         values.put("fornecimento", medicamentos.getFornecimento());
-        values.put("forma_farm",medicamentos.getForma_farm());
-        values.put("fk_crf_farm", medicamentos.getFk_crf_farm());
+        values.put("forma_farm",medicamentos.getFormaFarmaceutica());
+        values.put("fk_crf_farm", medicamentos.getFkCrfFarm());
         values.put("fk_crm_med", "");
         values.put("fk_idReceita", "");
         banco.insertOrThrow("medicamento", null, values);
@@ -284,12 +284,12 @@ public class ClasseDAO {
 
         while (cursor.moveToNext()) {
             Medicamentos me = new Medicamentos();
-            me.setNome_medicamento(cursor.getString(cursor.getColumnIndex("nome_medicamento")));
+            me.setNomeMedicamento(cursor.getString(cursor.getColumnIndex("nome_medicamento")));
             me.setCatmat(cursor.getString(cursor.getColumnIndex("catmat")));
-            me.setPr_ativo(cursor.getString(cursor.getColumnIndex("pr_ativo")));
+            me.setPrincipioAtivo(cursor.getString(cursor.getColumnIndex("pr_ativo")));
             me.setConcentracao(cursor.getString(cursor.getColumnIndex("concentracao")));
             me.setFornecimento(cursor.getString(cursor.getColumnIndex("fornecimento")));
-            me.setForma_farm(cursor.getString(cursor.getColumnIndex("forma_farm")));
+            me.setFormaFarmaceutica(cursor.getString(cursor.getColumnIndex("forma_farm")));
             medicamentos.add(me);
         }
         cursor.close();

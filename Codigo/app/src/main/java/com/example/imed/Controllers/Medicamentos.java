@@ -2,15 +2,15 @@ package com.example.imed.Controllers;
 
 public class Medicamentos {
 
-    private String catmat, pr_ativo, concentracao, fornecimento, forma_farm,nome_medicamento,fk_idReceita,fk_crm_med,fk_crf_farm;
+    private String catmat, principioAtivo, concentracao, fornecimento, formaFarmaceutica, nomeMedicamento, fkCrfFarmaceutico;
 
 
     public void setCatmat(String catmat) {
         this.catmat = catmat;
     }
 
-    public void setPr_ativo(String pr_ativo) {
-        this.pr_ativo = pr_ativo;
+    public void setPrincipioAtivo(String principioAtivo) {
+        this.principioAtivo = principioAtivo;
     }
 
     public void setConcentracao(String concentracao) {
@@ -21,30 +21,30 @@ public class Medicamentos {
         this.fornecimento = fornecimento;
     }
 
-    public void setForma_farm(String forma_farm) {
-        this.forma_farm = forma_farm;
+    public void setFormaFarmaceutica(String formaFarmaceutica) {
+        this.formaFarmaceutica = formaFarmaceutica;
     }
 
-    public void setNome_medicamento(String nome_medicamento) { this.nome_medicamento = nome_medicamento; }
+    public void setNomeMedicamento(String nomeMedicamento) { this.nomeMedicamento = nomeMedicamento; }
 
-    public void setFk_crf_farm(String fk_crf_farm) {
-        this.fk_crf_farm = fk_crf_farm;
+    public void setFkCrfFarm(String fkCrfFarm) {
+        this.fkCrfFarmaceutico = fkCrfFarm;
     }
 
-    public String getFk_crf_farm() {
-        return fk_crf_farm;
+    public String getFkCrfFarm() {
+        return fkCrfFarmaceutico;
     }
 
-    public String getNome_medicamento() {
-        return nome_medicamento;
+    public String getNomeMedicamento() {
+        return nomeMedicamento;
     }
 
     public String getCatmat() {
         return catmat;
     }
 
-    public String getPr_ativo() {
-        return pr_ativo;
+    public String getPrincipioAtivo() {
+        return principioAtivo;
     }
 
     public String getConcentracao() {
@@ -55,8 +55,8 @@ public class Medicamentos {
         return fornecimento;
     }
 
-    public String getForma_farm() {
-        return forma_farm;
+    public String getFormaFarmaceutica() {
+        return formaFarmaceutica;
     }
 
 
@@ -64,8 +64,8 @@ public class Medicamentos {
 
     @Override
     public  String toString(){
-        return "Nome do Medicamento: " + getNome_medicamento() + "\nCódigo CATMAT: " + getCatmat() +
-                "\nPrincípio ativo: " + getPr_ativo() + "\nConcentração: " + getConcentracao() +
-                "\nFornecimento: " + getFornecimento() + "\nForma Farmacêutica: " + getForma_farm();
+        return "Nome do Medicamento: " + getNomeMedicamento() + "\nCódigo CATMAT: " + getCatmat() +
+                "\nPrincípio ativo: " + getPrincipioAtivo() + "\nConcentração: " + getConcentracao() +
+                "\nFornecimento: " + getFornecimento() + "\nForma Farmacêutica: " + getFormaFarmaceutica();
     }
 }

@@ -9,23 +9,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.imed.Controllers.Farmaceutico.FarmaceuticoLoginController;
-import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 import com.example.imed.Views.Main.MainActivity;
 
 public class tela_farmaceutico_login extends AppCompatActivity {
 
-    ImageButton imageButton_back_tela_login_farmaceutico;
-    Button tela_login_farmaceutico_entrar;
-    TextView textView_tela_login_farmaceutico_crf,textView_tela_login_farmaceutico_senha;
+    private ImageButton imageButton_back_tela_login_farmaceutico;
+    private Button tela_login_farmaceutico_entrar;
+    private TextView textView_tela_login_farmaceutico_crf,textView_tela_login_farmaceutico_senha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        ClasseDAO dao = new ClasseDAO(this);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_farmaceutico_login);
