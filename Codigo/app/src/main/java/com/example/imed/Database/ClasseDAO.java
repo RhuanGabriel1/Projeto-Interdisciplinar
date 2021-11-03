@@ -86,12 +86,12 @@ public class ClasseDAO {
     public void gerarReceita(Receita receita){
         ContentValues values = new ContentValues();
         values.put("idReceita",receita.getIdReceita());
-        values.put("nome_remedio", receita.getNome_remedio());
+        values.put("nome_remedio", receita.getNomeRemedio());
         values.put("horario", receita.getHorario());
         values.put("dosagem", receita.getDosagem());
         values.put("instrucoes", receita.getInstrucoes());
-        values.put("fk_paciente_rec", receita.getFk_paciente_rec());
-        values.put("fk_med", receita.getFk_med());
+        values.put("fk_paciente_rec", receita.getFkPacienteReceita());
+        values.put("fk_med", receita.getFkMedico());
         values.put("fk_farm", "");
 
         banco.insertOrThrow("receita",null,values);
@@ -263,11 +263,11 @@ public class ClasseDAO {
         while(cursor.moveToNext()){
             Receita r = new Receita();
             r.setIdReceita(cursor.getString(cursor.getColumnIndex("idReceita")));
-            r.setNome_remedio(cursor.getString(cursor.getColumnIndex("nome_remedio")));
+            r.setNomeRemedio(cursor.getString(cursor.getColumnIndex("nome_remedio")));
             r.setDosagem(cursor.getString(cursor.getColumnIndex("dosagem")));
             r.setHorario(cursor.getString(cursor.getColumnIndex("horario")));
             r.setInstrucoes(cursor.getString(cursor.getColumnIndex("instrucoes")));
-            r.setFk_med(cursor.getString(cursor.getColumnIndex("fk_med")));
+            r.setFkMedico(cursor.getString(cursor.getColumnIndex("fk_med")));
             receitas.add(r);
         }
         cursor.close();

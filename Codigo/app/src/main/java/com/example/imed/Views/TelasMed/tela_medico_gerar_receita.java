@@ -72,10 +72,10 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
                     receita.setIdReceita(idReceita+"");
                     receita.setDosagem(textView_dosagem.getText().toString());
                     receita.setHorario(textView_nome_horario.getText().toString());
-                    receita.setNome_remedio(textView_nome_remedio.getText().toString());
+                    receita.setNomeRemedio(textView_nome_remedio.getText().toString());
                     receita.setInstrucoes(textView_instrucoes.getText().toString());
-                    receita.setFk_paciente_rec(textView_cpf_do_paciente.getText().toString());
-                    receita.setFk_med(valor);
+                    receita.setFkPacienteReceita(textView_cpf_do_paciente.getText().toString());
+                    receita.setFkMedico(valor);
 
                     dao.inserirFkCrmMed(valor,textView_nome_remedio.getText().toString());
                     dao.inserirFkIdReceita(idReceita,textView_nome_remedio.getText().toString());
@@ -108,10 +108,10 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
                     receita.setIdReceita(idReceita+"");
                     receita.setDosagem(textView_dosagem.getText().toString());
                     receita.setHorario(textView_nome_horario.getText().toString());
-                    receita.setNome_remedio(textView_nome_remedio.getText().toString());
+                    receita.setNomeRemedio(textView_nome_remedio.getText().toString());
                     receita.setInstrucoes(textView_instrucoes.getText().toString());
-                    receita.setFk_paciente_rec(textView_cpf_do_paciente.getText().toString());
-                    receita.setFk_med(valor);
+                    receita.setFkPacienteReceita(textView_cpf_do_paciente.getText().toString());
+                    receita.setFkMedico(valor);
 
                     dao.inserirFkCrmMed(valor,textView_nome_remedio.getText().toString());
                     dao.inserirFkIdReceita(idReceita,textView_nome_remedio.getText().toString());
