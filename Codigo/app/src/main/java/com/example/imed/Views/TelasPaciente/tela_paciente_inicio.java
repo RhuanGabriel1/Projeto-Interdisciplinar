@@ -11,8 +11,9 @@ import com.example.imed.R;
 
 public class tela_paciente_inicio extends AppCompatActivity {
 
-    ImageButton imageButton_tela_login_paciente_loggedin_back;
-    ImageButton imageButton_go_to_minhas_receitas_paciente;
+
+    private ImageButton imageButtonGoBackTelaLoginPacienteLoggedin;
+    private ImageButton imageButtonGoToMinhasReceitasPaciente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +27,13 @@ public class tela_paciente_inicio extends AppCompatActivity {
 
         //========================================================================//
 
-        imageButton_go_to_minhas_receitas_paciente = findViewById(R.id.imageButton_go_to_minhas_receitas_paciente);
-        imageButton_tela_login_paciente_loggedin_back = findViewById(R.id.imageButton_tela_login_paciente_loggedin_back);
+        imageButtonGoToMinhasReceitasPaciente = findViewById(R.id.imageButton_go_to_minhas_receitas_paciente);
+        imageButtonGoBackTelaLoginPacienteLoggedin = findViewById(R.id.imageButton_tela_login_paciente_loggedin_back);
 
         //========================================================================//
 
         //Botão criado para retornar para a tela anterior
-        imageButton_tela_login_paciente_loggedin_back.setOnClickListener(new View.OnClickListener() {
+        imageButtonGoBackTelaLoginPacienteLoggedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_paciente_inicio.this, tela_paciente_login.class);
@@ -43,7 +44,7 @@ public class tela_paciente_inicio extends AppCompatActivity {
         //===============================================//
 
         //Botão criado para ir a tela de receitas do paciente
-        imageButton_go_to_minhas_receitas_paciente.setOnClickListener(new View.OnClickListener() {
+        imageButtonGoToMinhasReceitasPaciente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_paciente_inicio.this, tela_paciente_examinar_receita.class);

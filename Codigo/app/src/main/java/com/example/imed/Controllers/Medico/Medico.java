@@ -5,22 +5,22 @@ import com.example.imed.Controllers.Usuario;
 
 public class Medico extends Usuario {
 
-    String crm,fk_adm_med;
+    String crm, fkAdmMed;
 
     public String getCrm() {
         return crm;
     }
 
-    public String getFk_adm_med() {
-        return fk_adm_med;
+    public String getFkAdmMed() {
+        return fkAdmMed;
     }
 
     public void setCrm(String crm) {
         this.crm = crm;
     }
 
-    public void setFk_adm_med(String fk_adm_med) {
-        this.fk_adm_med = fk_adm_med;
+    public void setFkAdmMed(String fkAdmMed) {
+        this.fkAdmMed = fkAdmMed;
     }
 
     @Override

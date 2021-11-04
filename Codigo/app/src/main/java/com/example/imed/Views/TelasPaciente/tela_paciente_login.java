@@ -9,18 +9,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.imed.Controllers.Paciente.PacienteLoginController;
-import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 import com.example.imed.Views.Main.MainActivity;
 
 public class tela_paciente_login extends AppCompatActivity {
 
-    private ImageButton imageButton_tela_login_paciente_back;
-    private Button button_tela_paciente_entrar, button_tela_paciente_criar_conta;
-    private TextView textView_tela_login_paciente_cpf,textView_tela_login_paciente_senha;
+    private ImageButton imageButtonGoBackTelaLoginPaciente;
+    private Button buttonTelaPacienteEntrar, buttonTelaPacienteCriarConta;
+    private TextView textViewTelaLoginPacienteCpf, textViewTelaLoginPacienteSenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,28 +26,28 @@ public class tela_paciente_login extends AppCompatActivity {
         setContentView(R.layout.tela_paciente_login);
 
         //=========================================================================================================//
-        button_tela_paciente_entrar = findViewById(R.id.button_tela_paciente_entrar);
-        imageButton_tela_login_paciente_back = findViewById(R.id.imageButton_tela_login_paciente_back);
-        button_tela_paciente_criar_conta = findViewById(R.id.button_tela_paciente_criar_conta);
+        buttonTelaPacienteEntrar = findViewById(R.id.button_tela_paciente_entrar);
+        imageButtonGoBackTelaLoginPaciente = findViewById(R.id.imageButton_tela_login_paciente_back);
+        buttonTelaPacienteCriarConta = findViewById(R.id.button_tela_paciente_criar_conta);
 
-        textView_tela_login_paciente_cpf = findViewById(R.id.textView_tela_login_paciente_cpf);
-        textView_tela_login_paciente_cpf.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
+        textViewTelaLoginPacienteCpf = findViewById(R.id.textView_tela_login_paciente_cpf);
+        textViewTelaLoginPacienteCpf.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
 
-        textView_tela_login_paciente_senha = findViewById(R.id.textView_tela_login_paciente_senha);
-        textView_tela_login_paciente_senha.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
+        textViewTelaLoginPacienteSenha = findViewById(R.id.textView_tela_login_paciente_senha);
+        textViewTelaLoginPacienteSenha.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
         //=========================================================================================================//
 
 
         //Botão criado para entrar na tela início médico
         //Método criado para verificar se o login do médico é valido
-        button_tela_paciente_entrar.setOnClickListener(new View.OnClickListener() {
+        buttonTelaPacienteEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PacienteLoginController pacienteLoginController = new PacienteLoginController(textView_tela_login_paciente_cpf.getText().toString(),
-                        textView_tela_login_paciente_senha.getText().toString(),getApplicationContext());
+                PacienteLoginController pacienteLoginController = new PacienteLoginController(textViewTelaLoginPacienteCpf.getText().toString(),
+                        textViewTelaLoginPacienteSenha.getText().toString(),getApplicationContext());
                 if(pacienteLoginController.makeLogin()){
                     Intent intent = new Intent(tela_paciente_login.this, tela_paciente_inicio.class);
-                    intent.putExtra("PacienteCpf", textView_tela_login_paciente_cpf.getText().toString());//Envia o dado de qual paciente está logado
+                    intent.putExtra("PacienteCpf", textViewTelaLoginPacienteCpf.getText().toString());//Envia o dado de qual paciente está logado
                     startActivity(intent);
                 }
             }
@@ -57,7 +55,7 @@ public class tela_paciente_login extends AppCompatActivity {
         //Fim do método para verificar o login
 
         //Botão criado para ir a tela de criação de conta paciente
-        button_tela_paciente_criar_conta.setOnClickListener(new View.OnClickListener() {
+        buttonTelaPacienteCriarConta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_paciente_login.this, tela_paciente_criar_conta.class);
@@ -67,7 +65,7 @@ public class tela_paciente_login extends AppCompatActivity {
         //=====================================================//
 
         //Botão criado para retornar para a tela anterior
-        imageButton_tela_login_paciente_back.setOnClickListener(new View.OnClickListener() {
+        imageButtonGoBackTelaLoginPaciente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_paciente_login.this, MainActivity.class);

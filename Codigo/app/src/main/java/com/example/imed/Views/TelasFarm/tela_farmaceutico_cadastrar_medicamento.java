@@ -79,11 +79,11 @@ public class tela_farmaceutico_cadastrar_medicamento extends AppCompatActivity {
                 try {
                     medicamentos.setCatmat(editText_catmat.getText().toString());
                     medicamentos.setConcentracao(editText_concentracao.getText().toString());
-                    medicamentos.setPr_ativo(editText_pr_ativo.getText().toString());
-                    medicamentos.setForma_farm(editText_forma_farm.getText().toString());
+                    medicamentos.setPrincipioAtivo(editText_pr_ativo.getText().toString());
+                    medicamentos.setFormaFarmaceutica(editText_forma_farm.getText().toString());
                     medicamentos.setFornecimento(editText_fornecimento.getText().toString());
-                    medicamentos.setNome_medicamento(editText_nome_medicamento.getText().toString());
-                    medicamentos.setFk_crf_farm(valor);
+                    medicamentos.setNomeMedicamento(editText_nome_medicamento.getText().toString());
+                    medicamentos.setFkCrfFarm(valor);
 
                     if(editText_catmat.getText().toString().equals("") || editText_concentracao.getText().toString().equals("")
                             || editText_pr_ativo.getText().toString().equals("") || editText_forma_farm.getText().toString().equals("")

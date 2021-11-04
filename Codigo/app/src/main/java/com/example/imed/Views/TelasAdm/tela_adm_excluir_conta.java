@@ -150,14 +150,13 @@ public class tela_adm_excluir_conta extends AppCompatActivity {
         });
         //Fim do método criado para manter um item da lista selecionado
 
-
-
         //Método criado para excluir um médico/farmacêutico
         //Utilizando um método da ClasseDAO
         imageButton_excluir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AdmExcluirContaController admExcluirContaController = new AdmExcluirContaController(radioButton_farmaceutico_lista.isChecked(), farmaceuticos, medicos, itemFarm, itemMed,
+                AdmExcluirContaController admExcluirContaController = new AdmExcluirContaController(radioButton_farmaceutico_lista.isChecked(),
+                        farmaceuticos, medicos, itemFarm, itemMed,
                         getApplicationContext());
                 admExcluirContaController.deleteAccount();
             }

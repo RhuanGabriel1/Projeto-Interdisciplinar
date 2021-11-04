@@ -2,6 +2,7 @@ package com.example.imed.Controllers;
 
 public class Medicamentos {
 
+
 //    private String catmat, pr_ativo, concentracao, fornecimento, forma_farm,nome_medicamento,fk_idReceita,fk_crm_med,fk_crf_farm;
 //    deixei as partes referentes ao banco de dados de fora, repensar futuramente
     private String catmat;
@@ -12,6 +13,7 @@ public class Medicamentos {
     private String nomeMedicamento;
     private Farmaceutico farmaceutico;
 
+
     public String getCatmat() {
         return catmat;
     }
@@ -20,8 +22,10 @@ public class Medicamentos {
         this.catmat = catmat;
     }
 
+
     public String getPrincipioAtivo() {
         return principioAtivo;
+
     }
 
     public void setPrincipioAtivo(String principioAtivo) {
@@ -46,14 +50,17 @@ public class Medicamentos {
 
     public String getFormaFarmaceutica() {
         return formaFarmaceutica;
+
     }
 
     public void setFormaFarmaceutica(String formaFarmaceutica) {
         this.formaFarmaceutica = formaFarmaceutica;
     }
 
+
     public String getNomeMedicamento() {
         return nomeMedicamento;
+
     }
 
     public void setNomeMedicamento(String nomeMedicamento) {
@@ -66,13 +73,14 @@ public class Medicamentos {
 
     public void setFarmaceutico(Farmaceutico farmaceutico) {
         this.farmaceutico = farmaceutico;
+
     }
 
     @Override
     public  String toString(){
-        return "Nome do Medicamento: " + getNome_medicamento() + "\nCódigo CATMAT: " + getCatmat() +
-                "\nPrincípio ativo: " + getPr_ativo() + "\nConcentração: " + getConcentracao() +
-                "\nFornecimento: " + getFornecimento() + "\nForma Farmacêutica: " + getForma_farm();
+        return "Nome do Medicamento: " + getNomeMedicamento() + "\nCódigo CATMAT: " + getCatmat() +
+                "\nPrincípio ativo: " + getPrincipioAtivo() + "\nConcentração: " + getConcentracao() +
+                "\nFornecimento: " + getFornecimento() + "\nForma Farmacêutica: " + getFormaFarmaceutica();
     }
 
 

@@ -2,16 +2,16 @@ package com.example.imed.Controllers;
 
 public class Receita {
 
-    String idReceita, nome_remedio,horario,dosagem,instrucoes, fk_paciente_rec,fk_farm,fk_med;
+    String idReceita, nomeRemedio,horario,dosagem,instrucoes,fkPacienteReceita,fkMedico;
 
-    public void setFk_paciente_rec(String fk_paciente_rec) { this.fk_paciente_rec = fk_paciente_rec; }
+    public void setFkPacienteReceita(String fkPacienteReceita) { this.fkPacienteReceita = fkPacienteReceita; }
 
     public void setIdReceita(String idReceita) {
         this.idReceita = idReceita;
     }
 
-    public void setNome_remedio(String nome_remedio) {
-        this.nome_remedio = nome_remedio;
+    public void setNomeRemedio(String nomeRemedio) {
+        this.nomeRemedio = nomeRemedio;
     }
 
     public void setHorario(String horario) {
@@ -26,16 +26,15 @@ public class Receita {
         this.instrucoes = instrucoes;
     }
 
-    public void setFk_farm(String fk_farm) { this.fk_farm = fk_farm; }
 
-    public void setFk_med(String fk_med) { this.fk_med = fk_med; }
+    public void setFkMedico(String fkMedico) { this.fkMedico = fkMedico; }
 
     public String getIdReceita() {
         return idReceita;
     }
 
-    public String getNome_remedio() {
-        return nome_remedio;
+    public String getNomeRemedio() {
+        return nomeRemedio;
     }
 
     public String getHorario() {
@@ -50,20 +49,16 @@ public class Receita {
         return instrucoes;
     }
 
-    public String getFk_paciente_rec() { return fk_paciente_rec; }
+    public String getFkPacienteReceita() { return fkPacienteReceita; }
 
-    public String getFk_farm() {
-        return fk_farm;
-    }
-
-    public String getFk_med() {
-        return fk_med;
+    public String getFkMedico() {
+        return fkMedico;
     }
 
     @Override
     public String toString(){
-        return"Id da receita: " + getIdReceita() +  "\nNome do Remédio: " + getNome_remedio() + "\nDosagem: " + getDosagem() +
+        return"Id da receita: " + getIdReceita() +  "\nNome do Remédio: " + getNomeRemedio() + "\nDosagem: " + getDosagem() +
                 "\nHorário: "+ getHorario() + "\nInstruções: "+ getInstrucoes() +
-                "\nCrm médico: " + getFk_med();
+                "\nCrm médico: " + getFkMedico();
     }
 }

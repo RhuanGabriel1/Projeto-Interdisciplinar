@@ -56,7 +56,7 @@ public class AdmCriarContaFarmMedController {
                     medico.setNome(nome_farm_med);//Recebendo os valores dos textFields
                     medico.setCrm(crm_crf);
                     medico.setSenha(senha_farm_med);
-                    medico.setFk_adm_med(valor);
+                    medico.setFkAdmMed(valor);
 
                     if(nome_farm_med.equals("") || crm_crf.equals("")
                             || senha_farm_med.equals("")

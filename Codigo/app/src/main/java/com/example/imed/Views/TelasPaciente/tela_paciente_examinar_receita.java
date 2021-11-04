@@ -17,8 +17,8 @@ import java.util.List;
 
 public class tela_paciente_examinar_receita extends AppCompatActivity {
 
-    ImageButton imageButton_go_back_tela_paciente_loggedin;
-    ListView ListaReceitas;
+    private ImageButton imageButtonGoBackTelaPacienteLoggedin;
+    private ListView listaReceitas;
 
     private List<Receita> receitas;
 
@@ -36,17 +36,17 @@ public class tela_paciente_examinar_receita extends AppCompatActivity {
         //============================================//
 
         //============================================================================================================//
-        imageButton_go_back_tela_paciente_loggedin = findViewById(R.id.imageButton_go_back_tela_paciente_loggedin);
-        ListaReceitas = findViewById(R.id.ListaReceitas);
+        imageButtonGoBackTelaPacienteLoggedin = findViewById(R.id.imageButton_go_back_tela_paciente_loggedin);
+        listaReceitas = findViewById(R.id.ListaReceitas);
         //============================================================================================================//
 
 
         receitas = dao.obterListaReceita(valor);
         ArrayAdapter<Receita> adapterReceita = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, receitas);
-        ListaReceitas.setAdapter(adapterReceita);
+        listaReceitas.setAdapter(adapterReceita);
 
 
-        imageButton_go_back_tela_paciente_loggedin.setOnClickListener(new View.OnClickListener() {
+        imageButtonGoBackTelaPacienteLoggedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_paciente_examinar_receita.this, tela_paciente_inicio.class);
