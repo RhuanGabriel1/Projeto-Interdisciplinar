@@ -6,7 +6,8 @@ import com.example.imed.Database.ClasseDAO;
 
 public class AdmLoginController {
     
-    private String login, password;
+    private String login;
+    private String password;
     private ClasseDAO dao ;
     private Context context;
 
