@@ -11,17 +11,17 @@ public class AdmCriarContaFarmMedController {
     private Medico medico = new Medico();
     private Farmaceutico farmaceutico = new Farmaceutico();
     private boolean isFarmaceutico;
-    private String nome_farm_med,crm_crf,senha_farm_med,valor,repetir_senha_farm_med;
+    private String nomeFarmaceuticoMedico,crmOuCrf,senhaFarmaceuticoMedico,valor,repetir_senhaFarmaceuticoMedico;
     private Context context;
     private ClasseDAO dao;
 
-    public AdmCriarContaFarmMedController(boolean isFarmaceutico, String nome_farm_med, String crm_crf,
-                                          String senha_farm_med, String repetir_senha_farm_med,String valor,Context context) {
+    public AdmCriarContaFarmMedController(boolean isFarmaceutico, String nomeFarmaceuticoMedico, String crmOuCrf,
+                                          String senhaFarmaceuticoMedico, String repetir_senhaFarmaceuticoMedico,String valor,Context context) {
         this.isFarmaceutico =isFarmaceutico;
-        this.nome_farm_med = nome_farm_med;
-        this.crm_crf = crm_crf;
-        this.senha_farm_med = senha_farm_med;
-        this.repetir_senha_farm_med = repetir_senha_farm_med;
+        this.nomeFarmaceuticoMedico = nomeFarmaceuticoMedico;
+        this.crmOuCrf = crmOuCrf;
+        this.senhaFarmaceuticoMedico = senhaFarmaceuticoMedico;
+        this.repetir_senhaFarmaceuticoMedico = repetir_senhaFarmaceuticoMedico;
         this.context = context;
         this.valor = valor;
         this.dao = new ClasseDAO(context);
@@ -31,19 +31,19 @@ public class AdmCriarContaFarmMedController {
         public boolean makeAccount(){
             try{
                 if(isFarmaceutico){
-                    farmaceutico.setNome(nome_farm_med);//Recebendo os valores dos textFields
-                    farmaceutico.setCrf(crm_crf);
-                    farmaceutico.setSenha(senha_farm_med);
+                    farmaceutico.setNome(nomeFarmaceuticoMedico);//Recebendo os valores dos textFields
+                    farmaceutico.setCrf(crmOuCrf);
+                    farmaceutico.setSenha(senhaFarmaceuticoMedico);
                     farmaceutico.setFk_adm_farm(valor);
 
-                    if(nome_farm_med.equals("") || crm_crf.equals("")
-                            || senha_farm_med.equals("") || repetir_senha_farm_med.equals("")){
+                    if(nomeFarmaceuticoMedico.equals("") || crmOuCrf.equals("")
+                            || senhaFarmaceuticoMedico.equals("") || repetir_senhaFarmaceuticoMedico.equals("")){
 
                         Toast.makeText(context, "Há campos vazios!", Toast.LENGTH_SHORT).show();
                         return false;
 
                     }
-                    else if (farmaceutico.getSenha().equals(repetir_senha_farm_med)){
+                    else if (farmaceutico.getSenha().equals(repetir_senhaFarmaceuticoMedico)){
                         dao.inserirFarmaceutico(farmaceutico);
                         return true;
 
@@ -56,18 +56,18 @@ public class AdmCriarContaFarmMedController {
                 }
                 else{
 
-                    medico.setNome(nome_farm_med);//Recebendo os valores dos textFields
-                    medico.setCrm(crm_crf);
-                    medico.setSenha(senha_farm_med);
+                    medico.setNome(nomeFarmaceuticoMedico);//Recebendo os valores dos textFields
+                    medico.setCrm(crmOuCrf);
+                    medico.setSenha(senhaFarmaceuticoMedico);
                     medico.setFk_adm_med(valor);
 
-                    if(nome_farm_med.equals("") || crm_crf.equals("")
-                            || senha_farm_med.equals("")
-                            || repetir_senha_farm_med.equals("")){
+                    if(nomeFarmaceuticoMedico.equals("") || crmOuCrf.equals("")
+                            || senhaFarmaceuticoMedico.equals("")
+                            || repetir_senhaFarmaceuticoMedico.equals("")){
                         Toast.makeText(context, "Há campos vazios!", Toast.LENGTH_SHORT).show();
                     return false;
                     }
-                    else if(medico.getSenha().equals(repetir_senha_farm_med)){
+                    else if(medico.getSenha().equals(repetir_senhaFarmaceuticoMedico)){
                         dao.inserirMedico(medico);
                         Toast.makeText(context, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show();
                         return true;

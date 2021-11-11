@@ -7,20 +7,20 @@ import com.example.imed.Database.ClasseDAO;
 public class AdmLoginController {
     
     private String login;
-    private String password;
+    private String senha;
     private ClasseDAO dao ;
     private Context context;
 
-    public AdmLoginController(String login, String password, Context context) {
+    public AdmLoginController(String login, String senha, Context context) {
         this.login = login;
-        this.password = password;
+        this.senha = senha;
         this.context = context;
         this.dao = new ClasseDAO(context);
     }
 
     public boolean makeLogin(){
         try{
-            if(dao.obterLoginAdm(login)[0].toString().equals(password)){
+            if(dao.obterLoginAdm(login)[0].toString().equals(senha)){
                 Toast.makeText(context, "Login efetuado com sucesso", Toast.LENGTH_SHORT).show();
                 return true;
             }else{
