@@ -1,15 +1,12 @@
-package com.example.imed.Controllers.Paciente;
+package com.example.imed.Presenters.Paciente;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.sqlite.SQLiteConstraintException;
 import android.widget.Toast;
 
 import com.example.imed.Database.ClasseDAO;
-import com.example.imed.Views.TelasPaciente.tela_paciente_criar_conta;
-import com.example.imed.Views.TelasPaciente.tela_paciente_login;
 
-public class PacienteCriarContaController {
+public class PacienteCriarContaPresenter {
 
 
     private Paciente paciente = new Paciente();
@@ -17,8 +14,8 @@ public class PacienteCriarContaController {
     private Context context;
     private ClasseDAO dao;
 
-    public PacienteCriarContaController(String textView_nome_paciente, String textView_cpf_paciente,String textView_senha_paciente,
-                                        String textView_repetir_senha_paciente, Context context){
+    public PacienteCriarContaPresenter(String textView_nome_paciente, String textView_cpf_paciente, String textView_senha_paciente,
+                                       String textView_repetir_senha_paciente, Context context){
 
         this.textView_nome_paciente = textView_nome_paciente;
         this.textView_cpf_paciente = textView_cpf_paciente;

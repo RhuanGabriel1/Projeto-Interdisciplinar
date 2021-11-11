@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.example.imed.Controllers.Adm.AdmCriarContaFarmMedController;
+import com.example.imed.Presenters.Adm.AdmCriarContaFarmMedPresenter;
 import com.example.imed.R;
 
 public class tela_adm_criar_conta_farm_e_med extends AppCompatActivity {
@@ -97,7 +97,7 @@ public class tela_adm_criar_conta_farm_e_med extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                AdmCriarContaFarmMedController adm = new AdmCriarContaFarmMedController(
+                AdmCriarContaFarmMedPresenter adm = new AdmCriarContaFarmMedPresenter(
                         radioButton_farmaceutico.isChecked(),textView_nome_farm_med.getText().toString(),
                         textView_crm_crf.getText().toString(),textView_senha_farm_med.getText().toString(),
                         textView_repetir_senha_farm_med.getText().toString(),valor,getApplicationContext()

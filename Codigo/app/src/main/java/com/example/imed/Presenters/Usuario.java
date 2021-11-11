@@ -1,4 +1,4 @@
-package com.example.imed.Controllers;
+package com.example.imed.Presenters;
 
 public abstract class Usuario {
 

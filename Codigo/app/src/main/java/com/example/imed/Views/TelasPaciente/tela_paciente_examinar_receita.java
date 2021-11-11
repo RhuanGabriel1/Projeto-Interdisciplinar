@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
-import com.example.imed.Controllers.Receita;
+import com.example.imed.Presenters.Receita;
 
 import java.util.List;
 

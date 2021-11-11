@@ -1,14 +1,14 @@
-package com.example.imed.Controllers.Adm;
+package com.example.imed.Presenters.Adm;
 
 import android.content.Context;
 
-import com.example.imed.Controllers.Farmaceutico.Farmaceutico;
-import com.example.imed.Controllers.Medico.Medico;
+import com.example.imed.Presenters.Farmaceutico.Farmaceutico;
+import com.example.imed.Presenters.Medico.Medico;
 import com.example.imed.Database.ClasseDAO;
 
 import java.util.List;
 
-public class AdmExcluirContaController {
+public class AdmExcluirContaPresenter {
 
     private boolean radioButton_farmaceutico_lista;
     private List<Farmaceutico> farmaceuticos;
@@ -21,8 +21,8 @@ public class AdmExcluirContaController {
 
 
 
-    public AdmExcluirContaController(boolean radioButton_farmaceutico_lista, List<Farmaceutico> farmaceuticos, List<Medico> medicos,
-                                     Farmaceutico itemFarm, Medico itemMed, Context context){
+    public AdmExcluirContaPresenter(boolean radioButton_farmaceutico_lista, List<Farmaceutico> farmaceuticos, List<Medico> medicos,
+                                    Farmaceutico itemFarm, Medico itemMed, Context context){
         this.radioButton_farmaceutico_lista = radioButton_farmaceutico_lista;
         this.farmaceuticos = farmaceuticos;
         this.medicos = medicos;

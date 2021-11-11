@@ -1,12 +1,12 @@
-package com.example.imed.Controllers.Adm;
+package com.example.imed.Presenters.Adm;
 import android.content.Context;
 import android.database.sqlite.SQLiteConstraintException;
 import android.widget.Toast;
-import com.example.imed.Controllers.Farmaceutico.Farmaceutico;
-import com.example.imed.Controllers.Medico.Medico;
+import com.example.imed.Presenters.Farmaceutico.Farmaceutico;
+import com.example.imed.Presenters.Medico.Medico;
 import com.example.imed.Database.ClasseDAO;
 
-public class AdmCriarContaFarmMedController {
+public class AdmCriarContaFarmMedPresenter {
 
     private Medico medico = new Medico();
     private Farmaceutico farmaceutico = new Farmaceutico();
@@ -15,8 +15,8 @@ public class AdmCriarContaFarmMedController {
     private Context context;
     private ClasseDAO dao;
 
-    public AdmCriarContaFarmMedController(boolean isFarmaceutico, String nome_farm_med, String crm_crf,
-                                          String senha_farm_med, String repetir_senha_farm_med,String valor,Context context) {
+    public AdmCriarContaFarmMedPresenter(boolean isFarmaceutico, String nome_farm_med, String crm_crf,
+                                         String senha_farm_med, String repetir_senha_farm_med, String valor, Context context) {
         this.isFarmaceutico =isFarmaceutico;
         this.nome_farm_med = nome_farm_med;
         this.crm_crf = crm_crf;

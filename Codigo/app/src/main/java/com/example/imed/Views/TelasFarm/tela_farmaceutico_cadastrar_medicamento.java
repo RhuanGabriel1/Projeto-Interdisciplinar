@@ -13,7 +13,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.imed.Database.ClasseDAO;
-import com.example.imed.Controllers.Medicamentos;
+import com.example.imed.Presenters.Medicamentos;
 import com.example.imed.R;
 
 public class tela_farmaceutico_cadastrar_medicamento extends AppCompatActivity {

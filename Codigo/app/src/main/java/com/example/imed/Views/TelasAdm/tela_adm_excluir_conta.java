@@ -15,11 +15,11 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.SearchView;
 
-import com.example.imed.Controllers.Adm.AdmExcluirContaController;
+import com.example.imed.Presenters.Adm.AdmExcluirContaPresenter;
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
-import com.example.imed.Controllers.Farmaceutico.Farmaceutico;
-import com.example.imed.Controllers.Medico.Medico;
+import com.example.imed.Presenters.Farmaceutico.Farmaceutico;
+import com.example.imed.Presenters.Medico.Medico;
 
 import java.util.List;
 
@@ -155,10 +155,10 @@ public class tela_adm_excluir_conta extends AppCompatActivity {
         imageButton_excluir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AdmExcluirContaController admExcluirContaController = new AdmExcluirContaController(radioButton_farmaceutico_lista.isChecked(),
+                AdmExcluirContaPresenter admExcluirContaPresenter = new AdmExcluirContaPresenter(radioButton_farmaceutico_lista.isChecked(),
                         farmaceuticos, medicos, itemFarm, itemMed,
                         getApplicationContext());
-                admExcluirContaController.deleteAccount();
+                admExcluirContaPresenter.deleteAccount();
             }
         });
         //Fim do método de excluir conta médico/farmacêutico

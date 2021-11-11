@@ -1,16 +1,16 @@
-package com.example.imed.Controllers.Adm;
+package com.example.imed.Presenters.Adm;
 import android.content.Context;
 import android.widget.Toast;
 import com.example.imed.Database.ClasseDAO;
 
 
-public class AdmLoginController {
+public class AdmLoginPresenter {
     
     private String login, password;
     private ClasseDAO dao ;
     private Context context;
 
-    public AdmLoginController(String login, String password, Context context) {
+    public AdmLoginPresenter(String login, String password, Context context) {
         this.login = login;
         this.password = password;
         this.context = context;

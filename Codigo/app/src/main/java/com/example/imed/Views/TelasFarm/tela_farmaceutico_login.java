@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.imed.Controllers.Farmaceutico.FarmaceuticoLoginController;
+import com.example.imed.Presenters.Farmaceutico.FarmaceuticoLoginPresenter;
 import com.example.imed.R;
 import com.example.imed.Views.Main.MainActivity;
 
@@ -53,10 +53,10 @@ public class tela_farmaceutico_login extends AppCompatActivity {
         tela_login_farmaceutico_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FarmaceuticoLoginController farmaceuticoLoginController = new FarmaceuticoLoginController(textView_tela_login_farmaceutico_crf.getText().toString(),
+                FarmaceuticoLoginPresenter farmaceuticoLoginPresenter = new FarmaceuticoLoginPresenter(textView_tela_login_farmaceutico_crf.getText().toString(),
                         textView_tela_login_farmaceutico_senha.getText().toString(), getApplicationContext());
 
-                if(farmaceuticoLoginController.makeLogin()){
+                if(farmaceuticoLoginPresenter.makeLogin()){
                     Intent intent = new Intent(tela_farmaceutico_login.this, tela_farmaceutico_inicio.class);
                     intent.putExtra("FarmCrf", textView_tela_login_farmaceutico_crf.getText().toString());//Envia o dado de qual farmacêutico está logado
                     startActivity(intent);
