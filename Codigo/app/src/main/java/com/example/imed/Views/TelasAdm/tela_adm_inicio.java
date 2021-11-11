@@ -33,8 +33,6 @@ public class tela_adm_inicio extends AppCompatActivity {
 
         //================================================//
 
-
-
         //Botão criado para retornar para a tela anterior
         imageButton_tela_adm_loggedin_back.setOnClickListener(new View.OnClickListener() {
             @Override

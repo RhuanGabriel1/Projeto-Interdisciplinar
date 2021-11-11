@@ -8,7 +8,7 @@ import com.example.imed.Database.ClasseDAO;
 
 import java.util.List;
 
-public class AdmExcluirContaPresenter {
+public class AdmExcluirContaPresenter{
 
     private boolean radioButton_farmaceutico_lista;
     private List<Farmaceutico> farmaceuticos;
