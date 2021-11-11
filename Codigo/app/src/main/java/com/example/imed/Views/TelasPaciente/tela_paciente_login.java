@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.imed.Controllers.Paciente.PacienteLoginController;
+import com.example.imed.Presenters.Paciente.PacienteLoginPresenter;
 import com.example.imed.R;
 import com.example.imed.Views.Main.MainActivity;
 
@@ -43,9 +43,9 @@ public class tela_paciente_login extends AppCompatActivity {
         buttonTelaPacienteEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PacienteLoginController pacienteLoginController = new PacienteLoginController(textViewTelaLoginPacienteCpf.getText().toString(),
+                PacienteLoginPresenter pacienteLoginPresenter = new PacienteLoginPresenter(textViewTelaLoginPacienteCpf.getText().toString(),
                         textViewTelaLoginPacienteSenha.getText().toString(),getApplicationContext());
-                if(pacienteLoginController.makeLogin()){
+                if(pacienteLoginPresenter.makeLogin()){
                     Intent intent = new Intent(tela_paciente_login.this, tela_paciente_inicio.class);
                     intent.putExtra("PacienteCpf", textViewTelaLoginPacienteCpf.getText().toString());//Envia o dado de qual paciente está logado
                     startActivity(intent);

@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.imed.Controllers.Medico.MedicoLoginController;
+import com.example.imed.Presenters.Medico.MedicoLoginPresenter;
 import com.example.imed.R;
 import com.example.imed.Views.Main.MainActivity;
 
@@ -52,10 +52,10 @@ public class tela_medico_login extends AppCompatActivity {
         buttonTelaLoginScreenMedicoEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MedicoLoginController medicoLoginController = new MedicoLoginController(textFieldTelaLoginScreenMedicoCrm.getText().toString(),
+                MedicoLoginPresenter medicoLoginPresenter = new MedicoLoginPresenter(textFieldTelaLoginScreenMedicoCrm.getText().toString(),
                         textPasswordTelaLoginScreenMedico.getText().toString(), getApplicationContext());
 
-                if(medicoLoginController.makeLogin()){
+                if(medicoLoginPresenter.makeLogin()){
                     Intent intent = new Intent(tela_medico_login.this, tela_medico_inicio.class);
                     intent.putExtra("MedicoCrm", textFieldTelaLoginScreenMedicoCrm.getText().toString());//Envia o dado de qual médico está logado
                     startActivity(intent);

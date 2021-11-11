@@ -7,11 +7,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
-import com.example.imed.Controllers.Farmaceutico.Farmaceutico;
-import com.example.imed.Controllers.Medicamentos;
-import com.example.imed.Controllers.Medico.Medico;
-import com.example.imed.Controllers.Paciente.Paciente;
-import com.example.imed.Controllers.Receita;
+import com.example.imed.Presenters.Farmaceutico.Farmaceutico;
+import com.example.imed.Presenters.Medicamentos;
+import com.example.imed.Presenters.Medico.Medico;
+import com.example.imed.Presenters.Paciente.Paciente;
+import com.example.imed.Presenters.Receita;
 
 import java.util.ArrayList;
 import java.util.List;

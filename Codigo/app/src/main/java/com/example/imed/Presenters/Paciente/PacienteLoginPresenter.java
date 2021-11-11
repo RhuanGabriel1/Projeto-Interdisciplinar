@@ -1,28 +1,28 @@
-package com.example.imed.Controllers.Medico;
+package com.example.imed.Presenters.Paciente;
 
 import android.content.Context;
 import android.widget.Toast;
 
 import com.example.imed.Database.ClasseDAO;
-public class MedicoLoginController {
 
-    private String login,password;
+
+public class PacienteLoginPresenter {
+
+    private String login, password;
     private Context context;
     private ClasseDAO dao;
 
-    public MedicoLoginController(String login, String password, Context context){
+    public PacienteLoginPresenter(String login, String senha, Context context){
         this.login = login;
-        this.password = password;
+        this.password = senha;
         this.context = context;
 
         this.dao = new ClasseDAO(this.context);
     }
 
-
     public boolean makeLogin(){
         try{
-            if(dao.obterLoginMedico(login)[0].toString().equals(password)){
-
+            if(dao.obterLoginPaciente(login)[0].toString().equals(password)){
                 Toast.makeText(context, "Login efetuado com sucesso", Toast.LENGTH_SHORT).show();
                 return true;
             }
@@ -31,9 +31,10 @@ public class MedicoLoginController {
                 return false;
             }
         }catch (NullPointerException e){
-            Toast.makeText(context, "Dados incorretos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Dados incorretos!", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
+
 
 }

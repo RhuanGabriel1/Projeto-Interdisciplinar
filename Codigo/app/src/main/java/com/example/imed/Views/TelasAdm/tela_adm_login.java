@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.imed.Controllers.Adm.AdmLoginController;
+import com.example.imed.Presenters.Adm.AdmLoginPresenter;
 import com.example.imed.Views.Main.MainActivity;
 import com.example.imed.R;
 
@@ -53,7 +53,7 @@ public class tela_adm_login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //import controller for get methods
-                AdmLoginController adm = new AdmLoginController(
+                AdmLoginPresenter adm = new AdmLoginPresenter(
                         textNumber_tela_login_screen_adm_login.getText().toString(),
                         textPassword_tela_login_screen_adm.getText().toString(),
                         getApplicationContext()

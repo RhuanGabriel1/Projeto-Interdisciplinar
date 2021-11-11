@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.imed.Controllers.Paciente.PacienteCriarContaController;
+import com.example.imed.Presenters.Paciente.PacienteCriarContaPresenter;
 import com.example.imed.R;
 
 public class tela_paciente_criar_conta extends AppCompatActivity {
@@ -50,10 +50,10 @@ public class tela_paciente_criar_conta extends AppCompatActivity {
         buttonCriarContaPaciente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PacienteCriarContaController pacienteCriarContaController = new PacienteCriarContaController(textViewNomePaciente.getText().toString(), textViewCpfPaciente.getText().toString(),
+                PacienteCriarContaPresenter pacienteCriarContaPresenter = new PacienteCriarContaPresenter(textViewNomePaciente.getText().toString(), textViewCpfPaciente.getText().toString(),
                         textViewSenhaPaciente.getText().toString(), textViewRepetirSenhaPaciente.getText().toString(), getApplicationContext());
 
-                if(pacienteCriarContaController.createAccount()){
+                if(pacienteCriarContaPresenter.createAccount()){
                     Intent intent = new Intent(tela_paciente_criar_conta.this, tela_paciente_login.class);
                     startActivity(intent);
                 }
