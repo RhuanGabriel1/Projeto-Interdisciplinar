@@ -6,7 +6,7 @@ import com.example.imed.Presenters.Farmaceutico.Farmaceutico;
 import com.example.imed.Presenters.Medico.Medico;
 import com.example.imed.Database.ClasseDAO;
 
-public class AdmCriarContaFarmMedPresenter {
+public class AdmCriarContaFarmMedPresenter{
 
     private Medico medico = new Medico();
     private Farmaceutico farmaceutico = new Farmaceutico();
@@ -25,9 +25,8 @@ public class AdmCriarContaFarmMedPresenter {
         this.context = context;
         this.valor = valor;
         this.dao = new ClasseDAO(context);
+
     }
-
-
         public boolean makeAccount(){
             try{
                 if(isFarmaceutico){

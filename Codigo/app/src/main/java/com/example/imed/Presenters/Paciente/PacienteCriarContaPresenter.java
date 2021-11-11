@@ -5,8 +5,9 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.widget.Toast;
 
 import com.example.imed.Database.ClasseDAO;
+import com.example.imed.MVP.MVPPaciente;
 
-public class PacienteCriarContaPresenter {
+public class PacienteCriarContaPresenter implements MVPPaciente.IPresenterPacienteCriarConta {
 
 
     private Paciente paciente = new Paciente();
@@ -25,7 +26,7 @@ public class PacienteCriarContaPresenter {
         this.context = context;
         this.dao = new ClasseDAO(this.context);
     }
-
+    @Override
     public boolean createAccount(){
         try {
             paciente.setNome(textView_nome_paciente);

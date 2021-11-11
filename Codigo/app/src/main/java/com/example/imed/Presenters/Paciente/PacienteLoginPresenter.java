@@ -4,9 +4,10 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.example.imed.Database.ClasseDAO;
+import com.example.imed.MVP.MVPPaciente;
 
 
-public class PacienteLoginPresenter {
+public class PacienteLoginPresenter implements MVPPaciente.IPresenterPacienteLogin {
 
     private String login, password;
     private Context context;
@@ -19,7 +20,7 @@ public class PacienteLoginPresenter {
 
         this.dao = new ClasseDAO(this.context);
     }
-
+    @Override
     public boolean makeLogin(){
         try{
             if(dao.obterLoginPaciente(login)[0].toString().equals(password)){
