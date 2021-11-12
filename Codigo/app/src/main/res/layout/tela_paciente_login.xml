@@ -8,7 +8,7 @@
     tools:context=".Views.TelasPaciente.tela_paciente_login">
 
     <Button
-        android:id="@+id/button_tela_paciente_entrar"
+        android:id="@+id/entrarPacienteButton"
         android:layout_width="118dp"
         android:layout_height="57dp"
         android:text="ENTRAR"
@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.813" />
 
     <Button
-        android:id="@+id/button_tela_paciente_criar_conta"
+        android:id="@+id/criarPacienteButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         app:layout_constraintVertical_bias="0.944" />
 
     <ImageView
-        android:id="@+id/imageView_tela_login_paciente"
+        android:id="@+id/pacienteImage"
         android:layout_width="120dp"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,7 +51,7 @@
         app:tint="@color/principal" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/pacienteText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PACIENTE"
@@ -63,7 +63,7 @@
         app:layout_constraintVertical_bias="0.269" />
 
     <EditText
-        android:id="@+id/textView_tela_login_paciente_senha"
+        android:id="@+id/senhaPacienteTextView"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -80,7 +80,7 @@
         app:layout_constraintVertical_bias="0.622" />
 
     <EditText
-        android:id="@+id/textView_tela_login_paciente_cpf"
+        android:id="@+id/cpfTextView"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -97,7 +97,7 @@
         app:layout_constraintVertical_bias="0.43" />
 
     <ImageButton
-        android:id="@+id/imageButton_tela_login_paciente_back"
+        android:id="@+id/retornarPacienteLoginButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="?attr/selectableItemBackgroundBorderless"

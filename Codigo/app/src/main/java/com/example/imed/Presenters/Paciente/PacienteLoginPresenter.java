@@ -24,7 +24,6 @@ public class PacienteLoginPresenter implements MVPPaciente.IPresenterPacienteLog
     public boolean makeLogin(){
         try{
             if(dao.obterLoginPaciente(login)[0].toString().equals(password)){
-                Toast.makeText(context, "Login efetuado com sucesso", Toast.LENGTH_SHORT).show();
                 return true;
             }
             else{

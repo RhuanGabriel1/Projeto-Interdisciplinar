@@ -3,8 +3,9 @@ package com.example.imed.MVP;
 public interface MVPPaciente {
 
     interface IViewPacienteLogin{
-
+        void showToast(String mensagem);
     }
+
     interface IViewPacienteCriarConta{
 
     }
