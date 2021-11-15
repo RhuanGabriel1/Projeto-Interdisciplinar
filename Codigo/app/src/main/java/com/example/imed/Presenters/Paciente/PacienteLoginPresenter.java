@@ -36,7 +36,7 @@ public class PacienteLoginPresenter implements MVPPaciente.IPresenterPacienteLog
                 return false;
             }
         }catch (NullPointerException e){
-            view.showToast("Caiu no catch");
+            view.showToast("Dados incorretos");
             return false;
         }
     }

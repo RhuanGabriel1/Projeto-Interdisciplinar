@@ -9,43 +9,42 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import com.example.imed.Database.ClasseDAO;
+import com.example.imed.MVP.MVPPaciente;
+import com.example.imed.Presenters.Paciente.PacienteExaminarReceitaPresenter;
 import com.example.imed.R;
 import com.example.imed.Presenters.Receita;
 
 import java.util.List;
 
-public class tela_paciente_examinar_receita extends AppCompatActivity {
+public class tela_paciente_examinar_receita extends AppCompatActivity implements MVPPaciente.IViewExaminarReceita {
 
     private ImageButton imageButtonGoBackTelaPacienteLoggedin;
     private ListView listaReceitas;
-
-    private List<Receita> receitas;
+    private String valor;
+    private ArrayAdapter<Receita> adapterReceita;
+    private PacienteExaminarReceitaPresenter presenter;
+    private MVPPaciente.IViewExaminarReceita view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        ClasseDAO dao = new ClasseDAO(this);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_paciente_examinar_receitas);
 
-        //Recebendo dado de qual paciente está logado
         Intent intent = getIntent();
-        String valor = intent.getStringExtra("PacienteCpf");
-        //============================================//
+        valor = intent.getStringExtra("PacienteCpf");
 
-        //============================================================================================================//
-        imageButtonGoBackTelaPacienteLoggedin = findViewById(R.id.imageButton_go_back_tela_paciente_loggedin);
         listaReceitas = findViewById(R.id.ListaReceitas);
-        //============================================================================================================//
 
+        this.view = this;
+        presenter = new PacienteExaminarReceitaPresenter(getApplicationContext(),view,valor);
+        presenter.obterReceitas();
 
-        receitas = dao.obterListaReceita(valor);
-        ArrayAdapter<Receita> adapterReceita = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, receitas);
-        listaReceitas.setAdapter(adapterReceita);
+        retornar();
 
+    }
 
+    public void retornar(){
+        imageButtonGoBackTelaPacienteLoggedin = findViewById(R.id.imageButton_go_back_tela_paciente_loggedin);
         imageButtonGoBackTelaPacienteLoggedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,5 +53,11 @@ public class tela_paciente_examinar_receita extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void mostraReceitas(List<Receita> receita) {
+        adapterReceita = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, receita);
+        listaReceitas.setAdapter(adapterReceita);
     }
 }
