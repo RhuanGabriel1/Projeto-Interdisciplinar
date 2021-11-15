@@ -14,16 +14,22 @@ public class PacienteCriarContaPresenter implements MVPPaciente.IPresenterPacien
     private String textView_senha_paciente,textView_repetir_senha_paciente, textView_nome_paciente,textView_cpf_paciente;
     private Context context;
     private ClasseDAO dao;
+    private MVPPaciente.IViewPacienteToast view;
+
+
+    public PacienteCriarContaPresenter(){}
 
     public PacienteCriarContaPresenter(String textView_nome_paciente, String textView_cpf_paciente, String textView_senha_paciente,
-                                       String textView_repetir_senha_paciente, Context context){
+                                       String textView_repetir_senha_paciente, Context context, MVPPaciente.IViewPacienteToast view) {
 
         this.textView_nome_paciente = textView_nome_paciente;
         this.textView_cpf_paciente = textView_cpf_paciente;
         this.textView_senha_paciente = textView_senha_paciente;
         this.textView_repetir_senha_paciente = textView_repetir_senha_paciente;
-
         this.context = context;
+        this.view = view;
+
+
         this.dao = new ClasseDAO(this.context);
     }
     @Override
@@ -35,23 +41,25 @@ public class PacienteCriarContaPresenter implements MVPPaciente.IPresenterPacien
 
             if(textView_nome_paciente.equals("") || textView_cpf_paciente.equals("")
                     || textView_senha_paciente.equals("") || textView_repetir_senha_paciente.equals("")){
-
-                Toast.makeText(context, "Há campos vazios!", Toast.LENGTH_SHORT).show();
+                view.showToast("Há campos vazios!");
                 return false;
             }
             else if(paciente.getSenha().equals(textView_repetir_senha_paciente)){
                 dao.inserirPaciente(paciente);
-                Toast.makeText(context, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show();
+                view.showToast("Conta criada com sucesso!");
                 return true;
             }
             else {
-                Toast.makeText(context, "Os campos das senhas não são iguais", Toast.LENGTH_SHORT).show();
+                view.showToast("Os campos das senhas não são iguais");
                 return false;
             }
         }catch (SQLiteConstraintException e){
-            Toast.makeText(context, "Esse CPF já foi cadastrado", Toast.LENGTH_SHORT).show();
+            view.showToast("Esse CPF já foi cadastrado");
             return false;
         }
     }
+
+    @Override
+    public void IPresenterDestruirView() { this.view = null; }
 
 }

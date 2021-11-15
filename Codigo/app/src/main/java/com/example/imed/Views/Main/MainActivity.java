@@ -7,10 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.imed.Database.ClasseDAO;
-import com.example.imed.Database.MySQLConnection;
 import com.example.imed.R;
-import com.example.imed.Views.TelasAdm.tela_adm_login;
 import com.example.imed.Views.TelasFarm.tela_farmaceutico_login;
 import com.example.imed.Views.TelasPaciente.tela_paciente_login;
 import com.example.imed.Views.TelasMed.tela_medico_login;

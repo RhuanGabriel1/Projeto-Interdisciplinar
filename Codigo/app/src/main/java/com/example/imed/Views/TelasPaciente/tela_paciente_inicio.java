@@ -14,6 +14,7 @@ public class tela_paciente_inicio extends AppCompatActivity {
 
     private ImageButton imageButtonGoBackTelaLoginPacienteLoggedin;
     private ImageButton imageButtonGoToMinhasReceitasPaciente;
+    private String valor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,28 +23,25 @@ public class tela_paciente_inicio extends AppCompatActivity {
 
         //Recebendo dado de qual paciente está logado
         Intent intent = getIntent();
-        String valor = intent.getStringExtra("PacienteCpf");
-        //===========================================//
+        valor = intent.getStringExtra("PacienteCpf");
 
-        //========================================================================//
+        retornar();
+        receitas();
+    }
 
-        imageButtonGoToMinhasReceitasPaciente = findViewById(R.id.imageButton_go_to_minhas_receitas_paciente);
+    public void retornar(){
         imageButtonGoBackTelaLoginPacienteLoggedin = findViewById(R.id.imageButton_tela_login_paciente_loggedin_back);
-
-        //========================================================================//
-
-        //Botão criado para retornar para a tela anterior
         imageButtonGoBackTelaLoginPacienteLoggedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_paciente_inicio.this, tela_paciente_login.class);
                 startActivity(intent);
-
             }
         });
-        //===============================================//
+    }
 
-        //Botão criado para ir a tela de receitas do paciente
+    public void receitas(){
+        imageButtonGoToMinhasReceitasPaciente = findViewById(R.id.imageButton_go_to_minhas_receitas_paciente);
         imageButtonGoToMinhasReceitasPaciente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +50,5 @@ public class tela_paciente_inicio extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //====================================================//
-
     }
 }
