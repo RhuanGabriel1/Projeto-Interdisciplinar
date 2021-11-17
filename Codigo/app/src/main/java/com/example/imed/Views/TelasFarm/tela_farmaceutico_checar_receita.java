@@ -16,9 +16,9 @@ import com.example.imed.R;
 
 public class tela_farmaceutico_checar_receita extends AppCompatActivity {
 
-    ImageButton imageButton_tela_verifica_receita_back;
-    EditText editText_verifica_receita;
-    Button button_verificar;
+    ImageButton retornarButton;
+    EditText receitaTextField;
+    Button verificarButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +34,16 @@ public class tela_farmaceutico_checar_receita extends AppCompatActivity {
         //==================================================//
         
         //==================================================================================================//
-        imageButton_tela_verifica_receita_back = findViewById(R.id.imageButton_tela_verifica_receita_back);
-        button_verificar = findViewById(R.id.button_verificar);
+        retornarButton = findViewById(R.id.farmaceutico_checar_receita_retornar_button);
+        verificarButton = findViewById(R.id.farmaceutico_checar_receita_verificar_button);
 
-        editText_verifica_receita = findViewById(R.id.editText_verifica_receita);
-        editText_verifica_receita.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
+        receitaTextField = findViewById(R.id.farmaceutico_checar_receita_receita_textview);
+        receitaTextField.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
         //==================================================================================================//
 
 
         //Botão que retornar para a tela anterior
-        imageButton_tela_verifica_receita_back.setOnClickListener(new View.OnClickListener() {
+        retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -55,16 +55,16 @@ public class tela_farmaceutico_checar_receita extends AppCompatActivity {
         //=============================================//
 
         //Método para verificar se a receita é válida
-        button_verificar.setOnClickListener(new View.OnClickListener() {
+        verificarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    int id = Integer.parseInt(editText_verifica_receita.getText().toString());
-                        if(editText_verifica_receita.getText().toString().equals(dao.retornaIdReceita(editText_verifica_receita.getText().toString()))){
+                    int id = Integer.parseInt(receitaTextField.getText().toString());
+                        if(receitaTextField.getText().toString().equals(dao.retornaIdReceita(receitaTextField.getText().toString()))){
                             dao.inserirFkFarm(valor, id);
 
                             Intent intent = new Intent(tela_farmaceutico_checar_receita.this, tela_farmaceutico_apresentacao_receita.class);
-                            intent.putExtra("receita", editText_verifica_receita.getText().toString());//Envia o dado do id da receita
+                            intent.putExtra("receita", receitaTextField.getText().toString());//Envia o dado do id da receita
                             intent.putExtra("FarmCrf", valor);//Envia o dado de qual farmacêutico está logado
                             startActivity(intent);
 

@@ -8,7 +8,7 @@
     tools:context=".Views.TelasFarm.tela_farmaceutico_checar_receita">
 
     <Button
-        android:id="@+id/button_verificar"
+        android:id="@+id/farmaceutico_checar_receita_verificar_button"
         android:layout_width="128dp"
         android:layout_height="55dp"
         android:text="VERIFICAR"
@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.775" />
 
     <EditText
-        android:id="@+id/editText_verifica_receita"
+        android:id="@+id/farmaceutico_checar_receita_receita_textview"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -38,7 +38,7 @@
         app:layout_constraintVertical_bias="0.529" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/farmaceutico_checar_receita_imageview"
         android:layout_width="120dp"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,7 +51,7 @@
         app:tint="@color/principal" />
 
     <ImageButton
-        android:id="@+id/imageButton_tela_verifica_receita_back"
+        android:id="@+id/farmaceutico_checar_receita_retornar_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="?attr/selectableItemBackgroundBorderless"
@@ -65,7 +65,7 @@
         app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/farmaceutico_checar_receita_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="VERIFICAR RECEITA"

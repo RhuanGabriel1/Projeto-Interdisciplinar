@@ -12,10 +12,8 @@ import com.example.imed.R;
 public class tela_farmaceutico_inicio extends AppCompatActivity {
 
 
-    ImageButton ImageButton_tela_login_screen_medico_back;
-    ImageButton imageButtont_tela_farmaceutico_cadastrar_medicamento_entrar;
-    ImageButton imageButton_tela_farmaceutico_verifica_receita_entrar;
-    ImageButton imageButton_farmaceutico_go_to_estoque;
+    ImageButton retornarButton;
+    ImageButton verificarReceitaButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +28,14 @@ public class tela_farmaceutico_inicio extends AppCompatActivity {
 
         //============================================================//
 
-        imageButton_farmaceutico_go_to_estoque = findViewById(R.id.imageButton_farmaceutico_go_to_estoque);
-        ImageButton_tela_login_screen_medico_back = findViewById(R.id.ImageButton_tela_login_screen_medico_back);
-        imageButtont_tela_farmaceutico_cadastrar_medicamento_entrar = findViewById(R.id.imageButtont_tela_farmaceutico_cadastrar_medicamento_entrar);
-        imageButton_tela_farmaceutico_verifica_receita_entrar = findViewById(R.id.imageButton_tela_farmaceutico_verifica_receita_entrar);
+        retornarButton = findViewById(R.id.farmaceutico_inicio_retornar_button);
+        verificarReceitaButton = findViewById(R.id.farmaceutico_inicio_verificar_receita_button);
 
         //============================================================//
 
 
         //Botão criado para retornar para a tela anterior
-        ImageButton_tela_login_screen_medico_back.setOnClickListener(new View.OnClickListener() {
+        retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_farmaceutico_inicio.this, tela_farmaceutico_login.class);
@@ -48,19 +44,8 @@ public class tela_farmaceutico_inicio extends AppCompatActivity {
         });
         //===================================================//
 
-        //Botão criado para ir para a tela de cadastrar medicamento
-        imageButtont_tela_farmaceutico_cadastrar_medicamento_entrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(tela_farmaceutico_inicio.this, tela_farmaceutico_cadastrar_medicamento.class);
-                intent.putExtra("FarmCrf", valor);//Envia o dado de qual farmacêutico está logado
-                startActivity(intent);
-            }
-        });
-        //=======================================================//
-
         //Botão criado para ir para a tela de verificar a receita
-        imageButton_tela_farmaceutico_verifica_receita_entrar.setOnClickListener(new View.OnClickListener() {
+        verificarReceitaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_farmaceutico_inicio.this, tela_farmaceutico_checar_receita.class);
@@ -69,16 +54,5 @@ public class tela_farmaceutico_inicio extends AppCompatActivity {
             }
         });
         //===========================================================//
-
-        //Botão criado para ir para a tela de estoque
-        imageButton_farmaceutico_go_to_estoque.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(tela_farmaceutico_inicio.this, tela_farmaceutico_estoque.class);
-                intent.putExtra("FarmCrf", valor);//Envia o dado de qual farmacêutico está logado
-                startActivity(intent);
-            }
-        });
-        //==========================================//
     }
 }

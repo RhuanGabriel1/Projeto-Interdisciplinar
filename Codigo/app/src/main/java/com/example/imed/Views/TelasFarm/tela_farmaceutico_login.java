@@ -16,9 +16,10 @@ import com.example.imed.Views.Main.MainActivity;
 
 public class tela_farmaceutico_login extends AppCompatActivity {
 
-    private ImageButton imageButton_back_tela_login_farmaceutico;
-    private Button tela_login_farmaceutico_entrar;
-    private TextView textView_tela_login_farmaceutico_crf,textView_tela_login_farmaceutico_senha;
+    private ImageButton retornarButton;
+    private Button entrarButton;
+    private TextView crfTextView;
+    private TextView senhaTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,20 +28,20 @@ public class tela_farmaceutico_login extends AppCompatActivity {
         setContentView(R.layout.tela_farmaceutico_login);
 
         //=============================================================================================//
-        textView_tela_login_farmaceutico_crf = findViewById(R.id.textView_tela_login_farmaceutico_crf);
-        textView_tela_login_farmaceutico_crf.setFilters(new InputFilter[]{new InputFilter.LengthFilter(7)});
+        crfTextView = findViewById(R.id.farmaceutico_login_crf_textview);
+        crfTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(7)});
 
-        textView_tela_login_farmaceutico_senha = findViewById(R.id.textView_tela_login_farmaceutico_senha);
-        textView_tela_login_farmaceutico_senha.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
+        senhaTextView = findViewById(R.id.farmaceutico_login_senha_textfield);
+        senhaTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
 
-        imageButton_back_tela_login_farmaceutico = findViewById(R.id.imageButton_back_tela_login_farmaceutico);
-        tela_login_farmaceutico_entrar = findViewById(R.id.tela_login_farmaceutico_entrar);
+        retornarButton = findViewById(R.id.farmaceutico_login_retornar_button);
+        entrarButton = findViewById(R.id.farmaceutico_login_entrar_button);
 
         //=============================================================================================//
 
         //Botão criado para retornar para a tela anterior
-        imageButton_back_tela_login_farmaceutico.setOnClickListener(new View.OnClickListener() {
+        retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_farmaceutico_login.this, MainActivity.class);
@@ -50,15 +51,15 @@ public class tela_farmaceutico_login extends AppCompatActivity {
         //===============================================//
 
         //Botão criado para entrar na tela início do farmacêutico
-        tela_login_farmaceutico_entrar.setOnClickListener(new View.OnClickListener() {
+        entrarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FarmaceuticoLoginPresenter farmaceuticoLoginPresenter = new FarmaceuticoLoginPresenter(textView_tela_login_farmaceutico_crf.getText().toString(),
-                        textView_tela_login_farmaceutico_senha.getText().toString(), getApplicationContext());
+                FarmaceuticoLoginPresenter farmaceuticoLoginPresenter = new FarmaceuticoLoginPresenter(crfTextView.getText().toString(),
+                        senhaTextView.getText().toString(), getApplicationContext());
 
                 if(farmaceuticoLoginPresenter.makeLogin()){
                     Intent intent = new Intent(tela_farmaceutico_login.this, tela_farmaceutico_inicio.class);
-                    intent.putExtra("FarmCrf", textView_tela_login_farmaceutico_crf.getText().toString());//Envia o dado de qual farmacêutico está logado
+                    intent.putExtra("FarmCrf", crfTextView.getText().toString());//Envia o dado de qual farmacêutico está logado
                     startActivity(intent);
                 }
             }
