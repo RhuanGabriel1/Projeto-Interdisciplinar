@@ -8,7 +8,7 @@
     tools:context=".Views.Main.MainActivity" >
 
     <ImageButton
-        android:id="@+id/farmaceuticoButton"
+        android:id="@+id/main_farmaceutico_button"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:background="?attr/selectableItemBackgroundBorderless"
@@ -23,7 +23,7 @@
         app:srcCompat="@drawable/farmaceutico1" />
 
     <TextView
-        android:id="@+id/farmaceuticoText"
+        android:id="@+id/main_farmaceutico_textfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="FARMACÊUTICO"
@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.839" />
 
     <ImageButton
-        android:id="@+id/pacienteButton"
+        android:id="@+id/main_paciente_button"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:background="?attr/selectableItemBackgroundBorderless"
@@ -49,7 +49,7 @@
         app:srcCompat="@drawable/user_icon" />
 
     <TextView
-        android:id="@+id/pacienteText2"
+        android:id="@+id/paciente_login_paciente_textfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PACIENTE"
@@ -61,7 +61,7 @@
         app:layout_constraintVertical_bias="0.23" />
 
     <ImageButton
-        android:id="@+id/medicoButton"
+        android:id="@+id/main_medico_button"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:background="?attr/selectableItemBackgroundBorderless"
@@ -76,7 +76,7 @@
         app:srcCompat="@drawable/doctor1" />
 
     <TextView
-        android:id="@+id/medicoText"
+        android:id="@+id/main_medico_textfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="MÉDICO"

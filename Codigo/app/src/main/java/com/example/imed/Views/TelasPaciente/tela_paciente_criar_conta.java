@@ -17,9 +17,12 @@ import com.example.imed.R;
 
 public class tela_paciente_criar_conta extends AppCompatActivity implements MVPPaciente.IViewPacienteToast {
 
-    private ImageButton imageButtonGoBackTelaCreateAccountLoginPaciente;
-    private Button buttonCriarContaPaciente;
-    private TextView textViewNomePaciente, textViewCpfPaciente, textViewSenhaPaciente, textViewRepetirSenhaPaciente;
+    private ImageButton retornarButton;
+    private Button criarContaButton;
+    private TextView nomeTextView;
+    private TextView cpfTextView;
+    private TextView senhaTextView;
+    private TextView repetirSenhaTextView;
     private MVPPaciente.IViewPacienteToast view;
 
     public PacienteCriarContaPresenter presenter;
@@ -30,17 +33,17 @@ public class tela_paciente_criar_conta extends AppCompatActivity implements MVPP
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_paciente_criar_conta);
 
-        textViewNomePaciente = findViewById(R.id.textView_nome_paciente);
-        textViewNomePaciente.setFilters(new InputFilter[]{new InputFilter.LengthFilter(28)});
+        nomeTextView = findViewById(R.id.criar_conta_paciente_nome_textfield);
+        nomeTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(28)});
 
-        textViewCpfPaciente = findViewById(R.id.textView_cpf_paciente);
-        textViewCpfPaciente.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
+        cpfTextView = findViewById(R.id.criar_conta_paciente_cpf_textfield);
+        cpfTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
         
-        textViewSenhaPaciente = findViewById(R.id.textView_senha_paciente);
-        textViewSenhaPaciente.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
+        senhaTextView = findViewById(R.id.criar_conta_paciente_senha_textfield);
+        senhaTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
-        textViewRepetirSenhaPaciente = findViewById(R.id.textView_repetir_senha_paciente);
-        textViewRepetirSenhaPaciente.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
+        repetirSenhaTextView = findViewById(R.id.criar_conta_paciente_repetir_senha_textfield);
+        repetirSenhaTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
         presenter = new PacienteCriarContaPresenter();
 
@@ -51,12 +54,12 @@ public class tela_paciente_criar_conta extends AppCompatActivity implements MVPP
     }
 
     public void criarConta(){
-        buttonCriarContaPaciente = findViewById(R.id.Button_criar_conta_paciente);
-        buttonCriarContaPaciente.setOnClickListener(new View.OnClickListener() {
+        criarContaButton = findViewById(R.id.criar_conta_paciente_criar_conta_button);
+        criarContaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PacienteCriarContaPresenter pacienteCriarContaPresenter = new PacienteCriarContaPresenter(textViewNomePaciente.getText().toString(), textViewCpfPaciente.getText().toString(),
-                        textViewSenhaPaciente.getText().toString(), textViewRepetirSenhaPaciente.getText().toString(), getApplicationContext(), view);
+                PacienteCriarContaPresenter pacienteCriarContaPresenter = new PacienteCriarContaPresenter(nomeTextView.getText().toString(), cpfTextView.getText().toString(),
+                        senhaTextView.getText().toString(), repetirSenhaTextView.getText().toString(), getApplicationContext(), view);
 
                 if(pacienteCriarContaPresenter.createAccount()){
                     Intent intent = new Intent(tela_paciente_criar_conta.this, tela_paciente_login.class);
@@ -67,9 +70,9 @@ public class tela_paciente_criar_conta extends AppCompatActivity implements MVPP
     }
 
     public void retornar(){
-        imageButtonGoBackTelaCreateAccountLoginPaciente = findViewById(R.id.imageButton_tela_create_account_login_paciente_back);
+        retornarButton = findViewById(R.id.imageButton_tela_create_account_login_paciente_back);
 
-        imageButtonGoBackTelaCreateAccountLoginPaciente.setOnClickListener(new View.OnClickListener() {
+        retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_paciente_criar_conta.this, tela_paciente_login.class);

@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        pacienteButton = findViewById(R.id.pacienteButton);
+        pacienteButton = findViewById(R.id.main_paciente_button);
         pacienteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        medicoButton = findViewById(R.id.medicoButton);
+        medicoButton = findViewById(R.id.main_medico_button);
         medicoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        farmaceuticoButton = findViewById(R.id.farmaceuticoButton);
+        farmaceuticoButton = findViewById(R.id.main_farmaceutico_button);
         farmaceuticoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

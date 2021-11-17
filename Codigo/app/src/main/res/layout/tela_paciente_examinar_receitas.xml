@@ -8,7 +8,7 @@
     tools:context=".Views.TelasPaciente.tela_paciente_examinar_receita">
 
     <ImageView
-        android:id="@+id/imageView15"
+        android:id="@+id/receitas_paciente_imageview"
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,7 +21,7 @@
         app:tint="@color/principal" />
 
     <ImageButton
-        android:id="@+id/imageButton_go_back_tela_paciente_loggedin"
+        android:id="@+id/receitas_retornar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackgroundBorderless"
@@ -35,7 +35,7 @@
         app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
     <ListView
-        android:id="@+id/ListaReceitas"
+        android:id="@+id/receitas_listview"
         android:layout_width="410dp"
         android:layout_height="487dp"
         android:layout_marginStart="24dp"

@@ -18,9 +18,11 @@ import com.example.imed.Views.Main.MainActivity;
 
 public class tela_paciente_login extends AppCompatActivity implements MVPPaciente.IViewPacienteToast {
 
-    private ImageButton retornarPacienteLoginButton;
-    private Button entrarPacienteButton, criarPacienteButton;
-    private TextView cpfTextView, senhaPacienteTextView;
+    private ImageButton retornarButton;
+    private Button entrarButton;
+    private Button criarContaButton;
+    private TextView cpfTextView;
+    private TextView senhaTextView;
     private MVPPaciente.IViewPacienteToast view;
     private PacienteLoginPresenter presenter;
 
@@ -29,11 +31,11 @@ public class tela_paciente_login extends AppCompatActivity implements MVPPacient
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_paciente_login);
 
-        cpfTextView = findViewById(R.id.cpfTextView);
+        cpfTextView = findViewById(R.id.paciente_login_cpf_textfield);
         cpfTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
 
-        senhaPacienteTextView = findViewById(R.id.senhaPacienteTextView);
-        senhaPacienteTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
+        senhaTextView = findViewById(R.id.paciente_login_senha_textfield);
+        senhaTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
         presenter = new PacienteLoginPresenter();
 
@@ -45,12 +47,12 @@ public class tela_paciente_login extends AppCompatActivity implements MVPPacient
     }
 
     public void fazerLogin(){
-        entrarPacienteButton = findViewById(R.id.entrarPacienteButton);
-        entrarPacienteButton.setOnClickListener(new View.OnClickListener() {
+        entrarButton = findViewById(R.id.paciente_login_entrar_button);
+        entrarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PacienteLoginPresenter pacienteLoginPresenter = new PacienteLoginPresenter(cpfTextView.getText().toString(),
-                        senhaPacienteTextView.getText().toString(), getApplicationContext(),view);
+                        senhaTextView.getText().toString(), getApplicationContext(),view);
                 if(pacienteLoginPresenter.makeLogin()) {
                     Intent intent = new Intent(tela_paciente_login.this, tela_paciente_inicio.class);
                     intent.putExtra("PacienteCpf", cpfTextView.getText().toString());//Envia o dado de qual paciente está logado
@@ -61,8 +63,8 @@ public class tela_paciente_login extends AppCompatActivity implements MVPPacient
     }
 
     public void retornar(){
-        retornarPacienteLoginButton = findViewById(R.id.retornarPacienteLoginButton);
-        retornarPacienteLoginButton.setOnClickListener(new View.OnClickListener() {
+        retornarButton = findViewById(R.id.paciente_login_retornar_button);
+        retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_paciente_login.this, MainActivity.class);
@@ -72,8 +74,8 @@ public class tela_paciente_login extends AppCompatActivity implements MVPPacient
     }
 
     public void criarConta(){
-        criarPacienteButton = findViewById(R.id.criarPacienteButton);
-        criarPacienteButton.setOnClickListener(new View.OnClickListener() {
+        criarContaButton = findViewById(R.id.paciente_login_criar_conta);
+        criarContaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_paciente_login.this, tela_paciente_criar_conta.class);

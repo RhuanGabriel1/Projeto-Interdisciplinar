@@ -5,6 +5,12 @@
       <map>
         <entry key="app/src/main/res/drawable/create_account_icon.xml" value="0.32461538461538464" />
         <entry key="app/src/main/res/layout/main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/tela_medico_estoque.xml" value="0.24864130434782608" />
+        <entry key="app/src/main/res/layout/tela_medico_gerar_receita.xml" value="0.24864130434782608" />
+        <entry key="app/src/main/res/layout/tela_medico_inicio.xml" value="0.24864130434782608" />
+        <entry key="app/src/main/res/layout/tela_medico_login.xml" value="0.24864130434782608" />
+        <entry key="app/src/main/res/layout/tela_paciente_criar_conta.xml" value="0.16979166666666667" />
+        <entry key="app/src/main/res/layout/tela_paciente_examinar_receitas.xml" value="0.24864130434782608" />
         <entry key="app/src/main/res/layout/tela_paciente_inicio.xml" value="0.2046875" />
         <entry key="app/src/main/res/layout/tela_paciente_login.xml" value="0.2046875" />
       </map>

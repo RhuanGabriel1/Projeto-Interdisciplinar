@@ -18,8 +18,8 @@ import java.util.List;
 
 public class tela_paciente_examinar_receita extends AppCompatActivity implements MVPPaciente.IViewExaminarReceita {
 
-    private ImageButton imageButtonGoBackTelaPacienteLoggedin;
-    private ListView listaReceitas;
+    private ImageButton retornarButton;
+    private ListView receitasListView;
     private String valor;
     private ArrayAdapter<Receita> adapterReceita;
     private PacienteExaminarReceitaPresenter presenter;
@@ -33,7 +33,7 @@ public class tela_paciente_examinar_receita extends AppCompatActivity implements
         Intent intent = getIntent();
         valor = intent.getStringExtra("PacienteCpf");
 
-        listaReceitas = findViewById(R.id.ListaReceitas);
+        receitasListView = findViewById(R.id.receitas_listview);
 
         this.view = this;
         presenter = new PacienteExaminarReceitaPresenter(getApplicationContext(),view,valor);
@@ -44,8 +44,8 @@ public class tela_paciente_examinar_receita extends AppCompatActivity implements
     }
 
     public void retornar(){
-        imageButtonGoBackTelaPacienteLoggedin = findViewById(R.id.imageButton_go_back_tela_paciente_loggedin);
-        imageButtonGoBackTelaPacienteLoggedin.setOnClickListener(new View.OnClickListener() {
+        retornarButton = findViewById(R.id.receitas_retornar);
+        retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_paciente_examinar_receita.this, tela_paciente_inicio.class);
@@ -58,6 +58,6 @@ public class tela_paciente_examinar_receita extends AppCompatActivity implements
     @Override
     public void mostraReceitas(List<Receita> receita) {
         adapterReceita = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, receita);
-        listaReceitas.setAdapter(adapterReceita);
+        receitasListView.setAdapter(adapterReceita);
     }
 }

@@ -12,8 +12,8 @@ import com.example.imed.R;
 public class tela_paciente_inicio extends AppCompatActivity {
 
 
-    private ImageButton imageButtonGoBackTelaLoginPacienteLoggedin;
-    private ImageButton imageButtonGoToMinhasReceitasPaciente;
+    private ImageButton retornarButton;
+    private ImageButton minhasReceitasButton;
     private String valor;
 
     @Override
@@ -30,8 +30,8 @@ public class tela_paciente_inicio extends AppCompatActivity {
     }
 
     public void retornar(){
-        imageButtonGoBackTelaLoginPacienteLoggedin = findViewById(R.id.imageButton_tela_login_paciente_loggedin_back);
-        imageButtonGoBackTelaLoginPacienteLoggedin.setOnClickListener(new View.OnClickListener() {
+        retornarButton = findViewById(R.id.main_paciente_retornar_button);
+        retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_paciente_inicio.this, tela_paciente_login.class);
@@ -41,8 +41,8 @@ public class tela_paciente_inicio extends AppCompatActivity {
     }
 
     public void receitas(){
-        imageButtonGoToMinhasReceitasPaciente = findViewById(R.id.imageButton_go_to_minhas_receitas_paciente);
-        imageButtonGoToMinhasReceitasPaciente.setOnClickListener(new View.OnClickListener() {
+        minhasReceitasButton = findViewById(R.id.main_paciente_receitas_button);
+        minhasReceitasButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_paciente_inicio.this, tela_paciente_examinar_receita.class);
