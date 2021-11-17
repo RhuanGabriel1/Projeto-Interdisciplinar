@@ -89,7 +89,6 @@ public class ClasseDAO {
         values.put("nome_remedio", receita.getNomeRemedio());
         values.put("horario", receita.getHorario());
         values.put("dosagem", receita.getDosagem());
-        values.put("instrucoes", receita.getInstrucoes());
         values.put("fk_paciente_rec", receita.getFkPacienteReceita());
         values.put("fk_med", receita.getFkMedico());
         values.put("fk_farm", "");

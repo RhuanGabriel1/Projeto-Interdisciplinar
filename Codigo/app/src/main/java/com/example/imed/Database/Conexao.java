@@ -41,7 +41,6 @@ public class Conexao extends SQLiteOpenHelper {
                 "nome_remedio varchar(29) not null, "+
                 "horario varchar(29) not null," +
                 "dosagem varchar(29) not null," +
-                "instrucoes varchar(29)not null," +
                 "fk_paciente_rec varchar(11) not null," +
                 "fk_farm varchar(7) not null," +
                 "fk_med varchar(7) not null," +
@@ -88,12 +87,12 @@ public class Conexao extends SQLiteOpenHelper {
         db.execSQL("insert into medicamento(catmat,nome_medicamento,concentracao,pr_ativo,fornecimento,forma_farm,fk_crf_farm,fk_crm_med,fk_idReceita) " +
                 "values('BR20J2456','Neosoro','0,5mg/ml','Cloridrato de nasazolina','Frasco gotejador', 'Frasco gotejador', '1234567','1000000','1003')");
 
-        db.execSQL("insert into receita(idReceita,nome_remedio,horario,dosagem,instrucoes,fk_paciente_rec,fk_farm,fk_med)" +
-                "values('1001', 'Loratadina','Tomar a cada 8 horas','10 mg','Tomar antes de comer', '12345678901','1000000', '1000000')");
-        db.execSQL("insert into receita(idReceita,nome_remedio,horario,dosagem,instrucoes,fk_paciente_rec,fk_farm,fk_med)" +
-                "values('1002', 'Omeprazol','Tomar a cada 12 horas','10 mg','Tomar depois de comer', '05925005007','1100000', '1100000')");
-        db.execSQL("insert into receita(idReceita,nome_remedio,horario,dosagem,instrucoes,fk_paciente_rec,fk_farm,fk_med)" +
-                "values('1003', 'Nicotina','Tomar a cada 1 hora','14 mg','Sempre que a vontade aparecer', '18693915002','1234567', '1234567')");
+        db.execSQL("insert into receita(idReceita,nome_remedio,horario,dosagem,fk_paciente_rec,fk_farm,fk_med)" +
+                "values('1001', 'Loratadina','Tomar a cada 8 horas','10 mg', '12345678901','1000000', '1000000')");
+        db.execSQL("insert into receita(idReceita,nome_remedio,horario,dosagem,fk_paciente_rec,fk_farm,fk_med)" +
+                "values('1002', 'Omeprazol','Tomar a cada 12 horas','10 mg', '05925005007','1100000', '1100000')");
+        db.execSQL("insert into receita(idReceita,nome_remedio,horario,dosagem,fk_paciente_rec,fk_farm,fk_med)" +
+                "values('1003', 'Nicotina','Tomar a cada 1 hora','14 mg', '18693915002','1234567', '1234567')");
 
     }
 
