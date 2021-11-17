@@ -11,9 +11,8 @@ import com.example.imed.R;
 
 public class tela_medico_inicio extends AppCompatActivity {
 
-    private ImageButton imageButtonTelaGoBackLoginScreenMedico;
-    private ImageButton imageButtonTelaMedicoEstoque;
-    private ImageButton imageButtonGoToGerarReceitaMed;
+    private ImageButton retornarButton;
+    private ImageButton gerarReceitaButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,36 +26,25 @@ public class tela_medico_inicio extends AppCompatActivity {
 
         //=================================================//
 
-        imageButtonTelaGoBackLoginScreenMedico = findViewById(R.id.imageButton_tela_login_screen_medico_back);
-        imageButtonTelaMedicoEstoque = findViewById(R.id.imageButton_tela_medico_estoque1);
-        imageButtonGoToGerarReceitaMed = findViewById(R.id.imageButton_go_to_gerar_receita_med);
+        retornarButton = findViewById(R.id.medico_inicio_retornar_button);
+        gerarReceitaButton = findViewById(R.id.medico_inicio_gerar_receita_button);
 
         //=================================================//
 
 
         //Botão criado para retornar para a tela anterior
-        imageButtonTelaGoBackLoginScreenMedico.setOnClickListener(new View.OnClickListener() {
+        retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_medico_inicio.this, tela_medico_login.class);
                 startActivity(intent);
             }
         });
-        //===================================================//
 
-        //Botão criado para ir a tela de estoque médico
-        imageButtonTelaMedicoEstoque.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(tela_medico_inicio.this, tela_medico_estoque.class);
-                intent.putExtra("MedicoCrm",valor);//Envia o dado de qual médico está logado
-                startActivity(intent);
-            }
-        });
         //================================================//
 
         //Botão criado para ir a tela de gerar receita
-        imageButtonGoToGerarReceitaMed.setOnClickListener(new View.OnClickListener() {
+        gerarReceitaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_medico_inicio.this, tela_medico_gerar_receita.class);

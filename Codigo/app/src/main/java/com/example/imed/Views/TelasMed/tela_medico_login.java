@@ -16,9 +16,10 @@ import com.example.imed.Views.Main.MainActivity;
 
 public class tela_medico_login extends AppCompatActivity {
 
-    private ImageButton imgButtonGoBackTelaLoginScreenMedico;
-    private Button buttonTelaLoginScreenMedicoEntrar;
-    private TextView textFieldTelaLoginScreenMedicoCrm, textPasswordTelaLoginScreenMedico;
+    private ImageButton retornarButton;
+    private Button entrarButton;
+    private TextView crmTextField;
+    private TextView senhaTextField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,19 +27,19 @@ public class tela_medico_login extends AppCompatActivity {
         setContentView(R.layout.tela_medico_login);
 
         //==========================================================================//
-        textFieldTelaLoginScreenMedicoCrm = findViewById(R.id.textField_tela_login_screen_medico_crm);
-        textFieldTelaLoginScreenMedicoCrm.setFilters(new InputFilter[]{new InputFilter.LengthFilter(7)});
+        crmTextField = findViewById(R.id.medico_login_crm_textview);
+        crmTextField.setFilters(new InputFilter[]{new InputFilter.LengthFilter(7)});
 
-        textPasswordTelaLoginScreenMedico = findViewById(R.id.textPassword_tela_login_screen_medico);
-        textPasswordTelaLoginScreenMedico.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
+        senhaTextField = findViewById(R.id.medico_login_senha_textview);
+        senhaTextField.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
-        buttonTelaLoginScreenMedicoEntrar = findViewById(R.id.button_tela_login_screen_medico_entrar);
-        imgButtonGoBackTelaLoginScreenMedico = findViewById(R.id.imgButton_back_tela_login_screen_medico);
+        entrarButton = findViewById(R.id.medico_login_entrar_button);
+        retornarButton = findViewById(R.id.medico_login_retornar_button);
         //==========================================================================//
 
 
         //Botão para retornar para a tela anterior
-        imgButtonGoBackTelaLoginScreenMedico.setOnClickListener(new View.OnClickListener() {
+        retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_medico_login.this, MainActivity.class);
@@ -49,15 +50,15 @@ public class tela_medico_login extends AppCompatActivity {
 
         //Botão criado para entrar na tela início médico
         //Método criado para verificar se o login do médico é valido
-        buttonTelaLoginScreenMedicoEntrar.setOnClickListener(new View.OnClickListener() {
+        entrarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MedicoLoginPresenter medicoLoginPresenter = new MedicoLoginPresenter(textFieldTelaLoginScreenMedicoCrm.getText().toString(),
-                        textPasswordTelaLoginScreenMedico.getText().toString(), getApplicationContext());
+                MedicoLoginPresenter medicoLoginPresenter = new MedicoLoginPresenter(crmTextField.getText().toString(),
+                        senhaTextField.getText().toString(), getApplicationContext());
 
                 if(medicoLoginPresenter.makeLogin()){
                     Intent intent = new Intent(tela_medico_login.this, tela_medico_inicio.class);
-                    intent.putExtra("MedicoCrm", textFieldTelaLoginScreenMedicoCrm.getText().toString());//Envia o dado de qual médico está logado
+                    intent.putExtra("MedicoCrm", crmTextField.getText().toString());//Envia o dado de qual médico está logado
                     startActivity(intent);
                 }
             }

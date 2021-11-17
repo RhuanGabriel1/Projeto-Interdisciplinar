@@ -21,9 +21,12 @@ import java.util.Random;
 
 public class tela_medico_gerar_receita extends AppCompatActivity {
 
-    private ImageButton imageButtonGoBackTelaMedicoLoggedin;
+    private ImageButton retornarButton;
     private Button buttonGerarReceita;
-    private TextView textViewNomeRemedio, textViewDosagem, textViewNomeHorario, textViewInstrucoes, textViewCpfDoPaciente;
+    private TextView cpfPacienteTextView;
+    private TextView medicamentoTextView;
+    private TextView dosagemTextView;
+    private TextView frequenciaTextView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,23 +45,20 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
         //===========================================//
 
         //==========================================================//
-        imageButtonGoBackTelaMedicoLoggedin = findViewById(R.id.imageButton_go_back_tela_medico_loggedin);
-        buttonGerarReceita = findViewById(R.id.button_gerar_receita_med);
+        retornarButton = findViewById(R.id.medico_gerar_receita_retornar_button);
+        buttonGerarReceita = findViewById(R.id.medico_gerar_receita_gerar_button);
 
-        textViewNomeRemedio = findViewById(R.id.textView_nome_remedio);
-        textViewNomeRemedio.setFilters(new InputFilter[]{new InputFilter.LengthFilter(28)});
+        cpfPacienteTextView = findViewById(R.id.medico_gerar_receita_cpf_paciente_textview);
+        cpfPacienteTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(28)});
 
-        textViewDosagem = findViewById(R.id.textView_dosagem);
-        textViewDosagem.setFilters(new InputFilter[]{new InputFilter.LengthFilter(28)});
+        medicamentoTextView = findViewById(R.id.medico_gerar_receita_medicamento_textfield);
+        medicamentoTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(28)});
 
-        textViewNomeHorario = findViewById(R.id.textView_nome_horario);
-        textViewNomeHorario.setFilters(new InputFilter[]{new InputFilter.LengthFilter(28)});
+        dosagemTextView = findViewById(R.id.medico_gerar_receita_dosagem_textview);
+        dosagemTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(28)});
 
-        textViewInstrucoes = findViewById(R.id.textView_instrucoes);
-        textViewInstrucoes.setFilters(new InputFilter[]{new InputFilter.LengthFilter(28)});
-
-        textViewCpfDoPaciente = findViewById(R.id.textView_cpf_do_paciente);
-        textViewCpfDoPaciente.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
+        frequenciaTextView = findViewById(R.id.medico_gerar_receita_frequencia_textview);
+        frequenciaTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(28)});
         //==========================================================//
 
 
@@ -70,19 +70,19 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
                     int idReceita = random.nextInt(6000) + 1000;
 
                     receita.setIdReceita(idReceita+"");
-                    receita.setDosagem(textViewDosagem.getText().toString());
-                    receita.setHorario(textViewNomeHorario.getText().toString());
-                    receita.setNomeRemedio(textViewNomeRemedio.getText().toString());
-                    receita.setInstrucoes(textViewInstrucoes.getText().toString());
+                    receita.setDosagem(medicamentoTextView.getText().toString());
+                    receita.setHorario(dosagemTextView.getText().toString());
+                    receita.setNomeRemedio(cpfPacienteTextView.getText().toString());
+                    receita.setInstrucoes(frequenciaTextView.getText().toString());
                     receita.setFkPacienteReceita(textViewCpfDoPaciente.getText().toString());
                     receita.setFkMedico(valor);
 
-                    dao.inserirFkCrmMed(valor, textViewNomeRemedio.getText().toString());
-                    dao.inserirFkIdReceita(idReceita, textViewNomeRemedio.getText().toString());
+                    dao.inserirFkCrmMed(valor, cpfPacienteTextView.getText().toString());
+                    dao.inserirFkIdReceita(idReceita, cpfPacienteTextView.getText().toString());
 
-                    if(textViewNomeRemedio.getText().toString().equals("") || textViewCpfDoPaciente.getText().toString().equals("") ||
-                            textViewDosagem.getText().toString().equals("") || textViewNomeHorario.getText().toString().equals("") ||
-                            textViewInstrucoes.getText().toString().equals("")){
+                    if(cpfPacienteTextView.getText().toString().equals("") || textViewCpfDoPaciente.getText().toString().equals("") ||
+                            medicamentoTextView.getText().toString().equals("") || dosagemTextView.getText().toString().equals("") ||
+                            frequenciaTextView.getText().toString().equals("")){
                         Toast.makeText(tela_medico_gerar_receita.this, "Há campos vazios!", Toast.LENGTH_SHORT).show();
                     }
                     else if(textViewCpfDoPaciente.getText().toString().length()>0 && textViewCpfDoPaciente.getText().toString().length()<12) {
@@ -106,19 +106,19 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
                     int idReceita = random.nextInt(5000) + 1000;
 
                     receita.setIdReceita(idReceita+"");
-                    receita.setDosagem(textViewDosagem.getText().toString());
-                    receita.setHorario(textViewNomeHorario.getText().toString());
-                    receita.setNomeRemedio(textViewNomeRemedio.getText().toString());
-                    receita.setInstrucoes(textViewInstrucoes.getText().toString());
+                    receita.setDosagem(medicamentoTextView.getText().toString());
+                    receita.setHorario(dosagemTextView.getText().toString());
+                    receita.setNomeRemedio(cpfPacienteTextView.getText().toString());
+                    receita.setInstrucoes(frequenciaTextView.getText().toString());
                     receita.setFkPacienteReceita(textViewCpfDoPaciente.getText().toString());
                     receita.setFkMedico(valor);
 
-                    dao.inserirFkCrmMed(valor, textViewNomeRemedio.getText().toString());
-                    dao.inserirFkIdReceita(idReceita, textViewNomeRemedio.getText().toString());
+                    dao.inserirFkCrmMed(valor, cpfPacienteTextView.getText().toString());
+                    dao.inserirFkIdReceita(idReceita, cpfPacienteTextView.getText().toString());
 
-                    if(textViewNomeRemedio.getText().toString().equals("") || textViewCpfDoPaciente.getText().toString().equals("") ||
-                            textViewDosagem.getText().toString().equals("") || textViewNomeHorario.getText().toString().equals("") ||
-                            textViewInstrucoes.getText().toString().equals("")){
+                    if(cpfPacienteTextView.getText().toString().equals("") || textViewCpfDoPaciente.getText().toString().equals("") ||
+                            medicamentoTextView.getText().toString().equals("") || dosagemTextView.getText().toString().equals("") ||
+                            frequenciaTextView.getText().toString().equals("")){
                         Toast.makeText(tela_medico_gerar_receita.this, "Há campos vazios!", Toast.LENGTH_SHORT).show();
                     }
                     else if(textViewCpfDoPaciente.getText().toString().length()>0 && textViewCpfDoPaciente.getText().toString().length()<12) {
@@ -144,7 +144,7 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
         //Fim do método para gerar um receita
 
         //Botão criado para retornar para a tela anterior
-        imageButtonGoBackTelaMedicoLoggedin.setOnClickListener(new View.OnClickListener() {
+        retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_medico_gerar_receita.this, tela_medico_inicio.class);
