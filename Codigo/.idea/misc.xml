@@ -5,7 +5,9 @@
       <map>
         <entry key="app/src/main/res/drawable/create_account_icon.xml" value="0.32461538461538464" />
         <entry key="app/src/main/res/layout/main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/tela_adm_criar_conta_farm_e_med.xml" value="0.2028985507246377" />
         <entry key="app/src/main/res/layout/tela_farmaceutico_apresentacao_receita.xml" value="0.20652173913043478" />
+        <entry key="app/src/main/res/layout/tela_farmaceutico_cadastrar_medicamento.xml" value="0.2028985507246377" />
         <entry key="app/src/main/res/layout/tela_farmaceutico_checar_receita.xml" value="0.20652173913043478" />
         <entry key="app/src/main/res/layout/tela_farmaceutico_estoque.xml" value="0.20652173913043478" />
         <entry key="app/src/main/res/layout/tela_farmaceutico_inicio.xml" value="0.25" />
