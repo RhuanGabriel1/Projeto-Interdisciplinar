@@ -1,4 +1,3 @@
-
 package com.example.imed.Views.TelasMed;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -72,11 +71,12 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
                     receita.setFkPacienteReceita(cpfPacienteTextView.getText().toString());
                     receita.setFkMedico(valor);
 
-                    dao.inserirFkCrmMed(valor, cpfPacienteTextView.getText().toString());
-                    dao.inserirFkIdReceita(idReceita, cpfPacienteTextView.getText().toString());
+                    dao.inserirFkCrmMed(valor, medicamentoTextView.getText().toString());
+                    dao.inserirFkIdReceita(idReceita, medicamentoTextView.getText().toString());
 
-                    if(cpfPacienteTextView.getText().toString().equals("") || cpfPacienteTextView.getText().toString().equals("") ||
-                            medicamentoTextView.getText().toString().equals("") || dosagemTextView.getText().toString().equals("") ||
+                    if(cpfPacienteTextView.getText().toString().equals("") ||
+                            medicamentoTextView.getText().toString().equals("") ||
+                            dosagemTextView.getText().toString().equals("") ||
                             frequenciaTextView.getText().toString().equals("")){
                         Toast.makeText(tela_medico_gerar_receita.this, "Há campos vazios!", Toast.LENGTH_SHORT).show();
                     }
@@ -95,7 +95,6 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
                     else{
                         Toast.makeText(tela_medico_gerar_receita.this, "CPF Ínvalido", Toast.LENGTH_SHORT).show();
                     }
-
                 }
                 catch (SQLiteConstraintException e){ //Repetimos o código caso o id de uma receita já criado tente inserir no banco e dados
                     int idReceita = random.nextInt(5000) + 1000;
@@ -107,11 +106,12 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
                     receita.setFkPacienteReceita(cpfPacienteTextView.getText().toString());
                     receita.setFkMedico(valor);
 
-                    dao.inserirFkCrmMed(valor, cpfPacienteTextView.getText().toString());
-                    dao.inserirFkIdReceita(idReceita, cpfPacienteTextView.getText().toString());
+                    dao.inserirFkCrmMed(valor, medicamentoTextView.getText().toString());
+                    dao.inserirFkIdReceita(idReceita, medicamentoTextView.getText().toString());
 
-                    if(cpfPacienteTextView.getText().toString().equals("") || cpfPacienteTextView.getText().toString().equals("") ||
-                            medicamentoTextView.getText().toString().equals("") || dosagemTextView.getText().toString().equals("") ||
+                    if(cpfPacienteTextView.getText().toString().equals("")  ||
+                            medicamentoTextView.getText().toString().equals("") ||
+                            dosagemTextView.getText().toString().equals("") ||
                             frequenciaTextView.getText().toString().equals("")){
                         Toast.makeText(tela_medico_gerar_receita.this, "Há campos vazios!", Toast.LENGTH_SHORT).show();
                     }
@@ -131,15 +131,12 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
                         Toast.makeText(tela_medico_gerar_receita.this, "CPF Ínvalido", Toast.LENGTH_SHORT).show();
                     }
                 }
-
-
             }
         });
-
     }
 
     public void retornar(){
-        retornarButton = findViewById(R.id.medico_inicio_retornar_button);
+        retornarButton = findViewById(R.id.medico_gerar_receita_retornar_button);
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
