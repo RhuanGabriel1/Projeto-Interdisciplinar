@@ -20,19 +20,26 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        pacienteButton = findViewById(R.id.main_paciente_button);
-        pacienteButton.setOnClickListener(new View.OnClickListener() {
+        paciente();
+        medico();
+        farmaceutico();
+    }
+
+
+    public void farmaceutico(){
+        farmaceuticoButton = findViewById(R.id.main_farmaceutico_button);
+        farmaceuticoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, tela_paciente_login.class);
+                Intent intent = new Intent(MainActivity.this, tela_farmaceutico_login.class);
                 startActivity(intent);
             }
         });
-
+    }
+    public void medico(){
         medicoButton = findViewById(R.id.main_medico_button);
         medicoButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,12 +48,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        farmaceuticoButton = findViewById(R.id.main_farmaceutico_button);
-        farmaceuticoButton.setOnClickListener(new View.OnClickListener() {
+    }
+    public void paciente(){
+        pacienteButton = findViewById(R.id.main_paciente_button);
+        pacienteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, tela_farmaceutico_login.class);
+                Intent intent = new Intent(MainActivity.this, tela_paciente_login.class);
                 startActivity(intent);
             }
         });

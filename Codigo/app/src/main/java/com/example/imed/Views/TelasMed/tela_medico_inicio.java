@@ -13,26 +13,22 @@ public class tela_medico_inicio extends AppCompatActivity {
 
     private ImageButton retornarButton;
     private ImageButton gerarReceitaButton;
+    private String valor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_medico_inicio);
 
-        //Recebendo dado de qual médico está logado
         Intent intent = getIntent();
-        String valor = intent.getStringExtra("MedicoCrm");
-        //===========================================//
+        valor = intent.getStringExtra("MedicoCrm");
 
-        //=================================================//
+        retornar();
+        gerarReceita();
+    }
 
+    public void retornar(){
         retornarButton = findViewById(R.id.medico_inicio_retornar_button);
-        gerarReceitaButton = findViewById(R.id.medico_inicio_gerar_receita_button);
-
-        //=================================================//
-
-
-        //Botão criado para retornar para a tela anterior
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,10 +36,10 @@ public class tela_medico_inicio extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
-        //================================================//
-
-        //Botão criado para ir a tela de gerar receita
+    public void gerarReceita(){
+        gerarReceitaButton = findViewById(R.id.medico_inicio_gerar_receita_button);
         gerarReceitaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +48,5 @@ public class tela_medico_inicio extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //==============================================//
     }
 }

@@ -26,19 +26,19 @@ public class tela_medico_login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_medico_login);
 
-        //==========================================================================//
         crmTextField = findViewById(R.id.medico_login_crm_textview);
         crmTextField.setFilters(new InputFilter[]{new InputFilter.LengthFilter(7)});
 
         senhaTextField = findViewById(R.id.medico_login_senha_textview);
         senhaTextField.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
-        entrarButton = findViewById(R.id.medico_login_entrar_button);
+        retornar();
+        entrar();
+
+    }
+
+    public void retornar(){
         retornarButton = findViewById(R.id.medico_login_retornar_button);
-        //==========================================================================//
-
-
-        //Botão para retornar para a tela anterior
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,10 +46,10 @@ public class tela_medico_login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //========================================//
+    }
 
-        //Botão criado para entrar na tela início médico
-        //Método criado para verificar se o login do médico é valido
+    public void entrar(){
+        entrarButton = findViewById(R.id.medico_login_entrar_button);
         entrarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +63,6 @@ public class tela_medico_login extends AppCompatActivity {
                 }
             }
         });
-        //Fim do método para verificar o login
-
     }
+
 }

@@ -174,8 +174,8 @@ public class ClasseDAO {
 
     //Método para retornar receita para o farmacêutico
     public Object[] obterReceita(String idReceita){
-        Object[] objeto = new Object[6];
-        String busca = "select idReceita, nome_remedio, horario, dosagem, instrucoes, fk_med from receita where idReceita = '"+ idReceita +"'";
+        Object[] objeto = new Object[5];
+        String busca = "select idReceita, nome_remedio, horario, dosagem, fk_med from receita where idReceita = '"+ idReceita +"'";
         Cursor cursor = banco.rawQuery(busca, null);
 
         while (cursor.moveToNext()){
@@ -183,8 +183,7 @@ public class ClasseDAO {
             objeto[1] = cursor.getString(cursor.getColumnIndex("nome_remedio"));
             objeto[2] = cursor.getString(cursor.getColumnIndex("horario"));
             objeto[3] = cursor.getString(cursor.getColumnIndex("dosagem"));
-            objeto[4] = cursor.getString(cursor.getColumnIndex("instrucoes"));
-            objeto[5] = cursor.getString(cursor.getColumnIndex("fk_med"));
+            objeto[4] = cursor.getString(cursor.getColumnIndex("fk_med"));
         }
         cursor.close();
 
@@ -256,7 +255,7 @@ public class ClasseDAO {
     //Método para obter a lista de receitas
     public List<Receita> obterListaReceita(String cpf){
         ArrayList<Receita> receitas = new ArrayList<>();
-        Cursor cursor = banco.query("receita", new String[]{"idReceita","nome_remedio", "horario", "dosagem", "instrucoes" , "fk_med",}
+        Cursor cursor = banco.query("receita", new String[]{"idReceita","nome_remedio", "horario", "dosagem", "fk_med",}
         ,"fk_paciente_rec = "+cpf,null,null,null,null);
 
         while(cursor.moveToNext()){
@@ -265,7 +264,6 @@ public class ClasseDAO {
             r.setNomeRemedio(cursor.getString(cursor.getColumnIndex("nome_remedio")));
             r.setDosagem(cursor.getString(cursor.getColumnIndex("dosagem")));
             r.setHorario(cursor.getString(cursor.getColumnIndex("horario")));
-            r.setInstrucoes(cursor.getString(cursor.getColumnIndex("instrucoes")));
             r.setFkMedico(cursor.getString(cursor.getColumnIndex("fk_med")));
             receitas.add(r);
         }

@@ -13,54 +13,35 @@ import com.example.imed.R;
 
 public class tela_farmaceutico_apresentacao_receita extends AppCompatActivity {
 
-    ImageButton retornarButton;
-    TextView cpfPacienteTextView;
-    TextView medicamentoTextView;
-    TextView dosagemTextView;
-    TextView frequenciaTextView;
+    private ImageButton retornarButton;
+    private TextView cpfPacienteTextView;
+    private TextView medicamentoTextView;
+    private TextView dosagemTextView;
+    private TextView frequenciaTextView;
+    private String valor, receita;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         ClasseDAO dao = new ClasseDAO(this);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_farmaceutico_apresentacao_receita);
 
-
-        //Recebendo dado de qual farmacêutico está logado e o id da receita
         Intent intent = getIntent();
-        String receita = intent.getStringExtra("receita");
-        String valor = intent.getStringExtra("FarmCrf");
-        //==================================================================//
+        receita = intent.getStringExtra("receita");
+        valor = intent.getStringExtra("FarmCrf");
 
-        //===========================================================================================//
-        retornarButton = findViewById(R.id.farmaceutico_receita_retornar_button);
+        retornar();
+        configurarTextView();
 
-        cpfPacienteTextView = findViewById(R.id.farmaceutico_receita_cpf_paciente_textview);
-        medicamentoTextView = findViewById(R.id.farmaceutico_receita_medicamento_textfield);
-        dosagemTextView = findViewById(R.id.farmaceutico_receita_dosagem_textview);
-        frequenciaTextView = findViewById(R.id.farmaceutico_receita_frequencia_textview);
-
-        //============================================================================================//
-
-        //============================================================================================//
-        cpfPacienteTextView.setEnabled(false);//textView setado em false para que apenas exiba os dados da receita
-        medicamentoTextView.setEnabled(false);
-        dosagemTextView.setEnabled(false);
-        frequenciaTextView.setEnabled(false);
-
-        //============================================================================================//
-
-        //============================================================================================//
         cpfPacienteTextView.setText(dao.obterReceita(receita)[0].toString());//populando os textView com os dados da receita
         medicamentoTextView.setText(dao.obterReceita(receita)[1].toString());
         dosagemTextView.setText(dao.obterReceita(receita)[2].toString());
         frequenciaTextView.setText(dao.obterReceita(receita)[3].toString());
+    }
 
-        //============================================================================================//
-
-        //Botão criado para retornar a tela anterior
+    public void retornar(){
+        retornarButton = findViewById(R.id.farmaceutico_receita_retornar_button);
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +50,16 @@ public class tela_farmaceutico_apresentacao_receita extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //=============================================//
+    }
+
+    public void configurarTextView(){
+        cpfPacienteTextView = findViewById(R.id.farmaceutico_receita_cpf_paciente_textview);
+        cpfPacienteTextView.setEnabled(false);
+        medicamentoTextView = findViewById(R.id.farmaceutico_receita_medicamento_textfield);
+        medicamentoTextView.setEnabled(false);
+        dosagemTextView = findViewById(R.id.farmaceutico_receita_dosagem_textview);
+        dosagemTextView.setEnabled(false);
+        frequenciaTextView = findViewById(R.id.farmaceutico_receita_frequencia_textview);
+        frequenciaTextView.setEnabled(false);
     }
 }

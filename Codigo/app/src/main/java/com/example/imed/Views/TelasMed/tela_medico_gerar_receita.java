@@ -27,26 +27,15 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
     private TextView medicamentoTextView;
     private TextView dosagemTextView;
     private TextView frequenciaTextView;
+    private String valor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-        Random random = new Random();
-        ClasseDAO dao = new ClasseDAO(this  );
-        Receita receita = new Receita();
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_medico_gerar_receita);
 
-        //Recebendo dado de qual médico está logado
         Intent intent = getIntent();
-        String valor = intent.getStringExtra("MedicoCrm");
-        //===========================================//
-
-        //==========================================================//
-        retornarButton = findViewById(R.id.medico_gerar_receita_retornar_button);
-        buttonGerarReceita = findViewById(R.id.medico_gerar_receita_gerar_button);
+        valor = intent.getStringExtra("MedicoCrm");
 
         cpfPacienteTextView = findViewById(R.id.medico_gerar_receita_cpf_paciente_textview);
         cpfPacienteTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(28)});
@@ -59,8 +48,15 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
 
         frequenciaTextView = findViewById(R.id.medico_gerar_receita_frequencia_textview);
         frequenciaTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(28)});
-        //==========================================================//
 
+        buttonGerarReceita = findViewById(R.id.medico_gerar_receita_gerar_button);
+
+        Random random = new Random();
+        ClasseDAO dao = new ClasseDAO(this  );
+        Receita receita = new Receita();
+
+        retornar();
+        gerarReceita();
 
         //Método criado para gerar uma regeita
         buttonGerarReceita.setOnClickListener(new View.OnClickListener() {
@@ -139,9 +135,11 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
 
             }
         });
-        //Fim do método para gerar um receita
 
-        //Botão criado para retornar para a tela anterior
+    }
+
+    public void retornar(){
+        retornarButton = findViewById(R.id.medico_inicio_retornar_button);
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,8 +148,9 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //=================================================//
+    }
 
+    public void gerarReceita(){ //Necessita mexer
 
     }
 }

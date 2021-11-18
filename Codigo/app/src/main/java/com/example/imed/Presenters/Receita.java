@@ -2,7 +2,7 @@ package com.example.imed.Presenters;
 
 public class Receita {
 
-    String idReceita, nomeRemedio,horario,dosagem,instrucoes,fkPacienteReceita,fkMedico;
+    String idReceita, nomeRemedio,horario,dosagem,fkPacienteReceita,fkMedico;
 
     public void setFkPacienteReceita(String fkPacienteReceita) { this.fkPacienteReceita = fkPacienteReceita; }
 
@@ -22,11 +22,6 @@ public class Receita {
         this.dosagem = dosagem;
     }
 
-    public void setInstrucoes(String instrucoes) {
-        this.instrucoes = instrucoes;
-    }
-
-
     public void setFkMedico(String fkMedico) { this.fkMedico = fkMedico; }
 
     public String getIdReceita() {
@@ -45,10 +40,6 @@ public class Receita {
         return dosagem;
     }
 
-    public String getInstrucoes() {
-        return instrucoes;
-    }
-
     public String getFkPacienteReceita() { return fkPacienteReceita; }
 
     public String getFkMedico() {
@@ -58,7 +49,6 @@ public class Receita {
     @Override
     public String toString(){
         return"Id da receita: " + getIdReceita() +  "\nNome do Remédio: " + getNomeRemedio() + "\nDosagem: " + getDosagem() +
-                "\nHorário: "+ getHorario() + "\nInstruções: "+ getInstrucoes() +
-                "\nCrm médico: " + getFkMedico();
+                "\nHorário: "+ getHorario() + "\nCrm médico: " + getFkMedico();
     }
 }
