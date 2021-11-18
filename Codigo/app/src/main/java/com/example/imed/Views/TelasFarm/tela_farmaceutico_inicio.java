@@ -12,8 +12,8 @@ import com.example.imed.R;
 public class tela_farmaceutico_inicio extends AppCompatActivity {
 
 
-    ImageButton retornarButton;
-    ImageButton verificarReceitaButton;
+    private ImageButton retornarButton;
+    private ImageButton verificarReceitaButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

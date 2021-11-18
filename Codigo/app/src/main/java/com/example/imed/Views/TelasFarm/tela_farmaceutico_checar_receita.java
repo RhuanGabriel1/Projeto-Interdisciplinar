@@ -16,9 +16,9 @@ import com.example.imed.R;
 
 public class tela_farmaceutico_checar_receita extends AppCompatActivity {
 
-    ImageButton retornarButton;
-    EditText receitaTextField;
-    Button verificarButton;
+    private ImageButton retornarButton;
+    private EditText receitaTextField;
+    private Button verificarButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

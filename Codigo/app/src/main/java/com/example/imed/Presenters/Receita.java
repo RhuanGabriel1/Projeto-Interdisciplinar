@@ -2,7 +2,7 @@ package com.example.imed.Presenters;
 
 public class Receita {
 
-    String idReceita, nomeRemedio,horario,dosagem,fkPacienteReceita,fkMedico;
+    private String idReceita, nomeRemedio,horario,dosagem,fkPacienteReceita,fkMedico;
 
     public void setFkPacienteReceita(String fkPacienteReceita) { this.fkPacienteReceita = fkPacienteReceita; }
 

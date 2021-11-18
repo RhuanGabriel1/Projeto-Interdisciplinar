@@ -5,7 +5,7 @@ import com.example.imed.Presenters.Usuario;
 
 public class Farmaceutico extends Usuario {
 
-    String crf,fk_adm_farm;
+    private String crf,fk_adm_farm;
 
     public String getCrf() {
         return crf;
