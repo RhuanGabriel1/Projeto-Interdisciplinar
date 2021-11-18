@@ -25,6 +25,7 @@
         android:layout_height="120dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="fitCenter"
+        android:tint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -39,6 +40,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="fitCenter"
+        android:tint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
@@ -58,5 +60,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023"
         app:srcCompat="@drawable/doctor1"
-        app:tint="@color/principal" />
+        app:tint="@color/black" />
 </androidx.constraintlayout.widget.ConstraintLayout>

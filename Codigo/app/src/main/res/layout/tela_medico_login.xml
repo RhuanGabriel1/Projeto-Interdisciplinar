@@ -11,6 +11,7 @@
         android:id="@+id/medico_login_entrar_button"
         android:layout_width="118dp"
         android:layout_height="57dp"
+        android:backgroundTint="@color/black"
         android:text="ENTRAR"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -33,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.108"
         app:srcCompat="@drawable/doctor1"
-        app:tint="@color/principal" />
+        app:tint="@color/black" />
 
     <TextView
         android:id="@+id/medico_login_medico_textview"
@@ -53,6 +54,7 @@
         android:layout_height="50dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="fitCenter"
+        android:tint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
@@ -68,7 +70,8 @@
         android:ems="10"
         android:hint="Senha:"
         android:inputType="textPassword"
-        android:textColorHint="@color/principal"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -83,8 +86,8 @@
         android:ems="10"
         android:hint="CRM:"
         android:inputType="number"
-        android:textColor="@color/principal"
-        android:textColorHint="@color/principal"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
