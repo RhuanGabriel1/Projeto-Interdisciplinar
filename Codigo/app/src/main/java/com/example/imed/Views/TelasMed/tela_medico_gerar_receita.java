@@ -28,6 +28,10 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
     private TextView frequenciaTextView;
     private String valor;
 
+    private Random random = new Random();
+    private ClasseDAO dao = new ClasseDAO(this  );
+    private Receita receita = new Receita();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,18 +52,29 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
         frequenciaTextView = findViewById(R.id.medico_gerar_receita_frequencia_textview);
         frequenciaTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(28)});
 
-        buttonGerarReceita = findViewById(R.id.medico_gerar_receita_gerar_button);
-
-        Random random = new Random();
-        ClasseDAO dao = new ClasseDAO(this  );
-        Receita receita = new Receita();
-
         retornar();
         gerarReceita();
+    }
 
-        //Método criado para gerar uma regeita
+    public void retornar(){
+        retornarButton = findViewById(R.id.medico_gerar_receita_retornar_button);
+        retornarButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(tela_medico_gerar_receita.this, tela_medico_inicio.class);
+                intent.putExtra("MedicoCrm",valor);
+                startActivity(intent);
+            }
+
+        });
+    }
+
+    public void gerarReceita(){
+        buttonGerarReceita = findViewById(R.id.medico_gerar_receita_gerar_button);
         buttonGerarReceita.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
                 try {
                     int idReceita = random.nextInt(6000) + 1000;
@@ -133,21 +148,6 @@ public class tela_medico_gerar_receita extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    public void retornar(){
-        retornarButton = findViewById(R.id.medico_gerar_receita_retornar_button);
-        retornarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(tela_medico_gerar_receita.this, tela_medico_inicio.class);
-                intent.putExtra("MedicoCrm",valor);//Envia o dado de qual médico está logado
-                startActivity(intent);
-            }
-        });
-    }
-
-    public void gerarReceita(){ //Necessita mexer
-
+        
     }
 }
