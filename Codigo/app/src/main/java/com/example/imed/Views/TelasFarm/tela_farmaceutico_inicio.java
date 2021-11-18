@@ -23,36 +23,36 @@ public class tela_farmaceutico_inicio extends AppCompatActivity {
         //Recebendo dado de qual farmacêutico está logado
         Intent intent = getIntent();
         String valor = intent.getStringExtra("FarmCrf");
-        //==============================================//
 
+        voltar();
+        verificarReceita();
+    }
 
-        //============================================================//
-
+    public void voltar() {
         retornarButton = findViewById(R.id.farmaceutico_inicio_retornar_button);
-        verificarReceitaButton = findViewById(R.id.farmaceutico_inicio_verificar_receita_button);
-
-        //============================================================//
-
-
-        //Botão criado para retornar para a tela anterior
         retornarButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_farmaceutico_inicio.this, tela_farmaceutico_login.class);
                 startActivity(intent);
             }
-        });
-        //===================================================//
 
-        //Botão criado para ir para a tela de verificar a receita
+        });
+    }
+
+    // TODO: acho que o esse trecho de código precisa ser alinhado futuramente com o banco
+    public void verificarReceita() {
+        verificarReceitaButton = findViewById(R.id.farmaceutico_inicio_verificar_receita_button);
         verificarReceitaButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_farmaceutico_inicio.this, tela_farmaceutico_checar_receita.class);
                 intent.putExtra("FarmCrf", valor);//Envia o dado de qual farmacêutico está logado
                 startActivity(intent);
             }
+
         });
-        //===========================================================//
     }
 }

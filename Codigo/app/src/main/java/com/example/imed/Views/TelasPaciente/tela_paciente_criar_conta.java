@@ -56,23 +56,24 @@ public class tela_paciente_criar_conta extends AppCompatActivity implements MVPP
     public void criarConta(){
         criarContaButton = findViewById(R.id.criar_conta_paciente_criar_conta_button);
         criarContaButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 PacienteCriarContaPresenter pacienteCriarContaPresenter = new PacienteCriarContaPresenter(nomeTextView.getText().toString(), cpfTextView.getText().toString(),
                         senhaTextView.getText().toString(), repetirSenhaTextView.getText().toString(), getApplicationContext(), view);
-
                 if(pacienteCriarContaPresenter.createAccount()){
                     Intent intent = new Intent(tela_paciente_criar_conta.this, tela_paciente_login.class);
                     startActivity(intent);
                 }
             }
+
         });
     }
 
     public void retornar(){
         retornarButton = findViewById(R.id.imageButton_tela_create_account_login_paciente_back);
-
         retornarButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_paciente_criar_conta.this, tela_paciente_login.class);

@@ -27,31 +27,34 @@ public class tela_farmaceutico_login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_farmaceutico_login);
 
-        //=============================================================================================//
         crfTextView = findViewById(R.id.farmaceutico_login_crf_textview);
         crfTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(7)});
 
         senhaTextView = findViewById(R.id.farmaceutico_login_senha_textfield);
         senhaTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
+        retornar();
+        entrar();
+    }
 
+
+    public void retornar() {
         retornarButton = findViewById(R.id.farmaceutico_login_retornar_button);
-        entrarButton = findViewById(R.id.farmaceutico_login_entrar_button);
-
-        //=============================================================================================//
-
-        //Botão criado para retornar para a tela anterior
         retornarButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_farmaceutico_login.this, MainActivity.class);
                 startActivity(intent);
             }
-        });
-        //===============================================//
 
-        //Botão criado para entrar na tela início do farmacêutico
+        });
+    }
+
+    public void entrar() {
+        entrarButton = findViewById(R.id.farmaceutico_login_entrar_button);
         entrarButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 FarmaceuticoLoginPresenter farmaceuticoLoginPresenter = new FarmaceuticoLoginPresenter(crfTextView.getText().toString(),
@@ -63,9 +66,7 @@ public class tela_farmaceutico_login extends AppCompatActivity {
                     startActivity(intent);
                 }
             }
+
         });
-        //===========================================================//
-
-
     }
 }
