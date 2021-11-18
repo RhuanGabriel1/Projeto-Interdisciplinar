@@ -40,7 +40,6 @@ public class tela_paciente_examinar_receita extends AppCompatActivity implements
         presenter.obterReceitas();
 
         retornar();
-
     }
 
     public void retornar(){

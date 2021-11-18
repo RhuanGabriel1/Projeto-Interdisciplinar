@@ -14,15 +14,15 @@ public class tela_farmaceutico_inicio extends AppCompatActivity {
 
     private ImageButton retornarButton;
     private ImageButton verificarReceitaButton;
+    private String valor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_farmaceutico_inicio);
 
-        //Recebendo dado de qual farmacêutico está logado
         Intent intent = getIntent();
-        String valor = intent.getStringExtra("FarmCrf");
+        valor = intent.getStringExtra("FarmCrf");
 
         voltar();
         verificarReceita();
@@ -31,13 +31,11 @@ public class tela_farmaceutico_inicio extends AppCompatActivity {
     public void voltar() {
         retornarButton = findViewById(R.id.farmaceutico_inicio_retornar_button);
         retornarButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_farmaceutico_inicio.this, tela_farmaceutico_login.class);
                 startActivity(intent);
             }
-
         });
     }
 
@@ -45,14 +43,12 @@ public class tela_farmaceutico_inicio extends AppCompatActivity {
     public void verificarReceita() {
         verificarReceitaButton = findViewById(R.id.farmaceutico_inicio_verificar_receita_button);
         verificarReceitaButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_farmaceutico_inicio.this, tela_farmaceutico_checar_receita.class);
                 intent.putExtra("FarmCrf", valor);//Envia o dado de qual farmacêutico está logado
                 startActivity(intent);
             }
-
         });
     }
 }
