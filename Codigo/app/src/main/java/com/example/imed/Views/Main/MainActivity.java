@@ -1,6 +1,7 @@
 package com.example.imed.Views.Main;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import com.example.imed.R;
 import com.example.imed.Views.TelasFarm.tela_farmaceutico_login;
 import com.example.imed.Views.TelasPaciente.tela_paciente_login;
 import com.example.imed.Views.TelasMed.tela_medico_login;
+import android.view.Window;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,9 +25,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        Window window = this.getWindow();
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.black));
+
         paciente();
         medico();
         farmaceutico();
+
+
     }
 
 
@@ -59,4 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 }
