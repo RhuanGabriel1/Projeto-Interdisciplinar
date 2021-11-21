@@ -3,7 +3,6 @@ package com.example.imed.Views.TelasMed;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.View;
@@ -12,13 +11,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPMedico;
 import com.example.imed.Presenters.Medico.MedicoGerarReceitaPresenter;
 import com.example.imed.R;
-import com.example.imed.Presenters.Receita;
 
-import java.util.Random;
 
 public class tela_medico_gerar_receita extends AppCompatActivity implements MVPMedico.IViewMedicoToast {
 
@@ -59,6 +55,7 @@ public class tela_medico_gerar_receita extends AppCompatActivity implements MVPM
         retornar();
         gerarReceita();
     }
+
     public void retornar(){
         retornarButton = findViewById(R.id.medico_gerar_receita_retornar_button);
         retornarButton.setOnClickListener(new View.OnClickListener() {
@@ -88,14 +85,15 @@ public class tela_medico_gerar_receita extends AppCompatActivity implements MVPM
         });
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        presenter.destruirView();
-    }
 
     @Override
     public void showToast(String mensagem) {
         Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.destruirView();
     }
 }

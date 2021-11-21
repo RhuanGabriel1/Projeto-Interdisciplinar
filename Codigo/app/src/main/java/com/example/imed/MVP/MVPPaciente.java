@@ -26,6 +26,7 @@ public interface MVPPaciente {
 
     interface IPresenterObterReceitas{
         void obterReceitas();
+        void destruirView();
     }
 
 //    interface IModelPaciente{

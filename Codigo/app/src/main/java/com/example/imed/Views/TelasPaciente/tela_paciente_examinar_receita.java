@@ -59,4 +59,10 @@ public class tela_paciente_examinar_receita extends AppCompatActivity implements
         adapterReceita = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, receita);
         receitasListView.setAdapter(adapterReceita);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.destruirView();
+    }
 }

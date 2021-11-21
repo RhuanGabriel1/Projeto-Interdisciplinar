@@ -9,17 +9,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.imed.MVP.MVPFarmaceutico;
 import com.example.imed.Presenters.Farmaceutico.FarmaceuticoLoginPresenter;
 import com.example.imed.R;
 import com.example.imed.Views.Main.MainActivity;
 
-public class tela_farmaceutico_login extends AppCompatActivity {
+public class tela_farmaceutico_login extends AppCompatActivity implements MVPFarmaceutico.IViewFarmaceuticoToast {
 
     private ImageButton retornarButton;
     private Button entrarButton;
     private TextView crfTextView;
     private TextView senhaTextView;
+    private MVPFarmaceutico.IViewFarmaceuticoToast view;
+    private FarmaceuticoLoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +37,16 @@ public class tela_farmaceutico_login extends AppCompatActivity {
         senhaTextView = findViewById(R.id.farmaceutico_login_senha_textfield);
         senhaTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
-        retornar();
-        entrar();
-    }
+        this.view = this;
+        presenter = new FarmaceuticoLoginPresenter();
 
+        retornar();
+        fazerLogin();
+    }
 
     public void retornar() {
         retornarButton = findViewById(R.id.farmaceutico_login_retornar_button);
         retornarButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_farmaceutico_login.this, MainActivity.class);
@@ -51,14 +56,13 @@ public class tela_farmaceutico_login extends AppCompatActivity {
         });
     }
 
-    public void entrar() {
+    public void fazerLogin() {
         entrarButton = findViewById(R.id.farmaceutico_login_entrar_button);
         entrarButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 FarmaceuticoLoginPresenter farmaceuticoLoginPresenter = new FarmaceuticoLoginPresenter(crfTextView.getText().toString(),
-                        senhaTextView.getText().toString(), getApplicationContext());
+                        senhaTextView.getText().toString(), getApplicationContext(), view);
 
                 if(farmaceuticoLoginPresenter.makeLogin()){
                     Intent intent = new Intent(tela_farmaceutico_login.this, tela_farmaceutico_inicio.class);
@@ -66,7 +70,17 @@ public class tela_farmaceutico_login extends AppCompatActivity {
                     startActivity(intent);
                 }
             }
-
         });
+    }
+
+    @Override
+    public void showToast(String mensagem) {
+        Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.destruirView();
     }
 }

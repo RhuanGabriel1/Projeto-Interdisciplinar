@@ -37,7 +37,7 @@ public class MedicoGerarReceitaPresenter implements MVPMedico.IPresenterMedicoGe
     @Override
     public boolean gerarReceita() {
         try {
-            int idReceita = random.nextInt(6000) + 1000;
+            int idReceita = random.nextInt(5000) + 1000;
 
             receita.setIdReceita(idReceita+"");
             receita.setDosagem(dosagemTextView);

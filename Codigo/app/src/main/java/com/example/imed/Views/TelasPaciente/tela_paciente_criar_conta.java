@@ -45,17 +45,16 @@ public class tela_paciente_criar_conta extends AppCompatActivity implements MVPP
         repetirSenhaTextView = findViewById(R.id.criar_conta_paciente_repetir_senha_textfield);
         repetirSenhaTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
-        presenter = new PacienteCriarContaPresenter();
         this.view = this;
+        presenter = new PacienteCriarContaPresenter();
 
-        criarConta();
         retornar();
+        criarConta();
     }
 
     public void criarConta(){
         criarContaButton = findViewById(R.id.criar_conta_paciente_criar_conta_button);
         criarContaButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 PacienteCriarContaPresenter pacienteCriarContaPresenter = new PacienteCriarContaPresenter(nomeTextView.getText().toString(), cpfTextView.getText().toString(),
@@ -72,7 +71,6 @@ public class tela_paciente_criar_conta extends AppCompatActivity implements MVPP
     public void retornar(){
         retornarButton = findViewById(R.id.imageButton_tela_create_account_login_paciente_back);
         retornarButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tela_paciente_criar_conta.this, tela_paciente_login.class);

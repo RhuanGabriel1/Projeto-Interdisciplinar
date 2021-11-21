@@ -7,11 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.imed.Database.ClasseDAO;
+import com.example.imed.MVP.MVPFarmaceutico;
+import com.example.imed.Presenters.Farmaceutico.FarmaceuticoApresentacaoReceitaPresenter;
 import com.example.imed.R;
 
-public class tela_farmaceutico_apresentacao_receita extends AppCompatActivity {
+public class tela_farmaceutico_apresentacao_receita extends AppCompatActivity implements MVPFarmaceutico.IViewFarmaceuticoToast,
+        MVPFarmaceutico.IViewFarmaceuticoApresentarReceita{
 
     private ImageButton retornarButton;
     private TextView cpfPacienteTextView;
@@ -19,11 +23,11 @@ public class tela_farmaceutico_apresentacao_receita extends AppCompatActivity {
     private TextView dosagemTextView;
     private TextView frequenciaTextView;
     private String valor, receita;
+    private FarmaceuticoApresentacaoReceitaPresenter presenter;
+    private MVPFarmaceutico.IViewFarmaceuticoApresentarReceita view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ClasseDAO dao = new ClasseDAO(this);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_farmaceutico_apresentacao_receita);
 
@@ -31,13 +35,14 @@ public class tela_farmaceutico_apresentacao_receita extends AppCompatActivity {
         receita = intent.getStringExtra("receita");
         valor = intent.getStringExtra("FarmCrf");
 
-        retornar();
+        this.view = this;
         configurarTextView();
+        retornar();
 
-        cpfPacienteTextView.setText(dao.obterReceita(receita)[0].toString());//populando os textView com os dados da receita
-        medicamentoTextView.setText(dao.obterReceita(receita)[1].toString());
-        dosagemTextView.setText(dao.obterReceita(receita)[2].toString());
-        frequenciaTextView.setText(dao.obterReceita(receita)[3].toString());
+        presenter = new FarmaceuticoApresentacaoReceitaPresenter(getApplicationContext(), receita, view);
+        presenter.obterReceita();
+
+
     }
 
     public void retornar(){
@@ -61,5 +66,20 @@ public class tela_farmaceutico_apresentacao_receita extends AppCompatActivity {
         dosagemTextView.setEnabled(false);
         frequenciaTextView = findViewById(R.id.farmaceutico_receita_frequencia_textview);
         frequenciaTextView.setEnabled(false);
+    }
+
+    @Override
+    public void showToast(String mensagem) {
+        Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void mostrarReceita(String cpfPaciente, String medicamento, String dosagem, String frequencia) {
+
+        cpfPacienteTextView.setText(cpfPaciente);
+        medicamentoTextView.setText(medicamento);
+        dosagemTextView.setText(dosagem);
+        frequenciaTextView.setText(frequencia);
+
     }
 }

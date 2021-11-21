@@ -18,14 +18,19 @@ public class PacienteExaminarReceitaPresenter implements MVPPaciente.IPresenterO
 
     public PacienteExaminarReceitaPresenter(Context context, MVPPaciente.IViewExaminarReceita view,  String valor){
         this.context = context;
-        this.dao = new ClasseDAO(this.context);
         this.view = view;
         this.valor = valor;
+        this.dao = new ClasseDAO(this.context);
     }
 
     @Override
     public  void obterReceitas() {
         this.receitas = dao.obterListaReceita(valor);
         view.mostraReceitas(receitas);
+    }
+
+    @Override
+    public void destruirView() {
+        this.view = null;
     }
 }

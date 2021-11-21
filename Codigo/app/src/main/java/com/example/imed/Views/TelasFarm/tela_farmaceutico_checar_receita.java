@@ -12,15 +12,18 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.imed.Database.ClasseDAO;
+import com.example.imed.MVP.MVPFarmaceutico;
+import com.example.imed.Presenters.Farmaceutico.FarmaceuticoChecarReceitaPresenter;
 import com.example.imed.R;
 
-public class tela_farmaceutico_checar_receita extends AppCompatActivity {
+public class tela_farmaceutico_checar_receita extends AppCompatActivity implements MVPFarmaceutico.IViewFarmaceuticoToast{
 
     private ImageButton retornarButton;
     private EditText receitaTextField;
     private Button verificarButton;
     private String valor;
-    private ClasseDAO dao;
+    private MVPFarmaceutico.IViewFarmaceuticoToast view;
+    private FarmaceuticoChecarReceitaPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,10 @@ public class tela_farmaceutico_checar_receita extends AppCompatActivity {
         Intent intent = getIntent();
         valor = intent.getStringExtra("FarmCrf");
 
-        dao = new ClasseDAO(this);
+
+        presenter = new FarmaceuticoChecarReceitaPresenter();
+        this.view = this;
+
 
         receitaTextField = findViewById(R.id.farmaceutico_checar_receita_receita_textview);
         receitaTextField.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
@@ -57,25 +63,28 @@ public class tela_farmaceutico_checar_receita extends AppCompatActivity {
         verificarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    int id = Integer.parseInt(receitaTextField.getText().toString());
-                    if(receitaTextField.getText().toString().equals(dao.retornaIdReceita(receitaTextField.getText().toString()))){
-                        dao.inserirFkFarm(valor, id);
+                FarmaceuticoChecarReceitaPresenter farmaceuticoChecarReceitaPresenter = new FarmaceuticoChecarReceitaPresenter(
+                        receitaTextField.getText().toString(), valor, getApplicationContext(), view);
 
-                        Intent intent = new Intent(tela_farmaceutico_checar_receita.this, tela_farmaceutico_apresentacao_receita.class);
-                        intent.putExtra("receita", receitaTextField.getText().toString());//Envia o dado do id da receita
-                        intent.putExtra("FarmCrf", valor);//Envia o dado de qual farmacêutico está logado
-                        startActivity(intent);
-
-                        Toast.makeText(tela_farmaceutico_checar_receita.this, "Receita válida", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        Toast.makeText(tela_farmaceutico_checar_receita.this, "Dados incorretors/Receita ínvalida", Toast.LENGTH_SHORT).show();
-                    }
-                }catch (Exception e){
-                    Toast.makeText(tela_farmaceutico_checar_receita.this, "Dados incorretos", Toast.LENGTH_SHORT).show();
+                if(farmaceuticoChecarReceitaPresenter.checarReceita()){
+                    Intent intent = new Intent(tela_farmaceutico_checar_receita.this, tela_farmaceutico_apresentacao_receita.class);
+                    intent.putExtra("receita", receitaTextField.getText().toString());//Envia o dado do id da receita
+                    intent.putExtra("FarmCrf", valor);//Envia o dado de qual farmacêutico está logado
+                    startActivity(intent);
                 }
+
             }
         });
+    }
+
+    @Override
+    public void showToast(String mensagem) {
+        Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.destruirView();
     }
 }
