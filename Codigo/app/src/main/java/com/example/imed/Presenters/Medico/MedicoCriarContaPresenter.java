@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteConstraintException;
 
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPMedico;
+import com.example.imed.Model.Medico;
 
 public class MedicoCriarContaPresenter implements MVPMedico.IPresenterMedicoCriarConta {
 

@@ -1,6 +1,6 @@
 package com.example.imed.MVP;
 
-import com.example.imed.Presenters.Receita;
+import com.example.imed.Model.Receita;
 
 import java.util.List;
 

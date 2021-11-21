@@ -1,7 +1,7 @@
-package com.example.imed.Presenters.Medico;
+package com.example.imed.Model;
 
 
-import com.example.imed.Presenters.Usuario;
+import com.example.imed.Model.Usuario;
 
 public class Medico extends Usuario {
 

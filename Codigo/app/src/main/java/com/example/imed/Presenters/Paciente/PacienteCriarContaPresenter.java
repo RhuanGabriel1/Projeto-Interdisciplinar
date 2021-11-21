@@ -2,10 +2,10 @@ package com.example.imed.Presenters.Paciente;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteConstraintException;
-import android.widget.Toast;
 
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPPaciente;
+import com.example.imed.Model.Paciente;
 
 public class PacienteCriarContaPresenter implements MVPPaciente.IPresenterPacienteCriarConta {
 

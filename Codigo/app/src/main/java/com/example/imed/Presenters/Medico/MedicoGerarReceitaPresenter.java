@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteConstraintException;
 
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPMedico;
-import com.example.imed.Presenters.Receita;
+import com.example.imed.Model.Receita;
 
 import java.util.Random;
 

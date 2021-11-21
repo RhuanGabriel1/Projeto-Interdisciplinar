@@ -12,7 +12,7 @@ import android.widget.ListView;
 import com.example.imed.MVP.MVPPaciente;
 import com.example.imed.Presenters.Paciente.PacienteExaminarReceitaPresenter;
 import com.example.imed.R;
-import com.example.imed.Presenters.Receita;
+import com.example.imed.Model.Receita;
 
 import java.util.List;
 
