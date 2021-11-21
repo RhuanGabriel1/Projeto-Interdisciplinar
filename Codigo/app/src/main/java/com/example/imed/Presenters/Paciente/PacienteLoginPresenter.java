@@ -42,9 +42,6 @@ public class PacienteLoginPresenter implements MVPPaciente.IPresenterPacienteLog
     }
 
     @Override
-    public void IPresenterDestruirView() {
-        this.view = null;
-    }
-
+    public void destruirView() { this.view = null; }
 
 }

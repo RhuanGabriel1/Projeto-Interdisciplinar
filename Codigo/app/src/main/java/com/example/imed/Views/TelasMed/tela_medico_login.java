@@ -9,17 +9,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.imed.MVP.MVPMedico;
 import com.example.imed.Presenters.Medico.MedicoLoginPresenter;
 import com.example.imed.R;
 import com.example.imed.Views.Main.MainActivity;
 
-public class tela_medico_login extends AppCompatActivity {
+public class tela_medico_login extends AppCompatActivity implements MVPMedico.IViewMedicoToast {
 
     private ImageButton retornarButton;
     private Button entrarButton;
     private TextView crmTextField;
     private TextView senhaTextField;
+    private MVPMedico.IViewMedicoToast view;
+    private MedicoLoginPresenter presenter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +37,12 @@ public class tela_medico_login extends AppCompatActivity {
         senhaTextField = findViewById(R.id.medico_login_senha_textview);
         senhaTextField.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
+        presenter = new MedicoLoginPresenter();
+
+        this.view = this;
+
         retornar();
-        entrar();
+        fazerLogin();
 
     }
 
@@ -48,14 +57,13 @@ public class tela_medico_login extends AppCompatActivity {
         });
     }
 
-    public void entrar(){
+    public void fazerLogin(){
         entrarButton = findViewById(R.id.medico_login_entrar_button);
         entrarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MedicoLoginPresenter medicoLoginPresenter = new MedicoLoginPresenter(crmTextField.getText().toString(),
-                        senhaTextField.getText().toString(), getApplicationContext());
-
+                        senhaTextField.getText().toString(), getApplicationContext(), view);
                 if(medicoLoginPresenter.makeLogin()){
                     Intent intent = new Intent(tela_medico_login.this, tela_medico_inicio.class);
                     intent.putExtra("MedicoCrm", crmTextField.getText().toString());//Envia o dado de qual médico está logado
@@ -65,4 +73,14 @@ public class tela_medico_login extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void showToast(String mensagem) {
+        Toast.makeText(this  , mensagem, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.destruirView();
+    }
 }

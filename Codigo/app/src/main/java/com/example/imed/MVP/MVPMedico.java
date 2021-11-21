@@ -2,11 +2,18 @@ package com.example.imed.MVP;
 
 public interface MVPMedico {
 
-    interface IViewMedico{
-
+    interface IViewMedicoToast{
+        void showToast(String mensagem);
     }
 
-    interface IPresenterMedico{
+    interface IPresenterMedicoLogin{
+        boolean makeLogin();
+        void destruirView();
+    }
+
+    interface IPresenterMedicoGerarReceita{
+        void destruirView();
+        boolean gerarReceita();
 
     }
 //    interface IModelMedico{

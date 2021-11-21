@@ -46,7 +46,6 @@ public class tela_paciente_criar_conta extends AppCompatActivity implements MVPP
         repetirSenhaTextView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
         presenter = new PacienteCriarContaPresenter();
-
         this.view = this;
 
         criarConta();
@@ -91,6 +90,6 @@ public class tela_paciente_criar_conta extends AppCompatActivity implements MVPP
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        presenter.IPresenterDestruirView();
+        presenter.destruirView();
     }
 }

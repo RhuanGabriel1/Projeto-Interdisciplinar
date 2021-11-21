@@ -92,6 +92,6 @@ public class tela_paciente_login extends AppCompatActivity implements MVPPacient
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        presenter.IPresenterDestruirView();
+        presenter.destruirView();
     }
 }

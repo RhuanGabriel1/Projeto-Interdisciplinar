@@ -29,7 +29,6 @@ public class PacienteCriarContaPresenter implements MVPPaciente.IPresenterPacien
         this.context = context;
         this.view = view;
 
-
         this.dao = new ClasseDAO(this.context);
     }
     @Override
@@ -60,6 +59,8 @@ public class PacienteCriarContaPresenter implements MVPPaciente.IPresenterPacien
     }
 
     @Override
-    public void IPresenterDestruirView() { this.view = null; }
+    public void destruirView() { this.view = null; }
+
+
 
 }

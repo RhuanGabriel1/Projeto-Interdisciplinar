@@ -4,16 +4,22 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.example.imed.Database.ClasseDAO;
-public class MedicoLoginPresenter {
+import com.example.imed.MVP.MVPMedico;
+
+public class MedicoLoginPresenter implements MVPMedico.IPresenterMedicoLogin {
 
     private String login,password;
     private Context context;
     private ClasseDAO dao;
+    private MVPMedico.IViewMedicoToast view;
 
-    public MedicoLoginPresenter(String login, String password, Context context){
+    public MedicoLoginPresenter(){}
+
+    public MedicoLoginPresenter(String login, String password, Context context, MVPMedico.IViewMedicoToast view){
         this.login = login;
         this.password = password;
         this.context = context;
+        this.view = view;
 
         this.dao = new ClasseDAO(this.context);
     }
@@ -22,18 +28,20 @@ public class MedicoLoginPresenter {
     public boolean makeLogin(){
         try{
             if(dao.obterLoginMedico(login)[0].toString().equals(password)){
-
-                Toast.makeText(context, "Login efetuado com sucesso", Toast.LENGTH_SHORT).show();
+                view.showToast("Login efetuado com sucesso");
                 return true;
             }
             else{
-                Toast.makeText(context, "Dados incorretos", Toast.LENGTH_SHORT).show();
+                view.showToast("Dados incorretos");
                 return false;
             }
         }catch (NullPointerException e){
-            Toast.makeText(context, "Dados incorretos", Toast.LENGTH_SHORT).show();
+            view.showToast("Dados incorretos");
             return false;
         }
     }
+
+    @Override
+    public void destruirView() {this.view = null;}
 
 }

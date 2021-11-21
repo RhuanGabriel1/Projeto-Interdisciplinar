@@ -16,12 +16,12 @@ public interface MVPPaciente {
 
     interface IPresenterPacienteLogin{
         boolean makeLogin();
-        void IPresenterDestruirView();
+        void destruirView();
     }
 
     interface IPresenterPacienteCriarConta{
         boolean createAccount();
-        void IPresenterDestruirView();
+        void destruirView();
     }
 
     interface IPresenterObterReceitas{
