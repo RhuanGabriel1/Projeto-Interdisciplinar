@@ -11,6 +11,8 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.IMed">
         <activity android:name=".Views.TelasFarm.tela_farmaceutico_apresentacao_receita"></activity>
+        <activity android:name=".Views.TelasMed.tela_medico_criar_conta" />
+        <activity android:name=".Views.TelasFarm.tela_farmaceutico_criar_conta"/>
         <activity android:name=".Views.TelasPaciente.tela_paciente_examinar_receita" />
         <activity android:name=".Views.TelasMed.tela_medico_gerar_receita" />
         <activity android:name=".Views.TelasFarm.tela_farmaceutico_checar_receita" />

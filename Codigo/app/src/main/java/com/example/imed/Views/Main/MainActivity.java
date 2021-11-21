@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
 import com.example.imed.Views.TelasFarm.tela_farmaceutico_login;
 import com.example.imed.Views.TelasPaciente.tela_paciente_login;
@@ -26,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         paciente();
         medico();
         farmaceutico();
-    }
 
+    }
 
     public void farmaceutico(){
         farmaceuticoButton = findViewById(R.id.main_farmaceutico_button);

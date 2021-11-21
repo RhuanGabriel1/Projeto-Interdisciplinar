@@ -69,7 +69,7 @@ public class tela_paciente_criar_conta extends AppCompatActivity implements MVPP
     }
 
     public void retornar(){
-        retornarButton = findViewById(R.id.imageButton_tela_create_account_login_paciente_back);
+        retornarButton = findViewById(R.id.paciente_criar_conta_retornar_button);
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

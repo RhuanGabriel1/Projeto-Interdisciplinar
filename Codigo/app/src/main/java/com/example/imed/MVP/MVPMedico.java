@@ -11,11 +11,17 @@ public interface MVPMedico {
         void destruirView();
     }
 
+    interface IPresenterMedicoCriarConta{
+        boolean createAccount();
+        void destruirView();
+    }
+
     interface IPresenterMedicoGerarReceita{
         void destruirView();
         boolean gerarReceita();
 
     }
+
 //    interface IModelMedico{
 //
 //    }

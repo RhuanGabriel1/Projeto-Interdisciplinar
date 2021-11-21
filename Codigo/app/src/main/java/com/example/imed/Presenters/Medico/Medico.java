@@ -5,15 +5,12 @@ import com.example.imed.Presenters.Usuario;
 
 public class Medico extends Usuario {
 
-    private String crm, fkAdmMed;
+    private String crm;
 
     public String getCrm() {
         return crm;
     }
 
-    public String getFkAdmMed() {
-        return fkAdmMed;
-    }
 
     public void setCrm(String crm) {
         this.crm = crm;

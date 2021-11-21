@@ -50,7 +50,6 @@ public class ClasseDAO {
         values.put("crm", medico.getCrm());
         values.put("med_nome", medico.getNome());
         values.put("med_senha", medico.getSenha());
-        values.put("fk_adm_med", medico.getFkAdmMed());
         banco.insertOrThrow("medico",null,values);
     }
     //====================================//
@@ -61,7 +60,6 @@ public class ClasseDAO {
         values.put("crf", farmaceutico.getCrf());
         values.put("farm_nome",farmaceutico.getNome());
         values.put("farm_senha", farmaceutico.getSenha());
-        values.put("fk_adm_farm", farmaceutico.getFk_adm_farm());
         banco.insertOrThrow("farmaceutico",null,values);
     }
     //====================================//
@@ -157,19 +155,6 @@ public class ClasseDAO {
     }
     //====================================//
 
-    //Método para obter o login dos adms
-    public Object[] obterLoginAdm(String nome){
-        Object[] objeto = new Object[1];
-
-        String busca = "select adm_senha from adm where adm_nome = " + "'" + nome + "'";
-        Cursor cursor = banco.rawQuery(busca,null);
-
-        while (cursor.moveToNext()) {
-            objeto[0] = cursor.getString(cursor.getColumnIndex("adm_senha"));
-        }
-        cursor.close();
-        return objeto;
-    }
     //====================================//
 
     //Método para retornar receita para o farmacêutico

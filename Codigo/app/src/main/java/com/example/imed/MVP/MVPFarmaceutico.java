@@ -14,6 +14,11 @@ public interface MVPFarmaceutico{
         void destruirView();
     }
 
+    interface IPresenterFarmaceuticoCriarConta{
+        boolean createAccount();
+        void destruirView();
+    }
+
     interface IPresenterFarmaceuticoChecarReceita{
         boolean checarReceita();
         void destruirView();

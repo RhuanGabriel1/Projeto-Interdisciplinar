@@ -20,6 +20,7 @@ public class tela_medico_login extends AppCompatActivity implements MVPMedico.IV
 
     private ImageButton retornarButton;
     private Button entrarButton;
+    private Button criarContaButton;
     private TextView crmTextField;
     private TextView senhaTextField;
     private MVPMedico.IViewMedicoToast view;
@@ -43,6 +44,7 @@ public class tela_medico_login extends AppCompatActivity implements MVPMedico.IV
 
         retornar();
         fazerLogin();
+        criarConta();
 
     }
 
@@ -69,6 +71,18 @@ public class tela_medico_login extends AppCompatActivity implements MVPMedico.IV
                     intent.putExtra("MedicoCrm", crmTextField.getText().toString());//Envia o dado de qual médico está logado
                     startActivity(intent);
                 }
+            }
+        });
+    }
+
+    public void criarConta(){
+        criarContaButton = findViewById(R.id.medico_login_criar_conta);
+        criarContaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(tela_medico_login.this, tela_medico_criar_conta.class);
+                startActivity(intent);
+
             }
         });
     }

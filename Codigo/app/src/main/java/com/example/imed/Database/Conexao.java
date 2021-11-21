@@ -23,15 +23,11 @@ public class Conexao extends SQLiteOpenHelper {
 
         db.execSQL("create table medico(crm varchar (7) primary key not null, " +
                 "med_nome varchar(29), " +
-                "med_senha varchar(20) not null, " +
-                "fk_adm_med varchar (29) not null," +
-                "foreign key (fk_adm_med) references adm(adm_nome))");
+                "med_senha varchar(20) not null)");
 
         db.execSQL("create table farmaceutico(crf varchar(7) primary key not null, " +
                 "farm_nome varchar(29)," +
-                "farm_senha varchar(20) not null," +
-                "fk_adm_farm varchar(29) not null," +
-                "foreign key (fk_adm_farm) references adm(adm_nome))");
+                "farm_senha varchar(20) not null)");
 
         db.execSQL("create table paciente(cpf varchar(11) primary key not null," +
                 "paciente_nome varchar(29) ," +
@@ -70,13 +66,13 @@ public class Conexao extends SQLiteOpenHelper {
         db.execSQL("insert into paciente(cpf,paciente_nome,paciente_senha) values('05925005007','Eduardo Trevisoli','senhapaciente')");
         db.execSQL("insert into paciente(cpf,paciente_nome,paciente_senha) values('12345678901','Rodrigo Magalhães','senhapaciente')");
 
-        db.execSQL("insert into farmaceutico(crf,farm_nome,farm_senha,fk_adm_farm) values('1000000','Geraldo Silva','senhafarmaceutico','adm')");
-        db.execSQL("insert into farmaceutico(crf,farm_nome,farm_senha,fk_adm_farm) values('1100000','Luka Salomão','senhafarmaceutico','adm')");
-        db.execSQL("insert into farmaceutico(crf,farm_nome,farm_senha,fk_adm_farm) values('1234567','Marcelo Trevisoli','senhafarmaceutico','adm')");
+        db.execSQL("insert into farmaceutico(crf,farm_nome,farm_senha) values('1000000','Geraldo Silva','senhafarmaceutico')");
+        db.execSQL("insert into farmaceutico(crf,farm_nome,farm_senha) values('1100000','Luka Salomão','senhafarmaceutico')");
+        db.execSQL("insert into farmaceutico(crf,farm_nome,farm_senha) values('1234567','Marcelo Trevisoli','senhafarmaceutico')");
 
-        db.execSQL("insert into medico(crm,med_nome,med_senha,fk_adm_med) values('1000000','Marcio Ballas','senhamedico','adm')");
-        db.execSQL("insert into medico(crm,med_nome,med_senha,fk_adm_med) values('1100000','Elidio Sanna','senhamedico','adm')");
-        db.execSQL("insert into medico(crm,med_nome,med_senha,fk_adm_med) values('1234567','Daniel Tausig','senhamedico','adm')");
+        db.execSQL("insert into medico(crm,med_nome,med_senha) values('1000000','Marcio Ballas','senhamedico')");
+        db.execSQL("insert into medico(crm,med_nome,med_senha) values('1100000','Elidio Sanna','senhamedico')");
+        db.execSQL("insert into medico(crm,med_nome,med_senha) values('1234567','Daniel Tausig','senhamedico')");
 
         db.execSQL("insert into medicamento(catmat,nome_medicamento,concentracao,pr_ativo,fornecimento,forma_farm,fk_crf_farm,fk_crm_med,fk_idReceita) " +
                 "values('BR0273466','Loratamed','10 mg','Loratadina','Comprimido','Comprimido','1000000','1000000','1001')");

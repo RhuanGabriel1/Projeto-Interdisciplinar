@@ -20,6 +20,7 @@ public class tela_farmaceutico_login extends AppCompatActivity implements MVPFar
 
     private ImageButton retornarButton;
     private Button entrarButton;
+    private Button criarContaButton;
     private TextView crfTextView;
     private TextView senhaTextView;
     private MVPFarmaceutico.IViewFarmaceuticoToast view;
@@ -42,6 +43,7 @@ public class tela_farmaceutico_login extends AppCompatActivity implements MVPFar
 
         retornar();
         fazerLogin();
+        criarConta();
     }
 
     public void retornar() {
@@ -69,6 +71,17 @@ public class tela_farmaceutico_login extends AppCompatActivity implements MVPFar
                     intent.putExtra("FarmCrf", crfTextView.getText().toString());//Envia o dado de qual farmacêutico está logado
                     startActivity(intent);
                 }
+            }
+        });
+    }
+
+    public void criarConta(){
+        criarContaButton = findViewById(R.id.farmaceutico_login_criar_conta);
+        criarContaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(tela_farmaceutico_login.this, tela_farmaceutico_criar_conta.class);
+                startActivity(intent);
             }
         });
     }
