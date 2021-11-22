@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_backgroud"
-    tools:context=".Views.TelasFarm.tela_farmaceutico_login">
+    tools:context=".Views.TelasFarm.TelaFarmaceuticoLogin">
 
     <Button
         android:id="@+id/farmaceutico_login_criar_conta"

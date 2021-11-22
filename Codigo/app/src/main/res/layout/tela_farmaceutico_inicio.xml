@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_backgroud"
-    tools:context=".Views.TelasFarm.tela_farmaceutico_inicio">
+    tools:context=".Views.TelasFarm.TelaFarmaceuticoInicio">
 
     <ImageButton
         android:id="@+id/farmaceutico_inicio_retornar_button"

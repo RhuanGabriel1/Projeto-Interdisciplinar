@@ -7,11 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.imed.Database.ClasseDAO;
 import com.example.imed.R;
-import com.example.imed.Views.TelasFarm.tela_farmaceutico_login;
-import com.example.imed.Views.TelasPaciente.tela_paciente_login;
-import com.example.imed.Views.TelasMed.tela_medico_login;
+import com.example.imed.Views.TelasFarm.TelaFarmaceuticoLogin;
+import com.example.imed.Views.TelasPaciente.TelaPacienteLogin;
+import com.example.imed.Views.TelasMed.TelaMedicoLogin;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         farmaceuticoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, tela_farmaceutico_login.class);
+                Intent intent = new Intent(MainActivity.this, TelaFarmaceuticoLogin.class);
                 startActivity(intent);
             }
         });
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         medicoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, tela_medico_login.class);
+                Intent intent = new Intent(MainActivity.this, TelaMedicoLogin.class);
                 startActivity(intent);
             }
         });
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         pacienteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, tela_paciente_login.class);
+                Intent intent = new Intent(MainActivity.this, TelaPacienteLogin.class);
                 startActivity(intent);
             }
         });

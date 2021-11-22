@@ -16,7 +16,7 @@ import com.example.imed.Presenters.Medico.MedicoGerarReceitaPresenter;
 import com.example.imed.R;
 
 
-public class tela_medico_gerar_receita extends AppCompatActivity implements MVPMedico.IViewMedicoToast {
+public class TelaMedicoGerarReceita extends AppCompatActivity implements MVPMedico.IViewMedicoToast {
 
     private ImageButton retornarButton;
     private Button buttonGerarReceita;
@@ -61,7 +61,7 @@ public class tela_medico_gerar_receita extends AppCompatActivity implements MVPM
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_medico_gerar_receita.this, tela_medico_inicio.class);
+                Intent intent = new Intent(TelaMedicoGerarReceita.this, TelaMedicoInicio.class);
                 intent.putExtra("MedicoCrm",valor);
                 startActivity(intent);
             }
@@ -77,7 +77,7 @@ public class tela_medico_gerar_receita extends AppCompatActivity implements MVPM
                         medicamentoTextView.getText().toString(), dosagemTextView.getText().toString(), frequenciaTextView.getText().toString(),
                         valor, getApplicationContext(),view);
                 if(medicoGerarReceitaPresenter.gerarReceita()){
-                    Intent intent = new Intent(tela_medico_gerar_receita.this, tela_medico_inicio.class);
+                    Intent intent = new Intent(TelaMedicoGerarReceita.this, TelaMedicoInicio.class);
                     intent.putExtra("MedicoCrm",valor);//Envia o dado de qual médico está logado
                     startActivity(intent);
                 }

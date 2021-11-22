@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_backgroud"
-    tools:context=".Views.TelasPaciente.tela_paciente_login">
+    tools:context=".Views.TelasPaciente.TelaPacienteLogin">
 
     <Button
         android:id="@+id/paciente_login_entrar_button"

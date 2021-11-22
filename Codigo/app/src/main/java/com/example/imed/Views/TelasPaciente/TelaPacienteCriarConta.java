@@ -15,7 +15,7 @@ import com.example.imed.MVP.MVPPaciente;
 import com.example.imed.Presenters.Paciente.PacienteCriarContaPresenter;
 import com.example.imed.R;
 
-public class tela_paciente_criar_conta extends AppCompatActivity implements MVPPaciente.IViewPacienteToast {
+public class TelaPacienteCriarConta extends AppCompatActivity implements MVPPaciente.IViewPacienteToast {
 
     private ImageButton retornarButton;
     private Button criarContaButton;
@@ -60,7 +60,7 @@ public class tela_paciente_criar_conta extends AppCompatActivity implements MVPP
                 PacienteCriarContaPresenter pacienteCriarContaPresenter = new PacienteCriarContaPresenter(nomeTextView.getText().toString(), cpfTextView.getText().toString(),
                         senhaTextView.getText().toString(), repetirSenhaTextView.getText().toString(), getApplicationContext(), view);
                 if(pacienteCriarContaPresenter.createAccount()){
-                    Intent intent = new Intent(tela_paciente_criar_conta.this, tela_paciente_login.class);
+                    Intent intent = new Intent(TelaPacienteCriarConta.this, TelaPacienteLogin.class);
                     startActivity(intent);
                 }
             }
@@ -73,7 +73,7 @@ public class tela_paciente_criar_conta extends AppCompatActivity implements MVPP
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_paciente_criar_conta.this, tela_paciente_login.class);
+                Intent intent = new Intent(TelaPacienteCriarConta.this, TelaPacienteLogin.class);
                 startActivity(intent);
             }
 

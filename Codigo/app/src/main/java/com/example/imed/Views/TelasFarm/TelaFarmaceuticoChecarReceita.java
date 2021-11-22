@@ -11,12 +11,11 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPFarmaceutico;
 import com.example.imed.Presenters.Farmaceutico.FarmaceuticoChecarReceitaPresenter;
 import com.example.imed.R;
 
-public class tela_farmaceutico_checar_receita extends AppCompatActivity implements MVPFarmaceutico.IViewFarmaceuticoToast{
+public class TelaFarmaceuticoChecarReceita extends AppCompatActivity implements MVPFarmaceutico.IViewFarmaceuticoToast{
 
     private ImageButton retornarButton;
     private EditText receitaTextField;
@@ -51,7 +50,7 @@ public class tela_farmaceutico_checar_receita extends AppCompatActivity implemen
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_farmaceutico_checar_receita.this, tela_farmaceutico_inicio.class);
+                Intent intent = new Intent(TelaFarmaceuticoChecarReceita.this, TelaFarmaceuticoInicio.class);
                 intent.putExtra("FarmCrf", valor);//Envia o dado de qual farmacêutico está logado
                 startActivity(intent);
             }
@@ -67,7 +66,7 @@ public class tela_farmaceutico_checar_receita extends AppCompatActivity implemen
                         receitaTextField.getText().toString(), valor, getApplicationContext(), view);
 
                 if(farmaceuticoChecarReceitaPresenter.checarReceita()){
-                    Intent intent = new Intent(tela_farmaceutico_checar_receita.this, tela_farmaceutico_apresentacao_receita.class);
+                    Intent intent = new Intent(TelaFarmaceuticoChecarReceita.this, TelaFarmaceuticoApresentacaoReceita.class);
                     intent.putExtra("receita", receitaTextField.getText().toString());//Envia o dado do id da receita
                     intent.putExtra("FarmCrf", valor);//Envia o dado de qual farmacêutico está logado
                     startActivity(intent);

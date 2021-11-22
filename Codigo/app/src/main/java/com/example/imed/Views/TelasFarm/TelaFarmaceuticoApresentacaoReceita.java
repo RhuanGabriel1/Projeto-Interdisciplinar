@@ -9,12 +9,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPFarmaceutico;
 import com.example.imed.Presenters.Farmaceutico.FarmaceuticoApresentacaoReceitaPresenter;
 import com.example.imed.R;
 
-public class tela_farmaceutico_apresentacao_receita extends AppCompatActivity implements MVPFarmaceutico.IViewFarmaceuticoToast,
+public class TelaFarmaceuticoApresentacaoReceita extends AppCompatActivity implements MVPFarmaceutico.IViewFarmaceuticoToast,
         MVPFarmaceutico.IViewFarmaceuticoApresentarReceita{
 
     private ImageButton retornarButton;
@@ -50,7 +49,7 @@ public class tela_farmaceutico_apresentacao_receita extends AppCompatActivity im
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_farmaceutico_apresentacao_receita.this, tela_farmaceutico_checar_receita.class);
+                Intent intent = new Intent(TelaFarmaceuticoApresentacaoReceita.this, TelaFarmaceuticoChecarReceita.class);
                 intent.putExtra("FarmCrf", valor);//Envia o dado de qual farmacêutico está logado
                 startActivity(intent);
             }

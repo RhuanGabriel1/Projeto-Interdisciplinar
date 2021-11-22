@@ -16,7 +16,7 @@ import com.example.imed.Presenters.Farmaceutico.FarmaceuticoLoginPresenter;
 import com.example.imed.R;
 import com.example.imed.Views.Main.MainActivity;
 
-public class tela_farmaceutico_login extends AppCompatActivity implements MVPFarmaceutico.IViewFarmaceuticoToast {
+public class TelaFarmaceuticoLogin extends AppCompatActivity implements MVPFarmaceutico.IViewFarmaceuticoToast {
 
     private ImageButton retornarButton;
     private Button entrarButton;
@@ -51,7 +51,7 @@ public class tela_farmaceutico_login extends AppCompatActivity implements MVPFar
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_farmaceutico_login.this, MainActivity.class);
+                Intent intent = new Intent(TelaFarmaceuticoLogin.this, MainActivity.class);
                 startActivity(intent);
             }
 
@@ -67,7 +67,7 @@ public class tela_farmaceutico_login extends AppCompatActivity implements MVPFar
                         senhaTextView.getText().toString(), getApplicationContext(), view);
 
                 if(farmaceuticoLoginPresenter.makeLogin()){
-                    Intent intent = new Intent(tela_farmaceutico_login.this, tela_farmaceutico_inicio.class);
+                    Intent intent = new Intent(TelaFarmaceuticoLogin.this, TelaFarmaceuticoInicio.class);
                     intent.putExtra("FarmCrf", crfTextView.getText().toString());//Envia o dado de qual farmacêutico está logado
                     startActivity(intent);
                 }
@@ -80,7 +80,7 @@ public class tela_farmaceutico_login extends AppCompatActivity implements MVPFar
         criarContaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_farmaceutico_login.this, tela_farmaceutico_criar_conta.class);
+                Intent intent = new Intent(TelaFarmaceuticoLogin.this, TelaFarmaceuticoCriarConta.class);
                 startActivity(intent);
             }
         });

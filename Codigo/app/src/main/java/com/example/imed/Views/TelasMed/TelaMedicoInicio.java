@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 
 import com.example.imed.R;
 
-public class tela_medico_inicio extends AppCompatActivity {
+public class TelaMedicoInicio extends AppCompatActivity {
 
     private ImageButton retornarButton;
     private ImageButton gerarReceitaButton;
@@ -32,7 +32,7 @@ public class tela_medico_inicio extends AppCompatActivity {
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_medico_inicio.this, tela_medico_login.class);
+                Intent intent = new Intent(TelaMedicoInicio.this, TelaMedicoLogin.class);
                 startActivity(intent);
             }
         });
@@ -43,7 +43,7 @@ public class tela_medico_inicio extends AppCompatActivity {
         gerarReceitaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_medico_inicio.this, tela_medico_gerar_receita.class);
+                Intent intent = new Intent(TelaMedicoInicio.this, TelaMedicoGerarReceita.class);
                 intent.putExtra("MedicoCrm",valor);//Envia o dado de qual médico está logado
                 startActivity(intent);
             }

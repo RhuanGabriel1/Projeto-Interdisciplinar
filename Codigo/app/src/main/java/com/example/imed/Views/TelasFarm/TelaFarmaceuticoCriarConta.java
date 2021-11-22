@@ -15,7 +15,7 @@ import com.example.imed.MVP.MVPFarmaceutico;
 import com.example.imed.Presenters.Farmaceutico.FarmaceuticoCriarContaPresenter;
 import com.example.imed.R;
 
-public class tela_farmaceutico_criar_conta extends AppCompatActivity implements MVPFarmaceutico.IViewFarmaceuticoToast {
+public class TelaFarmaceuticoCriarConta extends AppCompatActivity implements MVPFarmaceutico.IViewFarmaceuticoToast {
 
     private ImageButton retornarButton;
     private Button criarContaButton;
@@ -56,7 +56,7 @@ public class tela_farmaceutico_criar_conta extends AppCompatActivity implements 
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_farmaceutico_criar_conta.this, tela_farmaceutico_login.class);
+                Intent intent = new Intent(TelaFarmaceuticoCriarConta.this, TelaFarmaceuticoLogin.class);
                 startActivity(intent);
             }
         });
@@ -75,7 +75,7 @@ public class tela_farmaceutico_criar_conta extends AppCompatActivity implements 
                         getApplicationContext(),
                         view);
                 if(farmaceuticoCriarContaPresenter.createAccount()){
-                    Intent intent = new Intent(tela_farmaceutico_criar_conta.this, tela_farmaceutico_login.class);
+                    Intent intent = new Intent(TelaFarmaceuticoCriarConta.this, TelaFarmaceuticoLogin.class);
                     startActivity(intent);
                 }
             }

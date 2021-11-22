@@ -16,7 +16,7 @@ import com.example.imed.Model.Receita;
 
 import java.util.List;
 
-public class tela_paciente_examinar_receita extends AppCompatActivity implements MVPPaciente.IViewExaminarReceita {
+public class TelaPacienteExaminarReceita extends AppCompatActivity implements MVPPaciente.IViewExaminarReceita {
 
     private ImageButton retornarButton;
     private ListView receitasListView;
@@ -47,7 +47,7 @@ public class tela_paciente_examinar_receita extends AppCompatActivity implements
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_paciente_examinar_receita.this, tela_paciente_inicio.class);
+                Intent intent = new Intent(TelaPacienteExaminarReceita.this, TelaPacienteInicio.class);
                 intent.putExtra("PacienteCpf", valor);//Envia o dado de qual paciente está logado
                 startActivity(intent);
             }

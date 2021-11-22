@@ -9,8 +9,7 @@ import android.widget.ImageButton;
 
 import com.example.imed.R;
 
-public class tela_paciente_inicio extends AppCompatActivity {
-
+public class TelaPacienteInicio extends AppCompatActivity {
 
     private ImageButton retornarButton;
     private ImageButton minhasReceitasButton;
@@ -34,7 +33,7 @@ public class tela_paciente_inicio extends AppCompatActivity {
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_paciente_inicio.this, tela_paciente_login.class);
+                Intent intent = new Intent(TelaPacienteInicio.this, TelaPacienteLogin.class);
                 startActivity(intent);
             }
         });
@@ -45,7 +44,7 @@ public class tela_paciente_inicio extends AppCompatActivity {
         minhasReceitasButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_paciente_inicio.this, tela_paciente_examinar_receita.class);
+                Intent intent = new Intent(TelaPacienteInicio.this, TelaPacienteExaminarReceita.class);
                 intent.putExtra("PacienteCpf", valor);//Envia o dado de qual paciente está logado
                 startActivity(intent);
             }

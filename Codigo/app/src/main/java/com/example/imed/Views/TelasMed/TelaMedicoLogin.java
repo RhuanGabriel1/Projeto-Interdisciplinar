@@ -16,7 +16,7 @@ import com.example.imed.Presenters.Medico.MedicoLoginPresenter;
 import com.example.imed.R;
 import com.example.imed.Views.Main.MainActivity;
 
-public class tela_medico_login extends AppCompatActivity implements MVPMedico.IViewMedicoToast {
+public class TelaMedicoLogin extends AppCompatActivity implements MVPMedico.IViewMedicoToast {
 
     private ImageButton retornarButton;
     private Button entrarButton;
@@ -53,7 +53,7 @@ public class tela_medico_login extends AppCompatActivity implements MVPMedico.IV
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_medico_login.this, MainActivity.class);
+                Intent intent = new Intent(TelaMedicoLogin.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -67,7 +67,7 @@ public class tela_medico_login extends AppCompatActivity implements MVPMedico.IV
                 MedicoLoginPresenter medicoLoginPresenter = new MedicoLoginPresenter(crmTextField.getText().toString(),
                         senhaTextField.getText().toString(), getApplicationContext(), view);
                 if(medicoLoginPresenter.makeLogin()){
-                    Intent intent = new Intent(tela_medico_login.this, tela_medico_inicio.class);
+                    Intent intent = new Intent(TelaMedicoLogin.this, TelaMedicoInicio.class);
                     intent.putExtra("MedicoCrm", crmTextField.getText().toString());//Envia o dado de qual médico está logado
                     startActivity(intent);
                 }
@@ -80,7 +80,7 @@ public class tela_medico_login extends AppCompatActivity implements MVPMedico.IV
         criarContaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_medico_login.this, tela_medico_criar_conta.class);
+                Intent intent = new Intent(TelaMedicoLogin.this, TelaMedicoCriarConta.class);
                 startActivity(intent);
 
             }

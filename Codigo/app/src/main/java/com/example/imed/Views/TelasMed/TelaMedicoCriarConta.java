@@ -15,9 +15,7 @@ import com.example.imed.MVP.MVPMedico;
 import com.example.imed.Presenters.Medico.MedicoCriarContaPresenter;
 import com.example.imed.R;
 
-
-
-public class tela_medico_criar_conta extends AppCompatActivity implements MVPMedico.IViewMedicoToast {
+public class TelaMedicoCriarConta extends AppCompatActivity implements MVPMedico.IViewMedicoToast {
 
     private ImageButton retornarButton;
     private EditText nomeEditText;
@@ -59,7 +57,7 @@ public class tela_medico_criar_conta extends AppCompatActivity implements MVPMed
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_medico_criar_conta.this, tela_medico_login.class);
+                Intent intent = new Intent(TelaMedicoCriarConta.this, TelaMedicoLogin.class);
                 startActivity(intent);
             }
         });
@@ -74,7 +72,7 @@ public class tela_medico_criar_conta extends AppCompatActivity implements MVPMed
                         senhaEditText.getText().toString(), repetirSenhaEditText.getText().toString(),  crmEditText.getText().toString(),
                         getApplicationContext(), view);
                 if(medicoCriarContaPresenter.createAccount()){
-                    Intent intent = new Intent(tela_medico_criar_conta.this, tela_medico_login.class);
+                    Intent intent = new Intent(TelaMedicoCriarConta.this, TelaMedicoLogin.class);
                     startActivity(intent);
                 }
             }

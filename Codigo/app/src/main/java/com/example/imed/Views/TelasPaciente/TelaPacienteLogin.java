@@ -16,7 +16,7 @@ import com.example.imed.Presenters.Paciente.PacienteLoginPresenter;
 import com.example.imed.R;
 import com.example.imed.Views.Main.MainActivity;
 
-public class tela_paciente_login extends AppCompatActivity implements MVPPaciente.IViewPacienteToast {
+public class TelaPacienteLogin extends AppCompatActivity implements MVPPaciente.IViewPacienteToast {
 
     private ImageButton retornarButton;
     private Button entrarButton;
@@ -54,7 +54,7 @@ public class tela_paciente_login extends AppCompatActivity implements MVPPacient
                 PacienteLoginPresenter pacienteLoginPresenter = new PacienteLoginPresenter(cpfTextView.getText().toString(),
                         senhaTextView.getText().toString(), getApplicationContext(),view);
                 if(pacienteLoginPresenter.makeLogin()) {
-                    Intent intent = new Intent(tela_paciente_login.this, tela_paciente_inicio.class);
+                    Intent intent = new Intent(TelaPacienteLogin.this, TelaPacienteInicio.class);
                     intent.putExtra("PacienteCpf", cpfTextView.getText().toString());//Envia o dado de qual paciente está logado
                     startActivity(intent);
                 }
@@ -67,7 +67,7 @@ public class tela_paciente_login extends AppCompatActivity implements MVPPacient
         retornarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_paciente_login.this, MainActivity.class);
+                Intent intent = new Intent(TelaPacienteLogin.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -78,7 +78,7 @@ public class tela_paciente_login extends AppCompatActivity implements MVPPacient
         criarContaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tela_paciente_login.this, tela_paciente_criar_conta.class);
+                Intent intent = new Intent(TelaPacienteLogin.this, TelaPacienteCriarConta.class);
                 startActivity(intent);
             }
         });
