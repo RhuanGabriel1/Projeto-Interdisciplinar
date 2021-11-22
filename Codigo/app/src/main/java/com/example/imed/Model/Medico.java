@@ -11,7 +11,6 @@ public class Medico extends Usuario {
         return crm;
     }
 
-
     public void setCrm(String crm) {
         this.crm = crm;
     }

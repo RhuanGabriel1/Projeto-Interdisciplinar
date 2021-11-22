@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
 import com.example.imed.Model.Farmaceutico;
-import com.example.imed.Model.Medicamentos;
 import com.example.imed.Model.Medico;
 import com.example.imed.Model.Paciente;
 import com.example.imed.Model.Receita;
@@ -61,22 +60,6 @@ public class ClasseDAO {
         values.put("farm_nome",farmaceutico.getNome());
         values.put("farm_senha", farmaceutico.getSenha());
         banco.insertOrThrow("farmaceutico",null,values);
-    }
-    //====================================//
-
-    //Método para cadastrar um medicamento
-    public void inserirMedicamentos(Medicamentos medicamentos){
-        ContentValues values = new ContentValues();
-        values.put("catmat", medicamentos.getCatmat());
-        values.put("nome_medicamento", medicamentos.getNomeMedicamento());
-        values.put("pr_ativo", medicamentos.getPrincipioAtivo());
-        values.put("concentracao", medicamentos.getConcentracao());
-        values.put("fornecimento", medicamentos.getFornecimento());
-        values.put("forma_farm",medicamentos.getFormaFarmaceutica());
-        values.put("fk_crf_farm", medicamentos.getFkCrfFarm());
-        values.put("fk_crm_med", "");
-        values.put("fk_idReceita", "");
-        banco.insertOrThrow("medicamento", null, values);
     }
     //====================================//
 
@@ -205,37 +188,6 @@ public class ClasseDAO {
     }
     //====================================//
 
-    //Método para obter a lista de farmacêuticos
-    public List<Farmaceutico> obterListaFarmaceutico(){
-        ArrayList<Farmaceutico> farmaceuticos = new ArrayList<>();
-        Cursor cursor = banco.query("farmaceutico", new String[]{"crf","farm_nome"},null,null,null,null,null);
-        while(cursor.moveToNext()) {
-            Farmaceutico f = new Farmaceutico();
-            f.setCrf(cursor.getString(cursor.getColumnIndex("crf")));
-            f.setNome(cursor.getString(cursor.getColumnIndex("farm_nome")));
-            farmaceuticos.add(f);
-        }
-        cursor.close();
-
-        return farmaceuticos;
-    }
-    //====================================//
-    //Método para obter a lista de médicos
-    public List<Medico> obterListaMedico(){
-        ArrayList<Medico> medicos = new ArrayList<>();
-        Cursor cursor = banco.query("medico", new String[]{"crm", "med_nome"},null,null,null,null,null);
-
-        while(cursor.moveToNext()){
-            Medico m = new Medico();
-            m.setCrm(cursor.getString(cursor.getColumnIndex("crm")));
-            m.setNome(cursor.getString(cursor.getColumnIndex("med_nome")));
-            medicos.add(m);
-        }
-        cursor.close();
-
-        return medicos;
-    }
-    //====================================//
 
     //Método para obter a lista de receitas
     public List<Receita> obterListaReceita(String cpf){
@@ -255,41 +207,6 @@ public class ClasseDAO {
         cursor.close();
 
         return receitas;
-    }
-    //====================================//
-
-    //Método para obter a lista de medicamentos
-    public List<Medicamentos> obterListaMedicamentos(){
-        ArrayList<Medicamentos> medicamentos = new ArrayList<>();
-        Cursor cursor = banco.query("medicamento", new String[]{"catmat","nome_medicamento","pr_ativo","concentracao","fornecimento","forma_farm"}
-        ,null,null,null,null,null );
-
-        while (cursor.moveToNext()) {
-            Medicamentos me = new Medicamentos();
-            me.setNomeMedicamento(cursor.getString(cursor.getColumnIndex("nome_medicamento")));
-            me.setCatmat(cursor.getString(cursor.getColumnIndex("catmat")));
-            me.setPrincipioAtivo(cursor.getString(cursor.getColumnIndex("pr_ativo")));
-            me.setConcentracao(cursor.getString(cursor.getColumnIndex("concentracao")));
-            me.setFornecimento(cursor.getString(cursor.getColumnIndex("fornecimento")));
-            me.setFormaFarmaceutica(cursor.getString(cursor.getColumnIndex("forma_farm")));
-            medicamentos.add(me);
-        }
-        cursor.close();
-
-        return medicamentos;
-    }
-    //====================================//
-
-
-    //método para deletar contas de médicos
-    public void deletarContaMedico(String m){
-        banco.delete("medico", "crm = ?", new String[]{m});
-    }
-    //====================================//
-
-    //método para deletar contas de farmacêuticos
-    public void deletarContaFarmaceutico(String f){
-        banco.delete("farmaceutico", "crf = ?", new String[]{f});
     }
     //====================================//
 
