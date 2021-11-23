@@ -11,107 +11,99 @@
         android:id="@+id/medico_gerar_receita_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="GERAR RECEITA"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.272" />
+        app:layout_constraintTop_toBottomOf="@+id/medico_gerar_receita_medico_imageview" />
 
     <ImageButton
         android:id="@+id/medico_gerar_receita_medico_imageview"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:layout_marginTop="100dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="fitCenter"
         android:tint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.108"
         app:srcCompat="@drawable/doctor1" />
 
     <EditText
         android:id="@+id/medico_gerar_receita_cpf_paciente_textview"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="CPF do paciente:"
         android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textColorLink="@color/principal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.352" />
+        app:layout_constraintTop_toBottomOf="@+id/medico_gerar_receita_textview" />
 
     <EditText
         android:id="@+id/medico_gerar_receita_dosagem_textview"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Dosagem:"
         android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textColorLink="@color/principal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintTop_toBottomOf="@+id/medico_gerar_receita_medicamento_textfield" />
 
     <EditText
         android:id="@+id/medico_gerar_receita_frequencia_textview"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Frequência:"
         android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textColorLink="@color/principal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.655" />
+        app:layout_constraintTop_toBottomOf="@+id/medico_gerar_receita_dosagem_textview" />
 
     <EditText
         android:id="@+id/medico_gerar_receita_medicamento_textfield"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Medicamento:"
         android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textColorLink="@color/principal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.451" />
+        app:layout_constraintTop_toBottomOf="@+id/medico_gerar_receita_cpf_paciente_textview" />
 
     <ImageView
         android:id="@+id/medico_gerar_receita_medicotop_imageview"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023"
         app:srcCompat="@drawable/doctor1"
         app:tint="@color/black" />
 
@@ -119,31 +111,28 @@
         android:id="@+id/medico_gerar_receita_retornar_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="fitCenter"
         android:tint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023"
         app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
     <Button
         android:id="@+id/medico_gerar_receita_gerar_button"
         android:layout_width="128dp"
         android:layout_height="55dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/black"
         android:text="GERAR"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:cornerRadius="@android:dimen/thumbnail_width"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.914" />
+        app:layout_constraintTop_toBottomOf="@+id/medico_gerar_receita_frequencia_textview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
