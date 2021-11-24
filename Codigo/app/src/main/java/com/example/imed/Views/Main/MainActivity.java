@@ -3,9 +3,11 @@ package com.example.imed.Views.Main;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.imed.Database.MySQLConnection;
 import com.example.imed.Helper.TimeOut;
@@ -20,18 +22,29 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton pacienteButton;
     private ImageButton medicoButton;
     private ImageButton farmaceuticoButton;
-    private MySQLConnection sql;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        sql = new MySQLConnection();
-
         paciente();
         medico();
         farmaceutico();
+    }
+
+    private void initFarmaceutico(Object[] data){
+
+        for(int i = 0; i < data.length;i++){
+            System.out.println(data[i]);
+        }
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                farmaceuticoButton.setBackgroundColor(Color.BLUE);
+                Toast.makeText(getApplicationContext(), data[0].toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     public void farmaceutico(){
@@ -39,18 +52,12 @@ public class MainActivity extends AppCompatActivity {
         farmaceuticoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TelaFarmaceuticoLogin.class);
-                startActivity(intent);
-//                Object[] data;
-//                PacienteLoginModel model = new  PacienteLoginModel(getApplicationContext());
-//                data = model.dadosLogin();
-//                for(int i = 0 ; i < data.length; i++){
-////                    System.out.println(data[i]);
-//                    int finalI = i;
-//                    new TimeOut().setTimeout(()->System.out.println(data[finalI]), 337);
-////                setTimeout(()->System.out.println("2"), 2000);
-//                }
-//
+//                Intent intent = new Intent(MainActivity.this, TelaFarmaceuticoLogin.class);
+//                startActivity(intent);
+                Object[] data;
+                PacienteLoginModel model = new  PacienteLoginModel(getApplicationContext());
+                data = model.dadosLogin();
+                new TimeOut().setTimeout(()->initFarmaceutico(data),1000);
             }
         });
     }
