@@ -17,6 +17,9 @@ import com.example.imed.Views.TelasFarm.TelaFarmaceuticoLogin;
 import com.example.imed.Views.TelasPaciente.TelaPacienteLogin;
 import com.example.imed.Views.TelasMed.TelaMedicoLogin;
 
+import org.json.JSONObject;
+
+
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton pacienteButton;
@@ -33,14 +36,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initFarmaceutico(Object[] data){
+        Object [][] response = new Object[2][2];
+        try{
+            JSONObject  json;
+            for(int i = 0; i < data.length;i++){
+                 json = new JSONObject(data[i].toString());
+                System.out.println(json.getString("nome")+"");
+            }
+        }catch(Exception e){
 
-        for(int i = 0; i < data.length;i++){
-            System.out.println(data[i]);
         }
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                farmaceuticoButton.setBackgroundColor(Color.BLUE);
                 Toast.makeText(getApplicationContext(), data[0].toString(), Toast.LENGTH_SHORT).show();
             }
         });

@@ -20,10 +20,6 @@ import java.util.Map;
 
 public class MySQLConnection {
 
-
-
-
-
     public Object[] queryMysql(String query, Context context,int size) {
         RequestQueue queue = Volley.newRequestQueue(context);
         //String url = "http://192.168.0.2:4000/select?";
@@ -39,7 +35,6 @@ public class MySQLConnection {
                                 JSONObject obj = new JSONObject(response);
                                 Object[] reqObj= new Object[1];
                                 reqObj[0] = obj;
-
                                 resObj[0] = reqObj[0];
                             } else {
                                 JSONArray arrayObj = new JSONArray(response);
@@ -49,8 +44,6 @@ public class MySQLConnection {
                                     reqObj[i] = obj;
                                     resObj[i] = obj;
                                 }
-
-
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
