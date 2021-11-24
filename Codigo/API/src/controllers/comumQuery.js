@@ -18,7 +18,7 @@ const comumQuery = (req, res) => {
         return res.send({ success: false, ...resposta });
       }
       return res.send(resposta);
-    }, 1500);
+    }, 500);
   } catch (error) {
     console.log(error);
     return res

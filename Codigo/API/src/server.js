@@ -15,7 +15,7 @@ const app = express();
     user: "root",
     password: "admin",
     port: "3306",
-    database: "testedb",
+    database: "imed",
   });
   console.clear();
   global.con = connection;

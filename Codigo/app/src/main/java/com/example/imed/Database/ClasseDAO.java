@@ -31,8 +31,6 @@ public class ClasseDAO {
 
     }
 
-    public void abrir(){ }
-
     //Método para cadastrar um paciente
     public void inserirPaciente(Paciente paciente){
         ContentValues values = new ContentValues();
