@@ -1,6 +1,6 @@
 package com.example.imed.Model.Login;
 
-public class LoginMedico implements LoginStrategy {
+public class LoginMedicoInterface implements LoginStrategyInterface {
 
     @Override
     public Boolean realizarLogin(String login, String senha) {

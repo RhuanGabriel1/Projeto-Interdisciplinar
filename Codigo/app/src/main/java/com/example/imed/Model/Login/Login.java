@@ -5,10 +5,10 @@ public class Login {
     private String login;
     private String senha;
 
-    private LoginStrategy logger;
+    private LoginStrategyInterface logger;
 
-    public Login(LoginStrategy login) {
-        logger = login;
+    public Login(LoginStrategyInterface logger) {
+        this.logger = logger;
     }
 
     public Boolean realizarLogin(String login, String senha) {
