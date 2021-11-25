@@ -20,7 +20,9 @@ public class PacienteLoginModel {
     public Object[]  dadosLogin() {
         MySQLConnection connection = new MySQLConnection();
         Object[] objRequest;
-        objRequest = connection.queryMysql("select * from teste", this.context,2);
+        String nome = "Joao";
+        String query = "select * from teste";
+        objRequest = connection.queryMysql(query, this.context,8);
         return objRequest;
     }
 

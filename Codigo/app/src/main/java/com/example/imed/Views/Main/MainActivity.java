@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.JsonReader;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -16,7 +17,13 @@ import com.example.imed.R;
 import com.example.imed.Views.TelasFarm.TelaFarmaceuticoLogin;
 import com.example.imed.Views.TelasPaciente.TelaPacienteLogin;
 import com.example.imed.Views.TelasMed.TelaMedicoLogin;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 
@@ -36,15 +43,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initFarmaceutico(Object[] data){
-        Object [][] response = new Object[2][2];
+
         try{
-            JSONObject  json;
+            Object[][] resp = new Object[8][2];
             for(int i = 0; i < data.length;i++){
-                 json = new JSONObject(data[i].toString());
-                System.out.println(json.getString("nome")+"");
+              String json_str = data[i].toString();
+              JSONObject obj = new JSONObject(json_str);
+              int id = obj.getInt("_id");
+              String nome = obj.getString("nome");
+              resp[i][0] = id;
+              resp[i][1] = nome;
+            }
+
+            for(int i = 0; i < resp.length;i++){
+                for(int j = 0; j < 2; j++){
+                    System.out.print("\n"+resp[i][j]+" ");
+                }
             }
         }catch(Exception e){
-
+            System.out.println(e);
         }
         runOnUiThread(new Runnable() {
             @Override
