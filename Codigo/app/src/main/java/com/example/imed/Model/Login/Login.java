@@ -5,14 +5,14 @@ public class Login {
     private String login;
     private String senha;
 
-    private LoginStrategyInterface logger;
+    private LoginStrategyInterface loginStrategy;
 
-    public Login(LoginStrategyInterface logger) {
-        this.logger = logger;
+    public Login(LoginStrategyInterface loginStrategy) {
+        this.loginStrategy = loginStrategy;
     }
 
     public Boolean realizarLogin(String login, String senha) {
-        return logger.realizarLogin(login, senha);
+        return loginStrategy.realizarLogin(login, senha);
     }
 
 }
