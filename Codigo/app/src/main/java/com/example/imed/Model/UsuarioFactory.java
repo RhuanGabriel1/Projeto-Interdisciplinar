@@ -2,6 +2,8 @@ package com.example.imed.Model;
 
 public class UsuarioFactory {
 
+    public UsuarioFactory() {}
+
     public Usuario criarNovoUsuario(String tipoDeUsuario) {
 
         switch (tipoDeUsuario) {
@@ -17,3 +19,5 @@ public class UsuarioFactory {
 
     }
 }
+
+

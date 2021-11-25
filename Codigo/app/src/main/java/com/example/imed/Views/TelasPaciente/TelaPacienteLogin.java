@@ -52,10 +52,13 @@ public class TelaPacienteLogin extends AppCompatActivity implements MVPPaciente.
             @Override
             public void onClick(View v) {
                 PacienteLoginPresenter pacienteLoginPresenter = new PacienteLoginPresenter(cpfTextView.getText().toString(),
-                        senhaTextView.getText().toString(), getApplicationContext(),view);
+                                                                                            senhaTextView.getText().toString(),
+                                                                                            getApplicationContext(),
+                                                                                            view);
+
                 if(pacienteLoginPresenter.makeLogin()) {
                     Intent intent = new Intent(TelaPacienteLogin.this, TelaPacienteInicio.class);
-                    intent.putExtra("PacienteCpf", cpfTextView.getText().toString());//Envia o dado de qual paciente está logado
+                    intent.putExtra("PacienteCpf", cpfTextView.getText().toString());
                     startActivity(intent);
                 }
             }

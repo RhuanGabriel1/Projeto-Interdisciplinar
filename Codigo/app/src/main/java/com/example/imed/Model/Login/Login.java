@@ -2,9 +2,6 @@ package com.example.imed.Model.Login;
 
 public class Login {
 
-    private String login;
-    private String senha;
-
     private LoginStrategyInterface loginStrategy;
 
     public Login(LoginStrategyInterface loginStrategy) {
