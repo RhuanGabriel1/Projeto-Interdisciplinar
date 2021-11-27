@@ -15,8 +15,6 @@ public class PacienteLoginPresenter implements MVPPaciente.IPresenterPacienteLog
 
     private UsuarioFactory factory = new UsuarioFactory();
     private Paciente paciente = (Paciente) factory.criarNovoUsuario("paciente");
-    private Context context;
-    private ClasseDAO dao;
     private MVPPaciente.IViewPacienteToast view;
     private Login strategyLogin;
 
@@ -27,10 +25,8 @@ public class PacienteLoginPresenter implements MVPPaciente.IPresenterPacienteLog
         paciente.setCpf(login);
         paciente.setSenha(senha);
 
-        this.context = context;
         this.view = view;
 
-        dao = new ClasseDAO(context);
         strategyLogin = new Login(new LoginPaciente(context));
 
     }
