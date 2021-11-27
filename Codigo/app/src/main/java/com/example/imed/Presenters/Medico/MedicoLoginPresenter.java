@@ -16,8 +16,6 @@ public class MedicoLoginPresenter implements MVPMedico.IPresenterMedicoLogin {
 
     private UsuarioFactory factory = new UsuarioFactory();
     private Medico medico = (Medico) factory.criarNovoUsuario("medico");
-    private Context context;
-    private ClasseDAO dao;
     private MVPMedico.IViewMedicoToast view;
     private Login strategyLogin;
 
@@ -27,10 +25,8 @@ public class MedicoLoginPresenter implements MVPMedico.IPresenterMedicoLogin {
         medico.setCrm(login);
         medico.setSenha(senha);
 
-        this.context = context;
         this.view = view;
 
-        this.dao = new ClasseDAO(this.context);
         strategyLogin = new Login(new LoginMedico(context));
     }
 
