@@ -5,37 +5,41 @@ import android.widget.Toast;
 
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPMedico;
+import com.example.imed.Model.Login.Login;
+import com.example.imed.Model.Login.LoginMedico;
+import com.example.imed.Model.Login.LoginPaciente;
+import com.example.imed.Model.Medico;
+import com.example.imed.Model.Paciente;
+import com.example.imed.Model.UsuarioFactory;
 
 public class MedicoLoginPresenter implements MVPMedico.IPresenterMedicoLogin {
 
-    private String login,password;
+    private UsuarioFactory factory = new UsuarioFactory();
+    private Medico medico = (Medico) factory.criarNovoUsuario("medico");
     private Context context;
     private ClasseDAO dao;
     private MVPMedico.IViewMedicoToast view;
+    private Login strategyLogin;
 
     public MedicoLoginPresenter(){}
 
-    public MedicoLoginPresenter(String login, String password, Context context, MVPMedico.IViewMedicoToast view){
-        this.login = login;
-        this.password = password;
+    public MedicoLoginPresenter(String login, String senha, Context context, MVPMedico.IViewMedicoToast view){
+        medico.setCrm(login);
+        medico.setSenha(senha);
+
         this.context = context;
         this.view = view;
 
         this.dao = new ClasseDAO(this.context);
+        strategyLogin = new Login(new LoginMedico(context));
     }
 
 
     public boolean makeLogin(){
-        try{
-            if(dao.obterLoginMedico(login)[0].toString().equals(password)){
-                view.showToast("Login efetuado com sucesso");
-                return true;
-            }
-            else{
-                view.showToast("Dados incorretos");
-                return false;
-            }
-        }catch (NullPointerException e){
+        if(strategyLogin.realizarLogin(medico.getCrm(), medico.getSenha())) {
+            view.showToast("Login efetuado com sucesso!");
+            return true;
+        } else {
             view.showToast("Dados incorretos");
             return false;
         }
