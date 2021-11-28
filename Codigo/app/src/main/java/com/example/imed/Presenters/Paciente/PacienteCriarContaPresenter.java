@@ -6,12 +6,14 @@ import android.database.sqlite.SQLiteConstraintException;
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPPaciente;
 import com.example.imed.Model.Paciente;
+import com.example.imed.Model.UsuarioFactory;
 
 public class PacienteCriarContaPresenter implements MVPPaciente.IPresenterPacienteCriarConta {
 
 
-    private Paciente paciente = new Paciente();
-    private String textView_senha_paciente,textView_repetir_senha_paciente, textView_nome_paciente,textView_cpf_paciente;
+    private UsuarioFactory factory  = new UsuarioFactory();
+    private Paciente paciente;
+    private String senha, repetirSenha, nome, cpf;
     private Context context;
     private ClasseDAO dao;
     private MVPPaciente.IViewPacienteToast view;
@@ -19,31 +21,37 @@ public class PacienteCriarContaPresenter implements MVPPaciente.IPresenterPacien
 
     public PacienteCriarContaPresenter(){}
 
-    public PacienteCriarContaPresenter(String textView_nome_paciente, String textView_cpf_paciente, String textView_senha_paciente,
-                                       String textView_repetir_senha_paciente, Context context, MVPPaciente.IViewPacienteToast view) {
+    public PacienteCriarContaPresenter(String nome,
+                                       String cpf,
+                                       String senha,
+                                       String repetirSenha,
+                                       Context context,
+                                       MVPPaciente.IViewPacienteToast view) {
 
-        this.textView_nome_paciente = textView_nome_paciente;
-        this.textView_cpf_paciente = textView_cpf_paciente;
-        this.textView_senha_paciente = textView_senha_paciente;
-        this.textView_repetir_senha_paciente = textView_repetir_senha_paciente;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.senha = senha;
+        this.repetirSenha = repetirSenha;
         this.context = context;
         this.view = view;
 
+        paciente = (Paciente) factory.criarNovoUsuario("paciente");
         this.dao = new ClasseDAO(this.context);
     }
+
     @Override
     public boolean createAccount(){
         try {
-            paciente.setNome(textView_nome_paciente);
-            paciente.setSenha(textView_senha_paciente);
-            paciente.setCpf(textView_cpf_paciente);
+            paciente.setNome(nome);
+            paciente.setSenha(senha);
+            paciente.setCpf(cpf);
 
-            if(textView_nome_paciente.equals("") || textView_cpf_paciente.equals("")
-                    || textView_senha_paciente.equals("") || textView_repetir_senha_paciente.equals("")){
+            if(nome.equals("") || cpf.equals("")
+                    || senha.equals("") || repetirSenha.equals("")){
                 view.showToast("Há campos vazios!");
                 return false;
             }
-            else if(paciente.getSenha().equals(textView_repetir_senha_paciente)){
+            else if(paciente.getSenha().equals(repetirSenha)){
                 dao.inserirPaciente(paciente);
                 view.showToast("Conta criada com sucesso!");
                 return true;

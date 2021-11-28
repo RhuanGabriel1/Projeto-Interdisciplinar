@@ -6,10 +6,13 @@ import android.database.sqlite.SQLiteConstraintException;
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPFarmaceutico;
 import com.example.imed.Model.Farmaceutico;
+import com.example.imed.Model.UsuarioFactory;
 
 public class FarmaceuticoCriarContaPresenter implements MVPFarmaceutico.IPresenterFarmaceuticoCriarConta {
 
-    private Farmaceutico farmaceutico = new Farmaceutico();
+
+    private Farmaceutico farmaceutico;
+    private UsuarioFactory factory = new UsuarioFactory();
     private String nome, senha,repetirSenha, crf;
     private Context context;
     private ClasseDAO dao;
@@ -23,6 +26,7 @@ public class FarmaceuticoCriarContaPresenter implements MVPFarmaceutico.IPresent
                                            String crf,
                                            Context context,
                                            MVPFarmaceutico.IViewFarmaceuticoToast view ){
+        farmaceutico = (Farmaceutico) factory.criarNovoUsuario("farmaceutico");
         this.nome = nome;
         this.senha = senha;
         this.repetirSenha = repetirSenha;

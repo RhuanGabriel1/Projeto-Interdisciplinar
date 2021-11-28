@@ -7,10 +7,11 @@ import com.example.imed.Database.ClasseDAO;
 public class LoginMedico implements LoginStrategyInterface {
 
     private ClasseDAO dao;
-    private Context context;
 
     public LoginMedico(Context context) {
-        this.context = context;
+
+        this.dao = new ClasseDAO(context);
+
     }
 
     @Override

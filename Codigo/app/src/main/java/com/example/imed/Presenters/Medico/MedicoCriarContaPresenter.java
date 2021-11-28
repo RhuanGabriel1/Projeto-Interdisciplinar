@@ -6,10 +6,12 @@ import android.database.sqlite.SQLiteConstraintException;
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPMedico;
 import com.example.imed.Model.Medico;
+import com.example.imed.Model.UsuarioFactory;
 
 public class MedicoCriarContaPresenter implements MVPMedico.IPresenterMedicoCriarConta {
 
-    private Medico medico = new Medico();
+    private UsuarioFactory factory = new UsuarioFactory();
+    private Medico medico;
     private String nome, senha,repetirSenha, crm;
     private Context context;
     private ClasseDAO dao;
@@ -18,8 +20,12 @@ public class MedicoCriarContaPresenter implements MVPMedico.IPresenterMedicoCria
 
     public MedicoCriarContaPresenter(){}
 
-    public MedicoCriarContaPresenter(String nome, String senha, String repetirSenha, String crm ,
-                                     Context context,MVPMedico.IViewMedicoToast view ){
+    public MedicoCriarContaPresenter(String nome,
+                                     String senha,
+                                     String repetirSenha,
+                                     String crm ,
+                                     Context context,
+                                     MVPMedico.IViewMedicoToast view ){
 
         this.nome = nome;
         this.senha = senha;
@@ -28,8 +34,8 @@ public class MedicoCriarContaPresenter implements MVPMedico.IPresenterMedicoCria
         this.context = context;
         this.view = view;
 
+        medico = (Medico) factory.criarNovoUsuario("medico");
         this.dao = new ClasseDAO(this.context);
-
     }
 
     @Override
