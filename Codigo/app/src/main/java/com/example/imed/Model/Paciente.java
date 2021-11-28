@@ -1,9 +1,8 @@
 package com.example.imed.Model;
-import com.example.imed.Model.Usuario;
 
 public class Paciente extends Usuario {
 
-    String cpf;
+    private String cpf;
 
     public Paciente() {
         super();
@@ -22,5 +21,5 @@ public class Paciente extends Usuario {
         this.cpf = cpf;
     }
 
-
 }
+

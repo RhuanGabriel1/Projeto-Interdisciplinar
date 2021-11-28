@@ -9,15 +9,13 @@ public class Farmaceutico extends Usuario {
         return crf;
     }
 
-
-
     public void setCrf(String crf) {
         this.crf = crf;
     }
-
 
     @Override
     public String toString(){
         return "CRF-SP " + getCrf() + "   ---   " + "Nome: " +getNome();
     }
+
 }

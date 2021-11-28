@@ -1,8 +1,6 @@
 package com.example.imed.Model;
 
 
-import com.example.imed.Model.Usuario;
-
 public class Medico extends Usuario {
 
     private String crm;
@@ -19,4 +17,5 @@ public class Medico extends Usuario {
     public String toString(){
         return "CRM-SP " + getCrm() + "   ---   " + "Nome: " + getNome();
     }
+
 }
