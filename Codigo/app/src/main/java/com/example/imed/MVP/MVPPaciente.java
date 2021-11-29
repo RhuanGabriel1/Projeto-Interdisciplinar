@@ -1,6 +1,7 @@
 package com.example.imed.MVP;
 
 import com.example.imed.Model.Receita;
+import com.example.imed.Presenters.Paciente.PacienteLoginPresenter;
 
 import java.util.List;
 
@@ -8,6 +9,10 @@ public interface MVPPaciente {
 
     interface IViewPacienteToast {
         void showToast(String mensagem);
+    }
+
+    interface IViewWaitLoginPaciente{
+        void waitLogin(PacienteLoginPresenter presenter);
     }
 
     interface IViewExaminarReceita{
