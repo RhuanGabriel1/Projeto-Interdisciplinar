@@ -46,9 +46,6 @@ public class MedicoGerarReceitaPresenter implements MVPMedico.IPresenterMedicoGe
             receita.setFkPacienteReceita(cpfPacienteTextView);
             receita.setFkMedico(valor);
 
-//            dao.inserirFkCrmMed(valor, medicamentoTextView);
-//            dao.inserirFkIdReceita(idReceita, medicamentoTextView);
-
             if(cpfPacienteTextView.equals("") ||
                     medicamentoTextView.equals("") ||
                     dosagemTextView.equals("") ||
@@ -73,40 +70,8 @@ public class MedicoGerarReceitaPresenter implements MVPMedico.IPresenterMedicoGe
             }
         }
         catch (SQLiteConstraintException e){ //Repetimos o código caso o id de uma receita já criado tente inserir no banco e dados
-            int idReceita = random.nextInt(5000) + 1000;
-
-            receita.setIdReceita(idReceita+"");
-            receita.setDosagem(dosagemTextView);
-            receita.setHorario(frequenciaTextView);
-            receita.setNomeRemedio(medicamentoTextView);
-            receita.setFkPacienteReceita(cpfPacienteTextView);
-            receita.setFkMedico(valor);
-
-//            dao.inserirFkCrmMed(valor, medicamentoTextView);
-//            dao.inserirFkIdReceita(idReceita, medicamentoTextView);
-
-            if(cpfPacienteTextView.equals("")  ||
-                    medicamentoTextView.equals("") ||
-                    dosagemTextView.equals("") ||
-                    frequenciaTextView.equals("")){
-                view.showToast("Há campos vazios!");
-                return false;
-            }
-            else if(cpfPacienteTextView.length()>0 && cpfPacienteTextView.length()<12) {
-                if(cpfPacienteTextView.equals(dao.retornaCPF(cpfPacienteTextView))){
-                    dao.gerarReceita(receita);
-                    view.showToast("Receita criada com sucesso");
-                    return true;
-                }
-                else{
-                    view.showToast("CPF ínvalido");
-                    return false;
-                }
-            }
-            else{
-                view.showToast("CPF ínvalido");
-                return false;
-            }
+            view.showToast("Erro ao gerar receita, Tente novamente!");
+            return false;
         }
     }
 

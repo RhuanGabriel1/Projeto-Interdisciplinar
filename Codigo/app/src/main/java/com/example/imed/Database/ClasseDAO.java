@@ -28,18 +28,17 @@ public class ClasseDAO {
         }catch (Exception e){
             Toast.makeText(context, "Conexão com o banco falhou", Toast.LENGTH_SHORT).show();
         }
+
     }
 
-    //Método para cadastrar um paciente
     public void inserirPaciente(Paciente paciente){
         ContentValues values = new ContentValues();
         values.put("cpf", paciente.getCpf());
         values.put("paciente_nome", paciente.getNome());
         values.put("paciente_senha", paciente.getSenha());
         banco.insertOrThrow("paciente",null,values);
-    }//====================================//
+    }
 
-    //Método para cadastrar um medico
     public void inserirMedico(Medico medico) {
 
         ContentValues values = new ContentValues();
@@ -48,9 +47,7 @@ public class ClasseDAO {
         values.put("med_senha", medico.getSenha());
         banco.insertOrThrow("medico",null,values);
     }
-    //====================================//
 
-    //Método para cadastrar um farmaceutico
     public void inserirFarmaceutico(Farmaceutico farmaceutico){
         ContentValues values = new ContentValues();
         values.put("crf", farmaceutico.getCrf());
@@ -58,9 +55,7 @@ public class ClasseDAO {
         values.put("farm_senha", farmaceutico.getSenha());
         banco.insertOrThrow("farmaceutico",null,values);
     }
-    //====================================//
 
-    //Método para gerar uma receita
     public void gerarReceita(Receita receita){
         ContentValues values = new ContentValues();
         values.put("idReceita",receita.getIdReceita());
@@ -73,27 +68,11 @@ public class ClasseDAO {
 
         banco.insertOrThrow("receita",null,values);
     }
-    //====================================//
 
-    // Método para atualizar os dados da tabela medicamento
-//    public void inserirFkIdReceita(int id, String nomeRemedio){
-//        banco.execSQL("UPDATE "+"medicamento"+" SET fk_idReceita = "+"'"+id+"' "+ "WHERE nome_medicamento = "+"'"+nomeRemedio+"'");
-//    }
-    //====================================//
-
-    // Método para atualizar os dados da tabela medicamento
-//    public void inserirFkCrmMed(String fkCrm, String nomeRemedio){
-//        banco.execSQL("UPDATE "+"receita"+" SET fk_crm_med = "+"'"+fkCrm+"' "+ "WHERE nome_medicamento = "+"'"+nomeRemedio+"'");
-//    }
-    //====================================//
-
-    // Método para atualizar os dados da tabela receita
     public void inserirFkFarm(String fkFarm, int id){
         banco.execSQL("UPDATE "+"receita"+" SET fk_farm = "+"'"+fkFarm+"' "+ "WHERE idReceita = "+"'"+id+"'");
     }
-    //====================================//
 
-    //Método para obter o login dos pacientes
     public String obterLoginPaciente(String cpf){
        String resultado = "-";
 
@@ -105,9 +84,7 @@ public class ClasseDAO {
         cursor.close();
         return resultado;
     }
-    //====================================//
 
-    //Método para obter o login dos médicos
     public String obterLoginMedico(String crm){
         String resultado = "-";
 
@@ -119,9 +96,7 @@ public class ClasseDAO {
         cursor.close();
         return resultado;
     }
-    //====================================//
 
-    //Método para obter o login dos farmacêuticos
     public String obterLoginFarmaceutico(String crf){
         String resultado = "-";
 
@@ -134,11 +109,7 @@ public class ClasseDAO {
         cursor.close();
         return resultado;
     }
-    //====================================//
 
-    //====================================//
-
-    //Método para retornar receita para o farmacêutico
     public Object[] obterReceita(String idReceita){
         Object[] objeto = new Object[5];
         String busca = "select idReceita, nome_remedio, horario, dosagem, fk_med from receita where idReceita = '"+ idReceita +"'";
@@ -155,9 +126,7 @@ public class ClasseDAO {
 
         return  objeto;
     }
-    //====================================//
 
-    //Método para o cpf do paciente
     public String retornaCPF(String cpf){
         String retornaCpf="";
         String busca ="select cpf from paciente where cpf=" + "'" + cpf + "'";
@@ -169,9 +138,7 @@ public class ClasseDAO {
 
         return  retornaCpf;
     }
-    //====================================//
 
-    //Método que retorna idReceita
     public  String retornaIdReceita(String idReceita){
         String retornaIdReceita = "";
         String busca = "select idReceita from receita where idReceita= '" + idReceita+ "'";
@@ -184,10 +151,7 @@ public class ClasseDAO {
 
         return retornaIdReceita;
     }
-    //====================================//
 
-
-    //Método para obter a lista de receitas
     public List<Receita> obterListaReceita(String cpf){
         ArrayList<Receita> receitas = new ArrayList<>();
         Cursor cursor = banco.query("receita", new String[]{"idReceita","nome_remedio", "horario", "dosagem", "fk_med",}
@@ -206,7 +170,6 @@ public class ClasseDAO {
 
         return receitas;
     }
-    //====================================//
 
 
 

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rhuan/AppData/Local/Android/Sdk/platforms/android-30/data/res/layout-television/user_switching_dialog.xml" value="0.228125" />
         <entry key="..\:/Users/rhuan/OneDrive/Documents/GitHub/Projeto-Interdisciplinar/Codigo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
         <entry key="..\:/Users/rhuan/OneDrive/Documents/GitHub/Projeto-Interdisciplinar/Codigo/app/src/main/res/drawable/create_account_icon.xml" value="0.3828125" />
         <entry key="..\:/Users/rhuan/OneDrive/Documents/GitHub/Projeto-Interdisciplinar/Codigo/app/src/main/res/drawable/delete_icon.xml" value="0.3828125" />
@@ -29,6 +30,7 @@
         <entry key="..\:/Users/rhuan/OneDrive/Documents/GitHub/Projeto-Interdisciplinar/Codigo/app/src/main/res/layout/tela_paciente_examinar_receitas.xml" value="0.24114583333333334" />
         <entry key="..\:/Users/rhuan/OneDrive/Documents/GitHub/Projeto-Interdisciplinar/Codigo/app/src/main/res/layout/tela_paciente_inicio.xml" value="0.3717948717948718" />
         <entry key="..\:/Users/rhuan/OneDrive/Documents/GitHub/Projeto-Interdisciplinar/Codigo/app/src/main/res/layout/tela_paciente_login.xml" value="0.2962962962962963" />
+        <entry key="..\:/Users/rhuan/OneDrive/Documents/GitHub/Projeto-Interdisciplinar/Codigo/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.362962962962963" />
         <entry key="..\:/Users/rhuan/OneDrive/Documents/GitHub/Projeto-Interdisciplinar/Codigo/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.39375" />
         <entry key="app/src/main/res/drawable/create_account_icon.xml" value="0.32461538461538464" />
         <entry key="app/src/main/res/layout/main.xml" value="0.25" />

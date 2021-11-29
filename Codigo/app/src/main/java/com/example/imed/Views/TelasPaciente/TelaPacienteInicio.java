@@ -20,7 +20,6 @@ public class TelaPacienteInicio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_paciente_inicio);
 
-        //Recebendo dado de qual paciente está logado
         Intent intent = getIntent();
         valor = intent.getStringExtra("PacienteCpf");
 
