@@ -15,9 +15,14 @@ public class LoginFarmaceutico implements LoginStrategyInterface {
 
     @Override
     public Boolean realizarLogin(String login, String senha) {
-        if(dao.obterLoginFarmaceutico(login)[0].toString().equals(senha)){
-            return true;
-        } else {
+
+        try {
+            if(dao.obterLoginFarmaceutico(login)[0].toString().equals(senha)){
+                return true;
+            } else {
+                return false;
+            }
+        }catch (NullPointerException e){
             return false;
         }
     }

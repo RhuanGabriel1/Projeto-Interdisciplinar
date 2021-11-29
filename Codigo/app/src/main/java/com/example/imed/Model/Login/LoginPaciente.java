@@ -11,16 +11,22 @@ public class LoginPaciente implements LoginStrategyInterface {
 
     public LoginPaciente(Context context){
         this.context = context;
+        dao = new ClasseDAO(this.context);
     }
 
     @Override
     public Boolean realizarLogin(String login, String senha) {
 
-        if(dao.obterLoginPaciente(login)[0].toString().equals(senha)) {
-            return true;
-        } else {
+        try{
+            if(dao.obterLoginPaciente(login)[0].toString().equals(senha)) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (NullPointerException e ){
             return false;
         }
+
     }
 
 }

@@ -16,10 +16,14 @@ public class LoginMedico implements LoginStrategyInterface {
 
     @Override
     public Boolean realizarLogin(String login, String senha) {
-        if (dao.obterLoginMedico(login)[0].toString().equals(senha)) {
-            return true;
-        } else {
-            return false;
+        try{
+            if (dao.obterLoginMedico(login)[0].toString().equals(senha)) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (NullPointerException e){
+            return  false;
         }
     }
 }
