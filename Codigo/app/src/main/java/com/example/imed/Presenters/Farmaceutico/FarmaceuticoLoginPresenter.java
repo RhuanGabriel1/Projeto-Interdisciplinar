@@ -1,15 +1,12 @@
 package com.example.imed.Presenters.Farmaceutico;
 
 import android.content.Context;
-import android.widget.Toast;
 
-import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPFarmaceutico;
-import com.example.imed.Model.Farmaceutico;
+import com.example.imed.Model.Usuarios.Farmaceutico;
 import com.example.imed.Model.Login.Login;
 import com.example.imed.Model.Login.LoginFarmaceutico;
-import com.example.imed.Model.Medico;
-import com.example.imed.Model.UsuarioFactory;
+import com.example.imed.Model.Usuarios.UsuarioFactory;
 
 
 public class FarmaceuticoLoginPresenter implements MVPFarmaceutico.IPresenterFarmaceuticoLogin {
@@ -31,7 +28,7 @@ public class FarmaceuticoLoginPresenter implements MVPFarmaceutico.IPresenterFar
         strategyLogin = new Login(new LoginFarmaceutico(context));
     }
 
-    public boolean makeLogin(){
+    public boolean fazerLogin(){
         if(strategyLogin.realizarLogin(farmaceutico.getCrf(), farmaceutico.getSenha())) {
             view.showToast("Login efetuado com sucesso");
             return true;

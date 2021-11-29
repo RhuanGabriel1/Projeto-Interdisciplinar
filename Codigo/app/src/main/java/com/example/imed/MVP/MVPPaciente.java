@@ -1,7 +1,6 @@
 package com.example.imed.MVP;
 
-import com.example.imed.Model.Receita;
-import com.example.imed.Presenters.Paciente.PacienteLoginPresenter;
+import com.example.imed.Model.Usuarios.Receita;
 
 import java.util.List;
 
@@ -16,12 +15,12 @@ public interface MVPPaciente {
     }
 
     interface IPresenterPacienteLogin{
-        boolean makeLogin();
+        boolean fazerLogin();
         void destruirView();
     }
 
     interface IPresenterPacienteCriarConta{
-        boolean createAccount();
+        boolean criarConta();
         void destruirView();
     }
 

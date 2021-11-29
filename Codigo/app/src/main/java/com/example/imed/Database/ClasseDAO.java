@@ -7,10 +7,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
-import com.example.imed.Model.Farmaceutico;
-import com.example.imed.Model.Medico;
-import com.example.imed.Model.Paciente;
-import com.example.imed.Model.Receita;
+import com.example.imed.Model.Usuarios.Farmaceutico;
+import com.example.imed.Model.Usuarios.Medico;
+import com.example.imed.Model.Usuarios.Paciente;
+import com.example.imed.Model.Usuarios.Receita;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -111,7 +111,6 @@ public class ClasseDAO {
     //Método para obter o login dos médicos
     public String obterLoginMedico(String crm){
         String resultado = "-";
-
 
         String busca = "select med_senha from medico where crm =" + "'"+ crm +"'";
         Cursor cursor = banco.rawQuery(busca,null);

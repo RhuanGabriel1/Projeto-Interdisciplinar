@@ -59,7 +59,7 @@ public class TelaPacienteCriarConta extends AppCompatActivity implements MVPPaci
             public void onClick(View v) {
                 PacienteCriarContaPresenter pacienteCriarContaPresenter = new PacienteCriarContaPresenter(nomeTextView.getText().toString(), cpfTextView.getText().toString(),
                         senhaTextView.getText().toString(), repetirSenhaTextView.getText().toString(), getApplicationContext(), view);
-                if(pacienteCriarContaPresenter.createAccount()){
+                if(pacienteCriarContaPresenter.criarConta()){
                     Intent intent = new Intent(TelaPacienteCriarConta.this, TelaPacienteLogin.class);
                     startActivity(intent);
                 }

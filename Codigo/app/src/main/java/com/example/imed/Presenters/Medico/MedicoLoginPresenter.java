@@ -1,16 +1,12 @@
 package com.example.imed.Presenters.Medico;
 
 import android.content.Context;
-import android.widget.Toast;
 
-import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPMedico;
 import com.example.imed.Model.Login.Login;
 import com.example.imed.Model.Login.LoginMedico;
-import com.example.imed.Model.Login.LoginPaciente;
-import com.example.imed.Model.Medico;
-import com.example.imed.Model.Paciente;
-import com.example.imed.Model.UsuarioFactory;
+import com.example.imed.Model.Usuarios.Medico;
+import com.example.imed.Model.Usuarios.UsuarioFactory;
 
 public class MedicoLoginPresenter implements MVPMedico.IPresenterMedicoLogin {
 
@@ -31,7 +27,7 @@ public class MedicoLoginPresenter implements MVPMedico.IPresenterMedicoLogin {
     }
 
 
-    public boolean makeLogin(){
+    public boolean fazerLogin(){
         if(strategyLogin.realizarLogin(medico.getCrm(), medico.getSenha())) {
             view.showToast("Login efetuado com sucesso!");
             return true;

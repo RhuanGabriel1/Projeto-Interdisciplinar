@@ -10,12 +10,12 @@ public interface MVPFarmaceutico{
     }
 
     interface IPresenterFarmaceuticoLogin{
-        boolean makeLogin();
+        boolean fazerLogin();
         void destruirView();
     }
 
     interface IPresenterFarmaceuticoCriarConta{
-        boolean createAccount();
+        boolean criarConta();
         void destruirView();
     }
 

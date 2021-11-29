@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPPaciente;
-import com.example.imed.Model.Receita;
+import com.example.imed.Model.Usuarios.Receita;
 
 import java.util.List;
 

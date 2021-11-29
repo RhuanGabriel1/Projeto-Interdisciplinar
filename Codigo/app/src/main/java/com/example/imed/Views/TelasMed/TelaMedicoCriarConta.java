@@ -71,7 +71,7 @@ public class TelaMedicoCriarConta extends AppCompatActivity implements MVPMedico
                 MedicoCriarContaPresenter medicoCriarContaPresenter = new MedicoCriarContaPresenter(nomeEditText.getText().toString(),
                         senhaEditText.getText().toString(), repetirSenhaEditText.getText().toString(),  crmEditText.getText().toString(),
                         getApplicationContext(), view);
-                if(medicoCriarContaPresenter.createAccount()){
+                if(medicoCriarContaPresenter.criarConta()){
                     Intent intent = new Intent(TelaMedicoCriarConta.this, TelaMedicoLogin.class);
                     startActivity(intent);
                 }

@@ -5,8 +5,8 @@ import android.database.sqlite.SQLiteConstraintException;
 
 import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPFarmaceutico;
-import com.example.imed.Model.Farmaceutico;
-import com.example.imed.Model.UsuarioFactory;
+import com.example.imed.Model.Usuarios.Farmaceutico;
+import com.example.imed.Model.Usuarios.UsuarioFactory;
 
 public class FarmaceuticoCriarContaPresenter implements MVPFarmaceutico.IPresenterFarmaceuticoCriarConta {
 
@@ -38,7 +38,7 @@ public class FarmaceuticoCriarContaPresenter implements MVPFarmaceutico.IPresent
     }
 
     @Override
-    public boolean createAccount() {
+    public boolean criarConta() {
         try {
             farmaceutico.setNome(nome);
             farmaceutico.setSenha(senha);

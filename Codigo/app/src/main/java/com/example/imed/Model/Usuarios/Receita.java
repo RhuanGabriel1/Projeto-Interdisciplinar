@@ -1,4 +1,4 @@
-package com.example.imed.Model;
+package com.example.imed.Model.Usuarios;
 
 public class Receita {
 

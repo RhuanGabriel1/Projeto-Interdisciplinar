@@ -74,7 +74,7 @@ public class TelaFarmaceuticoCriarConta extends AppCompatActivity implements MVP
                         crfEditText.getText().toString(),
                         getApplicationContext(),
                         view);
-                if(farmaceuticoCriarContaPresenter.createAccount()){
+                if(farmaceuticoCriarContaPresenter.criarConta()){
                     Intent intent = new Intent(TelaFarmaceuticoCriarConta.this, TelaFarmaceuticoLogin.class);
                     startActivity(intent);
                 }

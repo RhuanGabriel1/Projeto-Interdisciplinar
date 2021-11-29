@@ -2,13 +2,11 @@ package com.example.imed.Presenters.Paciente;
 
 import android.content.Context;
 
-import com.example.imed.Database.ClasseDAO;
 import com.example.imed.MVP.MVPPaciente;
 import com.example.imed.Model.Login.Login;
 import com.example.imed.Model.Login.LoginPaciente;
-import com.example.imed.Model.Paciente;
-import com.example.imed.Model.Usuario;
-import com.example.imed.Model.UsuarioFactory;
+import com.example.imed.Model.Usuarios.Paciente;
+import com.example.imed.Model.Usuarios.UsuarioFactory;
 
 
 public class PacienteLoginPresenter implements MVPPaciente.IPresenterPacienteLogin {
@@ -32,7 +30,7 @@ public class PacienteLoginPresenter implements MVPPaciente.IPresenterPacienteLog
     }
 
     @Override
-    public boolean makeLogin() {
+    public boolean fazerLogin() {
         if(strategyLogin.realizarLogin(paciente.getCpf(), paciente.getSenha())) {
             view.showToast("Login efetuado com sucesso!");
             return true;

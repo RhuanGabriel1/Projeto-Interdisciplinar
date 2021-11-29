@@ -7,12 +7,12 @@ public interface MVPMedico {
     }
 
     interface IPresenterMedicoLogin{
-        boolean makeLogin();
+        boolean fazerLogin();
         void destruirView();
     }
 
     interface IPresenterMedicoCriarConta{
-        boolean createAccount();
+        boolean criarConta();
         void destruirView();
     }
 

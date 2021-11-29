@@ -1,4 +1,9 @@
-package com.example.imed.Model;
+package com.example.imed.Model.Usuarios;
+
+import com.example.imed.Model.Usuarios.Farmaceutico;
+import com.example.imed.Model.Usuarios.Medico;
+import com.example.imed.Model.Usuarios.Paciente;
+import com.example.imed.Model.Usuarios.Usuario;
 
 public class UsuarioFactory {
 
