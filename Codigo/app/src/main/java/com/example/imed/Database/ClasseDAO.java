@@ -83,9 +83,9 @@ public class ClasseDAO {
     //====================================//
 
     // Método para atualizar os dados da tabela medicamento
-    public void inserirFkCrmMed(String fkCrm, String nomeRemedio){
-        banco.execSQL("UPDATE "+"medicamento"+" SET fk_crm_med = "+"'"+fkCrm+"' "+ "WHERE nome_medicamento = "+"'"+nomeRemedio+"'");
-    }
+//    public void inserirFkCrmMed(String fkCrm, String nomeRemedio){
+//        banco.execSQL("UPDATE "+"receita"+" SET fk_crm_med = "+"'"+fkCrm+"' "+ "WHERE nome_medicamento = "+"'"+nomeRemedio+"'");
+//    }
     //====================================//
 
     // Método para atualizar os dados da tabela receita

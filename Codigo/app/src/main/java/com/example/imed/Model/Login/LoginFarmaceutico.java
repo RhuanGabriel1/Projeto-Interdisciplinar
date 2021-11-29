@@ -11,11 +11,11 @@ public class LoginFarmaceutico implements LoginStrategyInterface {
 
     public LoginFarmaceutico(Context context) {
         this.context = context;
+        dao = new ClasseDAO(this.context);
     }
 
     @Override
     public Boolean realizarLogin(String login, String senha) {
-
         try {
             if(dao.obterLoginFarmaceutico(login)[0].toString().equals(senha)){
                 return true;

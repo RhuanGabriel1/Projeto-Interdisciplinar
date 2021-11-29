@@ -46,8 +46,8 @@ public class MedicoGerarReceitaPresenter implements MVPMedico.IPresenterMedicoGe
             receita.setFkPacienteReceita(cpfPacienteTextView);
             receita.setFkMedico(valor);
 
-            dao.inserirFkCrmMed(valor, medicamentoTextView);
-            dao.inserirFkIdReceita(idReceita, medicamentoTextView);
+//            dao.inserirFkCrmMed(valor, medicamentoTextView);
+//            dao.inserirFkIdReceita(idReceita, medicamentoTextView);
 
             if(cpfPacienteTextView.equals("") ||
                     medicamentoTextView.equals("") ||
@@ -82,8 +82,8 @@ public class MedicoGerarReceitaPresenter implements MVPMedico.IPresenterMedicoGe
             receita.setFkPacienteReceita(cpfPacienteTextView);
             receita.setFkMedico(valor);
 
-            dao.inserirFkCrmMed(valor, medicamentoTextView);
-            dao.inserirFkIdReceita(idReceita, medicamentoTextView);
+//            dao.inserirFkCrmMed(valor, medicamentoTextView);
+//            dao.inserirFkIdReceita(idReceita, medicamentoTextView);
 
             if(cpfPacienteTextView.equals("")  ||
                     medicamentoTextView.equals("") ||
