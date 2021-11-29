@@ -11,10 +11,6 @@ public interface MVPPaciente {
         void showToast(String mensagem);
     }
 
-    interface IViewWaitLoginPaciente{
-        void waitLogin(PacienteLoginPresenter presenter);
-    }
-
     interface IViewExaminarReceita{
         void mostraReceitas(List<Receita> receita);
     }

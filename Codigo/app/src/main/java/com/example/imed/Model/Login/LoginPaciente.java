@@ -18,7 +18,7 @@ public class LoginPaciente implements LoginStrategyInterface {
     public Boolean realizarLogin(String login, String senha) {
 
         try{
-            if(dao.obterLoginPaciente(login)[0].toString().equals(senha)) {
+            if(dao.obterLoginPaciente(login).equals(senha)) {
                 return true;
             } else {
                 return false;

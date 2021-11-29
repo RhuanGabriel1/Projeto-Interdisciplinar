@@ -77,9 +77,9 @@ public class ClasseDAO {
     //====================================//
 
     // Método para atualizar os dados da tabela medicamento
-    public void inserirFkIdReceita(int id, String nomeRemedio){
-        banco.execSQL("UPDATE "+"medicamento"+" SET fk_idReceita = "+"'"+id+"' "+ "WHERE nome_medicamento = "+"'"+nomeRemedio+"'");
-    }
+//    public void inserirFkIdReceita(int id, String nomeRemedio){
+//        banco.execSQL("UPDATE "+"medicamento"+" SET fk_idReceita = "+"'"+id+"' "+ "WHERE nome_medicamento = "+"'"+nomeRemedio+"'");
+//    }
     //====================================//
 
     // Método para atualizar os dados da tabela medicamento
@@ -95,44 +95,46 @@ public class ClasseDAO {
     //====================================//
 
     //Método para obter o login dos pacientes
-    public Object[] obterLoginPaciente(String cpf){
-        Object[] objeto = new Object[1];
+    public String obterLoginPaciente(String cpf){
+       String resultado = "-";
 
         String busca = "select paciente_senha from paciente where cpf = " + "'" + cpf + "'";
         Cursor cursor = banco.rawQuery(busca, null);
         while (cursor.moveToNext()) {
-            objeto[0] = cursor.getString(cursor.getColumnIndex("paciente_senha"));
+            resultado  = cursor.getString(cursor.getColumnIndex("paciente_senha"));
         }
         cursor.close();
-        return objeto;
+        return resultado;
     }
     //====================================//
 
     //Método para obter o login dos médicos
-    public Object[] obterLoginMedico(String crm){
-        Object[] objeto = new Object[1];
+    public String obterLoginMedico(String crm){
+        String resultado = "-";
+
 
         String busca = "select med_senha from medico where crm =" + "'"+ crm +"'";
         Cursor cursor = banco.rawQuery(busca,null);
         while (cursor.moveToNext()) {
-            objeto[0] = cursor.getString(cursor.getColumnIndex("med_senha"));
+            resultado = cursor.getString(cursor.getColumnIndex("med_senha"));
         }
         cursor.close();
-        return objeto;
+        return resultado;
     }
     //====================================//
 
     //Método para obter o login dos farmacêuticos
-    public Object[] obterLoginFarmaceutico(String crf){
-        Object[] objeto = new Object[1];
+    public String obterLoginFarmaceutico(String crf){
+        String resultado = "-";
+
         String busca = "select farm_senha from farmaceutico where crf =" + "'" + crf + "'";
         Cursor cursor = banco.rawQuery(busca,null);
 
         while (cursor.moveToNext()) {
-            objeto[0] = cursor.getString(cursor.getColumnIndex("farm_senha"));
+            resultado = cursor.getString(cursor.getColumnIndex("farm_senha"));
         }
         cursor.close();
-        return objeto;
+        return resultado;
     }
     //====================================//
 
