@@ -80,10 +80,12 @@
         android:textColor="@color/white"
         android:textSize="12sp"
         app:cornerRadius="@android:dimen/thumbnail_width"
+        app:iconTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medico_criar_conta_repetir_senha_textfield" />
+        app:layout_constraintTop_toBottomOf="@+id/medico_criar_conta_repetir_senha_textfield"
+        app:rippleColor="@color/black" />
 
     <ImageButton
         android:id="@+id/medico_criar_conta_retornar_button"

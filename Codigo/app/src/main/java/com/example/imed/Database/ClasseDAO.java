@@ -28,7 +28,6 @@ public class ClasseDAO {
         }catch (Exception e){
             Toast.makeText(context, "Conexão com o banco falhou", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     //Método para cadastrar um paciente

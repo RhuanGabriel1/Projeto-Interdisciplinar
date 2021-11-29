@@ -14,14 +14,18 @@
         android:backgroundTint="@color/black"
         android:text="VERIFICAR"
         android:textColor="@color/white"
+        android:textColorHighlight="@color/black"
+        android:textColorLink="@color/black"
         android:textSize="16sp"
         app:cornerRadius="@android:dimen/thumbnail_width"
+        app:iconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/farmaceutico_checar_receita_receita_textview"
-        app:layout_constraintVertical_bias="0.775" />
+        app:layout_constraintVertical_bias="0.775"
+        app:rippleColor="@color/black" />
 
     <EditText
         android:id="@+id/farmaceutico_checar_receita_receita_textview"
