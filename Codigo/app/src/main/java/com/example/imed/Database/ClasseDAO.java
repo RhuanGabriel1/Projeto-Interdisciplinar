@@ -69,9 +69,6 @@ public class ClasseDAO {
         banco.insertOrThrow("receita",null,values);
     }
 
-    public void inserirFkFarm(String fkFarm, int id){
-        banco.execSQL("UPDATE "+"receita"+" SET fk_farm = "+"'"+fkFarm+"' "+ "WHERE idReceita = "+"'"+id+"'");
-    }
 
     public String obterLoginPaciente(String cpf){
        String resultado = "-";
@@ -171,6 +168,20 @@ public class ClasseDAO {
         return receitas;
     }
 
+    public void inserirFkFarm(String fkFarm, int id){
+        banco.execSQL("UPDATE "+"receita"+" SET fk_farm = "+"'"+fkFarm+"' "+ "WHERE idReceita = "+"'"+id+"'");
+    }
 
 
+    public void deletarContaPaciente(String paciente){
+        banco.delete("paciente", "crf = ?", new String[]{paciente});
+    }
+
+    public void deletarContaFarmaceutico(String f){
+        banco.delete("farmaceutico", "crf = ?", new String[]{f});
+    }
+
+    public void deletarContaMedico(String m){
+        banco.delete("medico", "crm = ?", new String[]{m});
+    }
 }
