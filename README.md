@@ -20,9 +20,13 @@ O objetivo do app iMed é o de agilizar e facilitar a comunicação entre médic
 
     • O app pode gerar uma receita, e validar a sua autenticidade;
 
-    • O usuário-paciente pode criar conta e ver suas receitas;
-
-    • Administrador pode excluir contas;
+    • O usuário pode criar conta;
+    
+    • O usuário-paciente pode ver suas receitas;
+      
+    • O usuário-médico pode gerar receitas;
+      
+    • O usuário-farmacêutico pode validar as receitas.
 
 2.3. Requisitos Não Funcionais
   
@@ -30,7 +34,7 @@ O objetivo do app iMed é o de agilizar e facilitar a comunicação entre médic
 
     • O app foi implementado usando a linguagem de programação Java;
 
-    • O SGBD utilizado é o MySQL;
+    • O SGBD utilizado é o SQLite;
 
     • A modelagem gráfica foi feita na linguagem de marcação XML;
 
@@ -38,20 +42,22 @@ O objetivo do app iMed é o de agilizar e facilitar a comunicação entre médic
 
 3. Diagrama de Casos de Uso
 
-![Diagrama de Casos de uso](https://user-images.githubusercontent.com/74109343/137322827-bbe2cfed-b2a1-4e32-ba28-34aaf0c39af0.png)
+![Casos de uso](https://user-images.githubusercontent.com/74109343/144315665-fd849bec-8cae-4d0f-ab87-29abb4a4d081.jpg)
+
 
 4. Diagrama de Classes
 
-![Diagrama de classes](https://user-images.githubusercontent.com/74109343/138169978-020e6090-396d-4f1f-9611-c1a5655c2b35.jpeg)
+![Diagrama de Classes](https://user-images.githubusercontent.com/74109343/144317641-17c17ee3-2270-4254-ad43-9a29c6997ccb.jpeg)
 
 
 5. Diagramas C4 Model 
 
 5.1. Diagrama de contexto
 
-![nivel1](https://user-images.githubusercontent.com/74109343/137323033-60e2d8e1-4e98-46a9-b83d-6f1d4589a9dc.jpg)
+![C1](https://user-images.githubusercontent.com/74109343/144316464-0f7fd2ab-5a0b-4206-be12-023c3220a9ef.jpg)
 
 
 5.2. Diagrama de containers
-![nivel2](https://user-images.githubusercontent.com/74109343/137323041-d70e2eb4-60eb-44a7-bd4b-7a917ee4920b.jpg)
+
+![C2](https://user-images.githubusercontent.com/74109343/144316946-d15882ba-b8a3-45f0-97d7-941a81164a19.jpg)
 
