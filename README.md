@@ -58,5 +58,6 @@ O objetivo do app iMed é o de agilizar e facilitar a comunicação entre médic
 
 
 5.2. Diagrama de containers
-![nivel2](https://user-images.githubusercontent.com/74109343/137323041-d70e2eb4-60eb-44a7-bd4b-7a917ee4920b.jpg)
+
+![C2](https://user-images.githubusercontent.com/74109343/144316946-d15882ba-b8a3-45f0-97d7-941a81164a19.jpg)
 
