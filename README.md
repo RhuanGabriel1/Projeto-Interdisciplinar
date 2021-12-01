@@ -22,11 +22,11 @@ O objetivo do app iMed é o de agilizar e facilitar a comunicação entre médic
 
     • O usuário pode criar conta;
     
-      O usuário-paciente pode ver suas receitas;
+    • O usuário-paciente pode ver suas receitas;
       
-      O usuário-méidoc pode gerar receitas;
+    • O usuário-méidoc pode gerar receitas;
       
-      O usuário-farmacêutico pode validar as receitas.
+    • O usuário-farmacêutico pode validar as receitas.
 
 2.3. Requisitos Não Funcionais
   
