@@ -29,7 +29,4 @@ public interface MVPFarmaceutico{
         void destruirView();
     }
 
-//    interface IModelFarmaceutico{
-//
-//    }
 }

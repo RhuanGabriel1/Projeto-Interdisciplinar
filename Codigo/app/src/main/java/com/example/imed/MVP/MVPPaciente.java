@@ -29,8 +29,4 @@ public interface MVPPaciente {
         void destruirView();
     }
 
-//    interface IModelPaciente{
-//
-//    }
-
 }

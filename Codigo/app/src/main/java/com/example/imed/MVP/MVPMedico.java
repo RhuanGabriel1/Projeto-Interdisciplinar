@@ -22,7 +22,4 @@ public interface MVPMedico {
 
     }
 
-//    interface IModelMedico{
-//
-//    }
 }
