@@ -38,7 +38,8 @@ O objetivo do app iMed é o de agilizar e facilitar a comunicação entre médic
 
 3. Diagrama de Casos de Uso
 
-![Diagrama de Casos de uso](https://user-images.githubusercontent.com/74109343/137322827-bbe2cfed-b2a1-4e32-ba28-34aaf0c39af0.png)
+![Casos de uso](https://user-images.githubusercontent.com/74109343/144315665-fd849bec-8cae-4d0f-ab87-29abb4a4d081.jpg)
+
 
 4. Diagrama de Classes
 
