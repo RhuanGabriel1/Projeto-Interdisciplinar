@@ -20,9 +20,13 @@ O objetivo do app iMed é o de agilizar e facilitar a comunicação entre médic
 
     • O app pode gerar uma receita, e validar a sua autenticidade;
 
-    • O usuário-paciente pode criar conta e ver suas receitas;
-
-    • Administrador pode excluir contas;
+    • O usuário pode criar conta;
+    
+      O usuário-paciente pode ver suas receitas;
+      
+      O usuário-méidoc pode gerar receitas;
+      
+      O usuário-farmacêutico pode validar as receitas.
 
 2.3. Requisitos Não Funcionais
   
@@ -30,7 +34,7 @@ O objetivo do app iMed é o de agilizar e facilitar a comunicação entre médic
 
     • O app foi implementado usando a linguagem de programação Java;
 
-    • O SGBD utilizado é o MySQL;
+    • O SGBD utilizado é o SQLite;
 
     • A modelagem gráfica foi feita na linguagem de marcação XML;
 
