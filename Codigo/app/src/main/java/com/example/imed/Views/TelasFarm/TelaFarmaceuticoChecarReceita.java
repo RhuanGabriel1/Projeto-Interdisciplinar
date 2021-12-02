@@ -62,9 +62,10 @@ public class TelaFarmaceuticoChecarReceita extends AppCompatActivity implements 
         verificarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FarmaceuticoChecarReceitaPresenter farmaceuticoChecarReceitaPresenter = new FarmaceuticoChecarReceitaPresenter(
-                        receitaTextField.getText().toString(), valor, getApplicationContext(), view);
-
+                FarmaceuticoChecarReceitaPresenter farmaceuticoChecarReceitaPresenter = new FarmaceuticoChecarReceitaPresenter(receitaTextField.getText().toString(),
+                                                                                                                                valor,
+                                                                                                                                getApplicationContext(),
+                                                                                                                                view);
                 if(farmaceuticoChecarReceitaPresenter.checarReceita()){
                     Intent intent = new Intent(TelaFarmaceuticoChecarReceita.this, TelaFarmaceuticoApresentacaoReceita.class);
                     intent.putExtra("receita", receitaTextField.getText().toString());//Envia o dado do id da receita

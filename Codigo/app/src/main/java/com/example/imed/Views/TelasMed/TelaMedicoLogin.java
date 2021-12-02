@@ -65,7 +65,9 @@ public class TelaMedicoLogin extends AppCompatActivity implements MVPMedico.IVie
             @Override
             public void onClick(View v) {
                 MedicoLoginPresenter medicoLoginPresenter = new MedicoLoginPresenter(crmTextField.getText().toString(),
-                        senhaTextField.getText().toString(), getApplicationContext(), view);
+                                                                                        senhaTextField.getText().toString(),
+                                                                                        getApplicationContext(),
+                                                                                        view);
                 if(medicoLoginPresenter.fazerLogin()){
                     Intent intent = new Intent(TelaMedicoLogin.this, TelaMedicoInicio.class);
                     intent.putExtra("MedicoCrm", crmTextField.getText().toString());//Envia o dado de qual médico está logado

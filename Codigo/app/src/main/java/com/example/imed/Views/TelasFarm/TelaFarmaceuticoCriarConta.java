@@ -67,13 +67,12 @@ public class TelaFarmaceuticoCriarConta extends AppCompatActivity implements MVP
         criarContaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FarmaceuticoCriarContaPresenter farmaceuticoCriarContaPresenter = new FarmaceuticoCriarContaPresenter(
-                        nomeEditText.getText().toString(),
-                        senhaEditText.getText().toString(),
-                        repetirSenhaEditText.getText().toString(),
-                        crfEditText.getText().toString(),
-                        getApplicationContext(),
-                        view);
+                FarmaceuticoCriarContaPresenter farmaceuticoCriarContaPresenter = new FarmaceuticoCriarContaPresenter(nomeEditText.getText().toString(),
+                                                                                                                        senhaEditText.getText().toString(),
+                                                                                                                        repetirSenhaEditText.getText().toString(),
+                                                                                                                        crfEditText.getText().toString(),
+                                                                                                                        getApplicationContext(),
+                                                                                                                        view);
                 if(farmaceuticoCriarContaPresenter.criarConta()){
                     Intent intent = new Intent(TelaFarmaceuticoCriarConta.this, TelaFarmaceuticoLogin.class);
                     startActivity(intent);

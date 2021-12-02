@@ -74,8 +74,12 @@ public class TelaMedicoGerarReceita extends AppCompatActivity implements MVPMedi
             @Override
             public void onClick(View v) {
                 MedicoGerarReceitaPresenter medicoGerarReceitaPresenter = new MedicoGerarReceitaPresenter(cpfPacienteTextView.getText().toString(),
-                        medicamentoTextView.getText().toString(), dosagemTextView.getText().toString(), frequenciaTextView.getText().toString(),
-                        valor, getApplicationContext(),view);
+                                                                                                            medicamentoTextView.getText().toString(),
+                                                                                                            dosagemTextView.getText().toString(),
+                                                                                                            frequenciaTextView.getText().toString(),
+                                                                                                            valor,
+                                                                                                            getApplicationContext(),
+                                                                                                            view);
                 if(medicoGerarReceitaPresenter.gerarReceita()){
                     Intent intent = new Intent(TelaMedicoGerarReceita.this, TelaMedicoInicio.class);
                     intent.putExtra("MedicoCrm",valor);//Envia o dado de qual médico está logado

@@ -64,8 +64,9 @@ public class TelaFarmaceuticoLogin extends AppCompatActivity implements MVPFarma
             @Override
             public void onClick(View v) {
                 FarmaceuticoLoginPresenter farmaceuticoLoginPresenter = new FarmaceuticoLoginPresenter(crfTextView.getText().toString(),
-                        senhaTextView.getText().toString(), getApplicationContext(), view);
-
+                                                                                                        senhaTextView.getText().toString(),
+                                                                                                        getApplicationContext(),
+                                                                                                        view);
                 if(farmaceuticoLoginPresenter.fazerLogin()){
                     Intent intent = new Intent(TelaFarmaceuticoLogin.this, TelaFarmaceuticoInicio.class);
                     intent.putExtra("FarmCrf", crfTextView.getText().toString());//Envia o dado de qual farmacêutico está logado

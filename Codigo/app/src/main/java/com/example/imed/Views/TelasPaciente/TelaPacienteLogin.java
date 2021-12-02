@@ -55,7 +55,6 @@ public class TelaPacienteLogin extends AppCompatActivity implements MVPPaciente.
                                                                                             senhaTextView.getText().toString(),
                                                                                             getApplicationContext(),
                                                                                             view);
-
                 if(pacienteLoginPresenter.fazerLogin()) {
                     Intent intent = new Intent(TelaPacienteLogin.this, TelaPacienteInicio.class);
                     intent.putExtra("PacienteCpf", cpfTextView.getText().toString());
